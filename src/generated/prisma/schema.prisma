@@ -14,11 +14,33 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model User {
+  id          String       @id @default(uuid())
+  username    String       @unique
+  email       String       @unique
+  password    String
+  projects    Project[]
+  resetTokens ResetToken[]
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+}
+
+model ResetToken {
+  id        String   @id @default(uuid())
+  token     String   @unique
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+}
+
 model Project {
   id        String   @id @default(uuid())
   name      String
   label     Label    @relation(fields: [labelId], references: [id])
   labelId   String
+  user      User?    @relation(fields: [userId], references: [id])
+  userId    String?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
