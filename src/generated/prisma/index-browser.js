@@ -142,7 +142,8 @@ exports.Prisma.ResetTokenScalarFieldEnum = {
 exports.Prisma.ProjectScalarFieldEnum = {
   id: 'id',
   name: 'name',
-  labelId: 'labelId',
+  icon: 'icon',
+  description: 'description',
   userId: 'userId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
@@ -153,6 +154,7 @@ exports.Prisma.LabelScalarFieldEnum = {
   name: 'name',
   width: 'width',
   height: 'height',
+  projectId: 'projectId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };

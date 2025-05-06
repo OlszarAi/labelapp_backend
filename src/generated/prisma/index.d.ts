@@ -1223,17 +1223,46 @@ export namespace Prisma {
 
 
   /**
+   * Count Type ProjectCountOutputType
+   */
+
+  export type ProjectCountOutputType = {
+    labels: number
+  }
+
+  export type ProjectCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    labels?: boolean | ProjectCountOutputTypeCountLabelsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * ProjectCountOutputType without action
+   */
+  export type ProjectCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectCountOutputType
+     */
+    select?: ProjectCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * ProjectCountOutputType without action
+   */
+  export type ProjectCountOutputTypeCountLabelsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LabelWhereInput
+  }
+
+
+  /**
    * Count Type LabelCountOutputType
    */
 
   export type LabelCountOutputType = {
     elements: number
-    projects: number
   }
 
   export type LabelCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     elements?: boolean | LabelCountOutputTypeCountElementsArgs
-    projects?: boolean | LabelCountOutputTypeCountProjectsArgs
   }
 
   // Custom InputTypes
@@ -1252,13 +1281,6 @@ export namespace Prisma {
    */
   export type LabelCountOutputTypeCountElementsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: LabelElementWhereInput
-  }
-
-  /**
-   * LabelCountOutputType without action
-   */
-  export type LabelCountOutputTypeCountProjectsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: ProjectWhereInput
   }
 
 
@@ -3196,7 +3218,8 @@ export namespace Prisma {
   export type ProjectMinAggregateOutputType = {
     id: string | null
     name: string | null
-    labelId: string | null
+    icon: string | null
+    description: string | null
     userId: string | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -3205,7 +3228,8 @@ export namespace Prisma {
   export type ProjectMaxAggregateOutputType = {
     id: string | null
     name: string | null
-    labelId: string | null
+    icon: string | null
+    description: string | null
     userId: string | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -3214,7 +3238,8 @@ export namespace Prisma {
   export type ProjectCountAggregateOutputType = {
     id: number
     name: number
-    labelId: number
+    icon: number
+    description: number
     userId: number
     createdAt: number
     updatedAt: number
@@ -3225,7 +3250,8 @@ export namespace Prisma {
   export type ProjectMinAggregateInputType = {
     id?: true
     name?: true
-    labelId?: true
+    icon?: true
+    description?: true
     userId?: true
     createdAt?: true
     updatedAt?: true
@@ -3234,7 +3260,8 @@ export namespace Prisma {
   export type ProjectMaxAggregateInputType = {
     id?: true
     name?: true
-    labelId?: true
+    icon?: true
+    description?: true
     userId?: true
     createdAt?: true
     updatedAt?: true
@@ -3243,7 +3270,8 @@ export namespace Prisma {
   export type ProjectCountAggregateInputType = {
     id?: true
     name?: true
-    labelId?: true
+    icon?: true
+    description?: true
     userId?: true
     createdAt?: true
     updatedAt?: true
@@ -3325,7 +3353,8 @@ export namespace Prisma {
   export type ProjectGroupByOutputType = {
     id: string
     name: string
-    labelId: string
+    icon: string | null
+    description: string | null
     userId: string | null
     createdAt: Date
     updatedAt: Date
@@ -3351,53 +3380,57 @@ export namespace Prisma {
   export type ProjectSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
-    labelId?: boolean
+    icon?: boolean
+    description?: boolean
     userId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    label?: boolean | LabelDefaultArgs<ExtArgs>
+    labels?: boolean | Project$labelsArgs<ExtArgs>
     user?: boolean | Project$userArgs<ExtArgs>
+    _count?: boolean | ProjectCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["project"]>
 
   export type ProjectSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
-    labelId?: boolean
+    icon?: boolean
+    description?: boolean
     userId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    label?: boolean | LabelDefaultArgs<ExtArgs>
     user?: boolean | Project$userArgs<ExtArgs>
   }, ExtArgs["result"]["project"]>
 
   export type ProjectSelectScalar = {
     id?: boolean
     name?: boolean
-    labelId?: boolean
+    icon?: boolean
+    description?: boolean
     userId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
   export type ProjectInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    label?: boolean | LabelDefaultArgs<ExtArgs>
+    labels?: boolean | Project$labelsArgs<ExtArgs>
     user?: boolean | Project$userArgs<ExtArgs>
+    _count?: boolean | ProjectCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type ProjectIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    label?: boolean | LabelDefaultArgs<ExtArgs>
     user?: boolean | Project$userArgs<ExtArgs>
   }
 
   export type $ProjectPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Project"
     objects: {
-      label: Prisma.$LabelPayload<ExtArgs>
+      labels: Prisma.$LabelPayload<ExtArgs>[]
       user: Prisma.$UserPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       name: string
-      labelId: string
+      icon: string | null
+      description: string | null
       userId: string | null
       createdAt: Date
       updatedAt: Date
@@ -3765,7 +3798,7 @@ export namespace Prisma {
    */
   export interface Prisma__ProjectClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    label<T extends LabelDefaultArgs<ExtArgs> = {}>(args?: Subset<T, LabelDefaultArgs<ExtArgs>>): Prisma__LabelClient<$Result.GetResult<Prisma.$LabelPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
+    labels<T extends Project$labelsArgs<ExtArgs> = {}>(args?: Subset<T, Project$labelsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LabelPayload<ExtArgs>, T, "findMany"> | Null>
     user<T extends Project$userArgs<ExtArgs> = {}>(args?: Subset<T, Project$userArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -3798,7 +3831,8 @@ export namespace Prisma {
   interface ProjectFieldRefs {
     readonly id: FieldRef<"Project", 'String'>
     readonly name: FieldRef<"Project", 'String'>
-    readonly labelId: FieldRef<"Project", 'String'>
+    readonly icon: FieldRef<"Project", 'String'>
+    readonly description: FieldRef<"Project", 'String'>
     readonly userId: FieldRef<"Project", 'String'>
     readonly createdAt: FieldRef<"Project", 'DateTime'>
     readonly updatedAt: FieldRef<"Project", 'DateTime'>
@@ -4120,6 +4154,26 @@ export namespace Prisma {
   }
 
   /**
+   * Project.labels
+   */
+  export type Project$labelsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Label
+     */
+    select?: LabelSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LabelInclude<ExtArgs> | null
+    where?: LabelWhereInput
+    orderBy?: LabelOrderByWithRelationInput | LabelOrderByWithRelationInput[]
+    cursor?: LabelWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: LabelScalarFieldEnum | LabelScalarFieldEnum[]
+  }
+
+  /**
    * Project.user
    */
   export type Project$userArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -4176,6 +4230,7 @@ export namespace Prisma {
     name: string | null
     width: number | null
     height: number | null
+    projectId: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -4185,6 +4240,7 @@ export namespace Prisma {
     name: string | null
     width: number | null
     height: number | null
+    projectId: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -4194,6 +4250,7 @@ export namespace Prisma {
     name: number
     width: number
     height: number
+    projectId: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -4215,6 +4272,7 @@ export namespace Prisma {
     name?: true
     width?: true
     height?: true
+    projectId?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -4224,6 +4282,7 @@ export namespace Prisma {
     name?: true
     width?: true
     height?: true
+    projectId?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -4233,6 +4292,7 @@ export namespace Prisma {
     name?: true
     width?: true
     height?: true
+    projectId?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -4329,6 +4389,7 @@ export namespace Prisma {
     name: string
     width: number
     height: number
+    projectId: string | null
     createdAt: Date
     updatedAt: Date
     _count: LabelCountAggregateOutputType | null
@@ -4357,10 +4418,11 @@ export namespace Prisma {
     name?: boolean
     width?: boolean
     height?: boolean
+    projectId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     elements?: boolean | Label$elementsArgs<ExtArgs>
-    projects?: boolean | Label$projectsArgs<ExtArgs>
+    project?: boolean | Label$projectArgs<ExtArgs>
     _count?: boolean | LabelCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["label"]>
 
@@ -4369,8 +4431,10 @@ export namespace Prisma {
     name?: boolean
     width?: boolean
     height?: boolean
+    projectId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    project?: boolean | Label$projectArgs<ExtArgs>
   }, ExtArgs["result"]["label"]>
 
   export type LabelSelectScalar = {
@@ -4378,28 +4442,32 @@ export namespace Prisma {
     name?: boolean
     width?: boolean
     height?: boolean
+    projectId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
   export type LabelInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     elements?: boolean | Label$elementsArgs<ExtArgs>
-    projects?: boolean | Label$projectsArgs<ExtArgs>
+    project?: boolean | Label$projectArgs<ExtArgs>
     _count?: boolean | LabelCountOutputTypeDefaultArgs<ExtArgs>
   }
-  export type LabelIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type LabelIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    project?: boolean | Label$projectArgs<ExtArgs>
+  }
 
   export type $LabelPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Label"
     objects: {
       elements: Prisma.$LabelElementPayload<ExtArgs>[]
-      projects: Prisma.$ProjectPayload<ExtArgs>[]
+      project: Prisma.$ProjectPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       name: string
       width: number
       height: number
+      projectId: string | null
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["label"]>
@@ -4767,7 +4835,7 @@ export namespace Prisma {
   export interface Prisma__LabelClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     elements<T extends Label$elementsArgs<ExtArgs> = {}>(args?: Subset<T, Label$elementsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LabelElementPayload<ExtArgs>, T, "findMany"> | Null>
-    projects<T extends Label$projectsArgs<ExtArgs> = {}>(args?: Subset<T, Label$projectsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "findMany"> | Null>
+    project<T extends Label$projectArgs<ExtArgs> = {}>(args?: Subset<T, Label$projectArgs<ExtArgs>>): Prisma__ProjectClient<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -4801,6 +4869,7 @@ export namespace Prisma {
     readonly name: FieldRef<"Label", 'String'>
     readonly width: FieldRef<"Label", 'Float'>
     readonly height: FieldRef<"Label", 'Float'>
+    readonly projectId: FieldRef<"Label", 'String'>
     readonly createdAt: FieldRef<"Label", 'DateTime'>
     readonly updatedAt: FieldRef<"Label", 'DateTime'>
   }
@@ -5024,6 +5093,10 @@ export namespace Prisma {
      */
     data: LabelCreateManyInput | LabelCreateManyInput[]
     skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LabelIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -5137,9 +5210,9 @@ export namespace Prisma {
   }
 
   /**
-   * Label.projects
+   * Label.project
    */
-  export type Label$projectsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Label$projectArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Project
      */
@@ -5149,11 +5222,6 @@ export namespace Prisma {
      */
     include?: ProjectInclude<ExtArgs> | null
     where?: ProjectWhereInput
-    orderBy?: ProjectOrderByWithRelationInput | ProjectOrderByWithRelationInput[]
-    cursor?: ProjectWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: ProjectScalarFieldEnum | ProjectScalarFieldEnum[]
   }
 
   /**
@@ -6302,7 +6370,8 @@ export namespace Prisma {
   export const ProjectScalarFieldEnum: {
     id: 'id',
     name: 'name',
-    labelId: 'labelId',
+    icon: 'icon',
+    description: 'description',
     userId: 'userId',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
@@ -6316,6 +6385,7 @@ export namespace Prisma {
     name: 'name',
     width: 'width',
     height: 'height',
+    projectId: 'projectId',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -6579,22 +6649,24 @@ export namespace Prisma {
     NOT?: ProjectWhereInput | ProjectWhereInput[]
     id?: StringFilter<"Project"> | string
     name?: StringFilter<"Project"> | string
-    labelId?: StringFilter<"Project"> | string
+    icon?: StringNullableFilter<"Project"> | string | null
+    description?: StringNullableFilter<"Project"> | string | null
     userId?: StringNullableFilter<"Project"> | string | null
     createdAt?: DateTimeFilter<"Project"> | Date | string
     updatedAt?: DateTimeFilter<"Project"> | Date | string
-    label?: XOR<LabelRelationFilter, LabelWhereInput>
+    labels?: LabelListRelationFilter
     user?: XOR<UserNullableRelationFilter, UserWhereInput> | null
   }
 
   export type ProjectOrderByWithRelationInput = {
     id?: SortOrder
     name?: SortOrder
-    labelId?: SortOrder
+    icon?: SortOrderInput | SortOrder
+    description?: SortOrderInput | SortOrder
     userId?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    label?: LabelOrderByWithRelationInput
+    labels?: LabelOrderByRelationAggregateInput
     user?: UserOrderByWithRelationInput
   }
 
@@ -6604,18 +6676,20 @@ export namespace Prisma {
     OR?: ProjectWhereInput[]
     NOT?: ProjectWhereInput | ProjectWhereInput[]
     name?: StringFilter<"Project"> | string
-    labelId?: StringFilter<"Project"> | string
+    icon?: StringNullableFilter<"Project"> | string | null
+    description?: StringNullableFilter<"Project"> | string | null
     userId?: StringNullableFilter<"Project"> | string | null
     createdAt?: DateTimeFilter<"Project"> | Date | string
     updatedAt?: DateTimeFilter<"Project"> | Date | string
-    label?: XOR<LabelRelationFilter, LabelWhereInput>
+    labels?: LabelListRelationFilter
     user?: XOR<UserNullableRelationFilter, UserWhereInput> | null
   }, "id">
 
   export type ProjectOrderByWithAggregationInput = {
     id?: SortOrder
     name?: SortOrder
-    labelId?: SortOrder
+    icon?: SortOrderInput | SortOrder
+    description?: SortOrderInput | SortOrder
     userId?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -6630,7 +6704,8 @@ export namespace Prisma {
     NOT?: ProjectScalarWhereWithAggregatesInput | ProjectScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Project"> | string
     name?: StringWithAggregatesFilter<"Project"> | string
-    labelId?: StringWithAggregatesFilter<"Project"> | string
+    icon?: StringNullableWithAggregatesFilter<"Project"> | string | null
+    description?: StringNullableWithAggregatesFilter<"Project"> | string | null
     userId?: StringNullableWithAggregatesFilter<"Project"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"Project"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Project"> | Date | string
@@ -6644,10 +6719,11 @@ export namespace Prisma {
     name?: StringFilter<"Label"> | string
     width?: FloatFilter<"Label"> | number
     height?: FloatFilter<"Label"> | number
+    projectId?: StringNullableFilter<"Label"> | string | null
     createdAt?: DateTimeFilter<"Label"> | Date | string
     updatedAt?: DateTimeFilter<"Label"> | Date | string
     elements?: LabelElementListRelationFilter
-    projects?: ProjectListRelationFilter
+    project?: XOR<ProjectNullableRelationFilter, ProjectWhereInput> | null
   }
 
   export type LabelOrderByWithRelationInput = {
@@ -6655,10 +6731,11 @@ export namespace Prisma {
     name?: SortOrder
     width?: SortOrder
     height?: SortOrder
+    projectId?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     elements?: LabelElementOrderByRelationAggregateInput
-    projects?: ProjectOrderByRelationAggregateInput
+    project?: ProjectOrderByWithRelationInput
   }
 
   export type LabelWhereUniqueInput = Prisma.AtLeast<{
@@ -6669,10 +6746,11 @@ export namespace Prisma {
     name?: StringFilter<"Label"> | string
     width?: FloatFilter<"Label"> | number
     height?: FloatFilter<"Label"> | number
+    projectId?: StringNullableFilter<"Label"> | string | null
     createdAt?: DateTimeFilter<"Label"> | Date | string
     updatedAt?: DateTimeFilter<"Label"> | Date | string
     elements?: LabelElementListRelationFilter
-    projects?: ProjectListRelationFilter
+    project?: XOR<ProjectNullableRelationFilter, ProjectWhereInput> | null
   }, "id">
 
   export type LabelOrderByWithAggregationInput = {
@@ -6680,6 +6758,7 @@ export namespace Prisma {
     name?: SortOrder
     width?: SortOrder
     height?: SortOrder
+    projectId?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: LabelCountOrderByAggregateInput
@@ -6697,6 +6776,7 @@ export namespace Prisma {
     name?: StringWithAggregatesFilter<"Label"> | string
     width?: FloatWithAggregatesFilter<"Label"> | number
     height?: FloatWithAggregatesFilter<"Label"> | number
+    projectId?: StringNullableWithAggregatesFilter<"Label"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"Label"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Label"> | Date | string
   }
@@ -6932,43 +7012,52 @@ export namespace Prisma {
   export type ProjectCreateInput = {
     id?: string
     name: string
+    icon?: string | null
+    description?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    label: LabelCreateNestedOneWithoutProjectsInput
+    labels?: LabelCreateNestedManyWithoutProjectInput
     user?: UserCreateNestedOneWithoutProjectsInput
   }
 
   export type ProjectUncheckedCreateInput = {
     id?: string
     name: string
-    labelId: string
+    icon?: string | null
+    description?: string | null
     userId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    labels?: LabelUncheckedCreateNestedManyWithoutProjectInput
   }
 
   export type ProjectUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    icon?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    label?: LabelUpdateOneRequiredWithoutProjectsNestedInput
+    labels?: LabelUpdateManyWithoutProjectNestedInput
     user?: UserUpdateOneWithoutProjectsNestedInput
   }
 
   export type ProjectUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    labelId?: StringFieldUpdateOperationsInput | string
+    icon?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     userId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    labels?: LabelUncheckedUpdateManyWithoutProjectNestedInput
   }
 
   export type ProjectCreateManyInput = {
     id?: string
     name: string
-    labelId: string
+    icon?: string | null
+    description?: string | null
     userId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -6977,6 +7066,8 @@ export namespace Prisma {
   export type ProjectUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    icon?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -6984,7 +7075,8 @@ export namespace Prisma {
   export type ProjectUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    labelId?: StringFieldUpdateOperationsInput | string
+    icon?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     userId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -6998,7 +7090,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     elements?: LabelElementCreateNestedManyWithoutLabelInput
-    projects?: ProjectCreateNestedManyWithoutLabelInput
+    project?: ProjectCreateNestedOneWithoutLabelsInput
   }
 
   export type LabelUncheckedCreateInput = {
@@ -7006,10 +7098,10 @@ export namespace Prisma {
     name: string
     width: number
     height: number
+    projectId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     elements?: LabelElementUncheckedCreateNestedManyWithoutLabelInput
-    projects?: ProjectUncheckedCreateNestedManyWithoutLabelInput
   }
 
   export type LabelUpdateInput = {
@@ -7020,7 +7112,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     elements?: LabelElementUpdateManyWithoutLabelNestedInput
-    projects?: ProjectUpdateManyWithoutLabelNestedInput
+    project?: ProjectUpdateOneWithoutLabelsNestedInput
   }
 
   export type LabelUncheckedUpdateInput = {
@@ -7028,10 +7120,10 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     width?: FloatFieldUpdateOperationsInput | number
     height?: FloatFieldUpdateOperationsInput | number
+    projectId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     elements?: LabelElementUncheckedUpdateManyWithoutLabelNestedInput
-    projects?: ProjectUncheckedUpdateManyWithoutLabelNestedInput
   }
 
   export type LabelCreateManyInput = {
@@ -7039,6 +7131,7 @@ export namespace Prisma {
     name: string
     width: number
     height: number
+    projectId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -7057,6 +7150,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     width?: FloatFieldUpdateOperationsInput | number
     height?: FloatFieldUpdateOperationsInput | number
+    projectId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -7328,9 +7422,10 @@ export namespace Prisma {
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
-  export type LabelRelationFilter = {
-    is?: LabelWhereInput
-    isNot?: LabelWhereInput
+  export type LabelListRelationFilter = {
+    every?: LabelWhereInput
+    some?: LabelWhereInput
+    none?: LabelWhereInput
   }
 
   export type UserNullableRelationFilter = {
@@ -7343,10 +7438,15 @@ export namespace Prisma {
     nulls?: NullsOrder
   }
 
+  export type LabelOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
   export type ProjectCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
-    labelId?: SortOrder
+    icon?: SortOrder
+    description?: SortOrder
     userId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -7355,7 +7455,8 @@ export namespace Prisma {
   export type ProjectMaxOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
-    labelId?: SortOrder
+    icon?: SortOrder
+    description?: SortOrder
     userId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -7364,7 +7465,8 @@ export namespace Prisma {
   export type ProjectMinOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
-    labelId?: SortOrder
+    icon?: SortOrder
+    description?: SortOrder
     userId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -7405,6 +7507,11 @@ export namespace Prisma {
     none?: LabelElementWhereInput
   }
 
+  export type ProjectNullableRelationFilter = {
+    is?: ProjectWhereInput | null
+    isNot?: ProjectWhereInput | null
+  }
+
   export type LabelElementOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
@@ -7414,6 +7521,7 @@ export namespace Prisma {
     name?: SortOrder
     width?: SortOrder
     height?: SortOrder
+    projectId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -7428,6 +7536,7 @@ export namespace Prisma {
     name?: SortOrder
     width?: SortOrder
     height?: SortOrder
+    projectId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -7437,6 +7546,7 @@ export namespace Prisma {
     name?: SortOrder
     width?: SortOrder
     height?: SortOrder
+    projectId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -7493,6 +7603,11 @@ export namespace Prisma {
     gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
     gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
     not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+  }
+
+  export type LabelRelationFilter = {
+    is?: LabelWhereInput
+    isNot?: LabelWhereInput
   }
 
   export type LabelElementCountOrderByAggregateInput = {
@@ -7709,10 +7824,11 @@ export namespace Prisma {
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutResetTokensInput, UserUpdateWithoutResetTokensInput>, UserUncheckedUpdateWithoutResetTokensInput>
   }
 
-  export type LabelCreateNestedOneWithoutProjectsInput = {
-    create?: XOR<LabelCreateWithoutProjectsInput, LabelUncheckedCreateWithoutProjectsInput>
-    connectOrCreate?: LabelCreateOrConnectWithoutProjectsInput
-    connect?: LabelWhereUniqueInput
+  export type LabelCreateNestedManyWithoutProjectInput = {
+    create?: XOR<LabelCreateWithoutProjectInput, LabelUncheckedCreateWithoutProjectInput> | LabelCreateWithoutProjectInput[] | LabelUncheckedCreateWithoutProjectInput[]
+    connectOrCreate?: LabelCreateOrConnectWithoutProjectInput | LabelCreateOrConnectWithoutProjectInput[]
+    createMany?: LabelCreateManyProjectInputEnvelope
+    connect?: LabelWhereUniqueInput | LabelWhereUniqueInput[]
   }
 
   export type UserCreateNestedOneWithoutProjectsInput = {
@@ -7721,12 +7837,29 @@ export namespace Prisma {
     connect?: UserWhereUniqueInput
   }
 
-  export type LabelUpdateOneRequiredWithoutProjectsNestedInput = {
-    create?: XOR<LabelCreateWithoutProjectsInput, LabelUncheckedCreateWithoutProjectsInput>
-    connectOrCreate?: LabelCreateOrConnectWithoutProjectsInput
-    upsert?: LabelUpsertWithoutProjectsInput
-    connect?: LabelWhereUniqueInput
-    update?: XOR<XOR<LabelUpdateToOneWithWhereWithoutProjectsInput, LabelUpdateWithoutProjectsInput>, LabelUncheckedUpdateWithoutProjectsInput>
+  export type LabelUncheckedCreateNestedManyWithoutProjectInput = {
+    create?: XOR<LabelCreateWithoutProjectInput, LabelUncheckedCreateWithoutProjectInput> | LabelCreateWithoutProjectInput[] | LabelUncheckedCreateWithoutProjectInput[]
+    connectOrCreate?: LabelCreateOrConnectWithoutProjectInput | LabelCreateOrConnectWithoutProjectInput[]
+    createMany?: LabelCreateManyProjectInputEnvelope
+    connect?: LabelWhereUniqueInput | LabelWhereUniqueInput[]
+  }
+
+  export type NullableStringFieldUpdateOperationsInput = {
+    set?: string | null
+  }
+
+  export type LabelUpdateManyWithoutProjectNestedInput = {
+    create?: XOR<LabelCreateWithoutProjectInput, LabelUncheckedCreateWithoutProjectInput> | LabelCreateWithoutProjectInput[] | LabelUncheckedCreateWithoutProjectInput[]
+    connectOrCreate?: LabelCreateOrConnectWithoutProjectInput | LabelCreateOrConnectWithoutProjectInput[]
+    upsert?: LabelUpsertWithWhereUniqueWithoutProjectInput | LabelUpsertWithWhereUniqueWithoutProjectInput[]
+    createMany?: LabelCreateManyProjectInputEnvelope
+    set?: LabelWhereUniqueInput | LabelWhereUniqueInput[]
+    disconnect?: LabelWhereUniqueInput | LabelWhereUniqueInput[]
+    delete?: LabelWhereUniqueInput | LabelWhereUniqueInput[]
+    connect?: LabelWhereUniqueInput | LabelWhereUniqueInput[]
+    update?: LabelUpdateWithWhereUniqueWithoutProjectInput | LabelUpdateWithWhereUniqueWithoutProjectInput[]
+    updateMany?: LabelUpdateManyWithWhereWithoutProjectInput | LabelUpdateManyWithWhereWithoutProjectInput[]
+    deleteMany?: LabelScalarWhereInput | LabelScalarWhereInput[]
   }
 
   export type UserUpdateOneWithoutProjectsNestedInput = {
@@ -7739,8 +7872,18 @@ export namespace Prisma {
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutProjectsInput, UserUpdateWithoutProjectsInput>, UserUncheckedUpdateWithoutProjectsInput>
   }
 
-  export type NullableStringFieldUpdateOperationsInput = {
-    set?: string | null
+  export type LabelUncheckedUpdateManyWithoutProjectNestedInput = {
+    create?: XOR<LabelCreateWithoutProjectInput, LabelUncheckedCreateWithoutProjectInput> | LabelCreateWithoutProjectInput[] | LabelUncheckedCreateWithoutProjectInput[]
+    connectOrCreate?: LabelCreateOrConnectWithoutProjectInput | LabelCreateOrConnectWithoutProjectInput[]
+    upsert?: LabelUpsertWithWhereUniqueWithoutProjectInput | LabelUpsertWithWhereUniqueWithoutProjectInput[]
+    createMany?: LabelCreateManyProjectInputEnvelope
+    set?: LabelWhereUniqueInput | LabelWhereUniqueInput[]
+    disconnect?: LabelWhereUniqueInput | LabelWhereUniqueInput[]
+    delete?: LabelWhereUniqueInput | LabelWhereUniqueInput[]
+    connect?: LabelWhereUniqueInput | LabelWhereUniqueInput[]
+    update?: LabelUpdateWithWhereUniqueWithoutProjectInput | LabelUpdateWithWhereUniqueWithoutProjectInput[]
+    updateMany?: LabelUpdateManyWithWhereWithoutProjectInput | LabelUpdateManyWithWhereWithoutProjectInput[]
+    deleteMany?: LabelScalarWhereInput | LabelScalarWhereInput[]
   }
 
   export type LabelElementCreateNestedManyWithoutLabelInput = {
@@ -7750,11 +7893,10 @@ export namespace Prisma {
     connect?: LabelElementWhereUniqueInput | LabelElementWhereUniqueInput[]
   }
 
-  export type ProjectCreateNestedManyWithoutLabelInput = {
-    create?: XOR<ProjectCreateWithoutLabelInput, ProjectUncheckedCreateWithoutLabelInput> | ProjectCreateWithoutLabelInput[] | ProjectUncheckedCreateWithoutLabelInput[]
-    connectOrCreate?: ProjectCreateOrConnectWithoutLabelInput | ProjectCreateOrConnectWithoutLabelInput[]
-    createMany?: ProjectCreateManyLabelInputEnvelope
-    connect?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+  export type ProjectCreateNestedOneWithoutLabelsInput = {
+    create?: XOR<ProjectCreateWithoutLabelsInput, ProjectUncheckedCreateWithoutLabelsInput>
+    connectOrCreate?: ProjectCreateOrConnectWithoutLabelsInput
+    connect?: ProjectWhereUniqueInput
   }
 
   export type LabelElementUncheckedCreateNestedManyWithoutLabelInput = {
@@ -7762,13 +7904,6 @@ export namespace Prisma {
     connectOrCreate?: LabelElementCreateOrConnectWithoutLabelInput | LabelElementCreateOrConnectWithoutLabelInput[]
     createMany?: LabelElementCreateManyLabelInputEnvelope
     connect?: LabelElementWhereUniqueInput | LabelElementWhereUniqueInput[]
-  }
-
-  export type ProjectUncheckedCreateNestedManyWithoutLabelInput = {
-    create?: XOR<ProjectCreateWithoutLabelInput, ProjectUncheckedCreateWithoutLabelInput> | ProjectCreateWithoutLabelInput[] | ProjectUncheckedCreateWithoutLabelInput[]
-    connectOrCreate?: ProjectCreateOrConnectWithoutLabelInput | ProjectCreateOrConnectWithoutLabelInput[]
-    createMany?: ProjectCreateManyLabelInputEnvelope
-    connect?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
   }
 
   export type FloatFieldUpdateOperationsInput = {
@@ -7793,18 +7928,14 @@ export namespace Prisma {
     deleteMany?: LabelElementScalarWhereInput | LabelElementScalarWhereInput[]
   }
 
-  export type ProjectUpdateManyWithoutLabelNestedInput = {
-    create?: XOR<ProjectCreateWithoutLabelInput, ProjectUncheckedCreateWithoutLabelInput> | ProjectCreateWithoutLabelInput[] | ProjectUncheckedCreateWithoutLabelInput[]
-    connectOrCreate?: ProjectCreateOrConnectWithoutLabelInput | ProjectCreateOrConnectWithoutLabelInput[]
-    upsert?: ProjectUpsertWithWhereUniqueWithoutLabelInput | ProjectUpsertWithWhereUniqueWithoutLabelInput[]
-    createMany?: ProjectCreateManyLabelInputEnvelope
-    set?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
-    disconnect?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
-    delete?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
-    connect?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
-    update?: ProjectUpdateWithWhereUniqueWithoutLabelInput | ProjectUpdateWithWhereUniqueWithoutLabelInput[]
-    updateMany?: ProjectUpdateManyWithWhereWithoutLabelInput | ProjectUpdateManyWithWhereWithoutLabelInput[]
-    deleteMany?: ProjectScalarWhereInput | ProjectScalarWhereInput[]
+  export type ProjectUpdateOneWithoutLabelsNestedInput = {
+    create?: XOR<ProjectCreateWithoutLabelsInput, ProjectUncheckedCreateWithoutLabelsInput>
+    connectOrCreate?: ProjectCreateOrConnectWithoutLabelsInput
+    upsert?: ProjectUpsertWithoutLabelsInput
+    disconnect?: ProjectWhereInput | boolean
+    delete?: ProjectWhereInput | boolean
+    connect?: ProjectWhereUniqueInput
+    update?: XOR<XOR<ProjectUpdateToOneWithWhereWithoutLabelsInput, ProjectUpdateWithoutLabelsInput>, ProjectUncheckedUpdateWithoutLabelsInput>
   }
 
   export type LabelElementUncheckedUpdateManyWithoutLabelNestedInput = {
@@ -7819,20 +7950,6 @@ export namespace Prisma {
     update?: LabelElementUpdateWithWhereUniqueWithoutLabelInput | LabelElementUpdateWithWhereUniqueWithoutLabelInput[]
     updateMany?: LabelElementUpdateManyWithWhereWithoutLabelInput | LabelElementUpdateManyWithWhereWithoutLabelInput[]
     deleteMany?: LabelElementScalarWhereInput | LabelElementScalarWhereInput[]
-  }
-
-  export type ProjectUncheckedUpdateManyWithoutLabelNestedInput = {
-    create?: XOR<ProjectCreateWithoutLabelInput, ProjectUncheckedCreateWithoutLabelInput> | ProjectCreateWithoutLabelInput[] | ProjectUncheckedCreateWithoutLabelInput[]
-    connectOrCreate?: ProjectCreateOrConnectWithoutLabelInput | ProjectCreateOrConnectWithoutLabelInput[]
-    upsert?: ProjectUpsertWithWhereUniqueWithoutLabelInput | ProjectUpsertWithWhereUniqueWithoutLabelInput[]
-    createMany?: ProjectCreateManyLabelInputEnvelope
-    set?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
-    disconnect?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
-    delete?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
-    connect?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
-    update?: ProjectUpdateWithWhereUniqueWithoutLabelInput | ProjectUpdateWithWhereUniqueWithoutLabelInput[]
-    updateMany?: ProjectUpdateManyWithWhereWithoutLabelInput | ProjectUpdateManyWithWhereWithoutLabelInput[]
-    deleteMany?: ProjectScalarWhereInput | ProjectScalarWhereInput[]
   }
 
   export type LabelCreateNestedOneWithoutElementsInput = {
@@ -8045,17 +8162,21 @@ export namespace Prisma {
   export type ProjectCreateWithoutUserInput = {
     id?: string
     name: string
+    icon?: string | null
+    description?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    label: LabelCreateNestedOneWithoutProjectsInput
+    labels?: LabelCreateNestedManyWithoutProjectInput
   }
 
   export type ProjectUncheckedCreateWithoutUserInput = {
     id?: string
     name: string
-    labelId: string
+    icon?: string | null
+    description?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
+    labels?: LabelUncheckedCreateNestedManyWithoutProjectInput
   }
 
   export type ProjectCreateOrConnectWithoutUserInput = {
@@ -8114,7 +8235,8 @@ export namespace Prisma {
     NOT?: ProjectScalarWhereInput | ProjectScalarWhereInput[]
     id?: StringFilter<"Project"> | string
     name?: StringFilter<"Project"> | string
-    labelId?: StringFilter<"Project"> | string
+    icon?: StringNullableFilter<"Project"> | string | null
+    description?: StringNullableFilter<"Project"> | string | null
     userId?: StringNullableFilter<"Project"> | string | null
     createdAt?: DateTimeFilter<"Project"> | Date | string
     updatedAt?: DateTimeFilter<"Project"> | Date | string
@@ -8203,7 +8325,7 @@ export namespace Prisma {
     projects?: ProjectUncheckedUpdateManyWithoutUserNestedInput
   }
 
-  export type LabelCreateWithoutProjectsInput = {
+  export type LabelCreateWithoutProjectInput = {
     id?: string
     name: string
     width: number
@@ -8213,7 +8335,7 @@ export namespace Prisma {
     elements?: LabelElementCreateNestedManyWithoutLabelInput
   }
 
-  export type LabelUncheckedCreateWithoutProjectsInput = {
+  export type LabelUncheckedCreateWithoutProjectInput = {
     id?: string
     name: string
     width: number
@@ -8223,9 +8345,14 @@ export namespace Prisma {
     elements?: LabelElementUncheckedCreateNestedManyWithoutLabelInput
   }
 
-  export type LabelCreateOrConnectWithoutProjectsInput = {
+  export type LabelCreateOrConnectWithoutProjectInput = {
     where: LabelWhereUniqueInput
-    create: XOR<LabelCreateWithoutProjectsInput, LabelUncheckedCreateWithoutProjectsInput>
+    create: XOR<LabelCreateWithoutProjectInput, LabelUncheckedCreateWithoutProjectInput>
+  }
+
+  export type LabelCreateManyProjectInputEnvelope = {
+    data: LabelCreateManyProjectInput | LabelCreateManyProjectInput[]
+    skipDuplicates?: boolean
   }
 
   export type UserCreateWithoutProjectsInput = {
@@ -8253,35 +8380,33 @@ export namespace Prisma {
     create: XOR<UserCreateWithoutProjectsInput, UserUncheckedCreateWithoutProjectsInput>
   }
 
-  export type LabelUpsertWithoutProjectsInput = {
-    update: XOR<LabelUpdateWithoutProjectsInput, LabelUncheckedUpdateWithoutProjectsInput>
-    create: XOR<LabelCreateWithoutProjectsInput, LabelUncheckedCreateWithoutProjectsInput>
-    where?: LabelWhereInput
+  export type LabelUpsertWithWhereUniqueWithoutProjectInput = {
+    where: LabelWhereUniqueInput
+    update: XOR<LabelUpdateWithoutProjectInput, LabelUncheckedUpdateWithoutProjectInput>
+    create: XOR<LabelCreateWithoutProjectInput, LabelUncheckedCreateWithoutProjectInput>
   }
 
-  export type LabelUpdateToOneWithWhereWithoutProjectsInput = {
-    where?: LabelWhereInput
-    data: XOR<LabelUpdateWithoutProjectsInput, LabelUncheckedUpdateWithoutProjectsInput>
+  export type LabelUpdateWithWhereUniqueWithoutProjectInput = {
+    where: LabelWhereUniqueInput
+    data: XOR<LabelUpdateWithoutProjectInput, LabelUncheckedUpdateWithoutProjectInput>
   }
 
-  export type LabelUpdateWithoutProjectsInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    width?: FloatFieldUpdateOperationsInput | number
-    height?: FloatFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    elements?: LabelElementUpdateManyWithoutLabelNestedInput
+  export type LabelUpdateManyWithWhereWithoutProjectInput = {
+    where: LabelScalarWhereInput
+    data: XOR<LabelUpdateManyMutationInput, LabelUncheckedUpdateManyWithoutProjectInput>
   }
 
-  export type LabelUncheckedUpdateWithoutProjectsInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    width?: FloatFieldUpdateOperationsInput | number
-    height?: FloatFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    elements?: LabelElementUncheckedUpdateManyWithoutLabelNestedInput
+  export type LabelScalarWhereInput = {
+    AND?: LabelScalarWhereInput | LabelScalarWhereInput[]
+    OR?: LabelScalarWhereInput[]
+    NOT?: LabelScalarWhereInput | LabelScalarWhereInput[]
+    id?: StringFilter<"Label"> | string
+    name?: StringFilter<"Label"> | string
+    width?: FloatFilter<"Label"> | number
+    height?: FloatFilter<"Label"> | number
+    projectId?: StringNullableFilter<"Label"> | string | null
+    createdAt?: DateTimeFilter<"Label"> | Date | string
+    updatedAt?: DateTimeFilter<"Label"> | Date | string
   }
 
   export type UserUpsertWithoutProjectsInput = {
@@ -8357,30 +8482,29 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type ProjectCreateWithoutLabelInput = {
+  export type ProjectCreateWithoutLabelsInput = {
     id?: string
     name: string
+    icon?: string | null
+    description?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     user?: UserCreateNestedOneWithoutProjectsInput
   }
 
-  export type ProjectUncheckedCreateWithoutLabelInput = {
+  export type ProjectUncheckedCreateWithoutLabelsInput = {
     id?: string
     name: string
+    icon?: string | null
+    description?: string | null
     userId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
-  export type ProjectCreateOrConnectWithoutLabelInput = {
+  export type ProjectCreateOrConnectWithoutLabelsInput = {
     where: ProjectWhereUniqueInput
-    create: XOR<ProjectCreateWithoutLabelInput, ProjectUncheckedCreateWithoutLabelInput>
-  }
-
-  export type ProjectCreateManyLabelInputEnvelope = {
-    data: ProjectCreateManyLabelInput | ProjectCreateManyLabelInput[]
-    skipDuplicates?: boolean
+    create: XOR<ProjectCreateWithoutLabelsInput, ProjectUncheckedCreateWithoutLabelsInput>
   }
 
   export type LabelElementUpsertWithWhereUniqueWithoutLabelInput = {
@@ -8419,20 +8543,35 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"LabelElement"> | Date | string
   }
 
-  export type ProjectUpsertWithWhereUniqueWithoutLabelInput = {
-    where: ProjectWhereUniqueInput
-    update: XOR<ProjectUpdateWithoutLabelInput, ProjectUncheckedUpdateWithoutLabelInput>
-    create: XOR<ProjectCreateWithoutLabelInput, ProjectUncheckedCreateWithoutLabelInput>
+  export type ProjectUpsertWithoutLabelsInput = {
+    update: XOR<ProjectUpdateWithoutLabelsInput, ProjectUncheckedUpdateWithoutLabelsInput>
+    create: XOR<ProjectCreateWithoutLabelsInput, ProjectUncheckedCreateWithoutLabelsInput>
+    where?: ProjectWhereInput
   }
 
-  export type ProjectUpdateWithWhereUniqueWithoutLabelInput = {
-    where: ProjectWhereUniqueInput
-    data: XOR<ProjectUpdateWithoutLabelInput, ProjectUncheckedUpdateWithoutLabelInput>
+  export type ProjectUpdateToOneWithWhereWithoutLabelsInput = {
+    where?: ProjectWhereInput
+    data: XOR<ProjectUpdateWithoutLabelsInput, ProjectUncheckedUpdateWithoutLabelsInput>
   }
 
-  export type ProjectUpdateManyWithWhereWithoutLabelInput = {
-    where: ProjectScalarWhereInput
-    data: XOR<ProjectUpdateManyMutationInput, ProjectUncheckedUpdateManyWithoutLabelInput>
+  export type ProjectUpdateWithoutLabelsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    icon?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneWithoutProjectsNestedInput
+  }
+
+  export type ProjectUncheckedUpdateWithoutLabelsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    icon?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    userId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type LabelCreateWithoutElementsInput = {
@@ -8442,7 +8581,7 @@ export namespace Prisma {
     height: number
     createdAt?: Date | string
     updatedAt?: Date | string
-    projects?: ProjectCreateNestedManyWithoutLabelInput
+    project?: ProjectCreateNestedOneWithoutLabelsInput
   }
 
   export type LabelUncheckedCreateWithoutElementsInput = {
@@ -8450,9 +8589,9 @@ export namespace Prisma {
     name: string
     width: number
     height: number
+    projectId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    projects?: ProjectUncheckedCreateNestedManyWithoutLabelInput
   }
 
   export type LabelCreateOrConnectWithoutElementsInput = {
@@ -8478,7 +8617,7 @@ export namespace Prisma {
     height?: FloatFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    projects?: ProjectUpdateManyWithoutLabelNestedInput
+    project?: ProjectUpdateOneWithoutLabelsNestedInput
   }
 
   export type LabelUncheckedUpdateWithoutElementsInput = {
@@ -8486,15 +8625,16 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     width?: FloatFieldUpdateOperationsInput | number
     height?: FloatFieldUpdateOperationsInput | number
+    projectId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    projects?: ProjectUncheckedUpdateManyWithoutLabelNestedInput
   }
 
   export type ProjectCreateManyUserInput = {
     id?: string
     name: string
-    labelId: string
+    icon?: string | null
+    description?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -8509,23 +8649,28 @@ export namespace Prisma {
   export type ProjectUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    icon?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    label?: LabelUpdateOneRequiredWithoutProjectsNestedInput
+    labels?: LabelUpdateManyWithoutProjectNestedInput
   }
 
   export type ProjectUncheckedUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    labelId?: StringFieldUpdateOperationsInput | string
+    icon?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    labels?: LabelUncheckedUpdateManyWithoutProjectNestedInput
   }
 
   export type ProjectUncheckedUpdateManyWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    labelId?: StringFieldUpdateOperationsInput | string
+    icon?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -8551,6 +8696,44 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type LabelCreateManyProjectInput = {
+    id?: string
+    name: string
+    width: number
+    height: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type LabelUpdateWithoutProjectInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    width?: FloatFieldUpdateOperationsInput | number
+    height?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    elements?: LabelElementUpdateManyWithoutLabelNestedInput
+  }
+
+  export type LabelUncheckedUpdateWithoutProjectInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    width?: FloatFieldUpdateOperationsInput | number
+    height?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    elements?: LabelElementUncheckedUpdateManyWithoutLabelNestedInput
+  }
+
+  export type LabelUncheckedUpdateManyWithoutProjectInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    width?: FloatFieldUpdateOperationsInput | number
+    height?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type LabelElementCreateManyLabelInput = {
     id?: string
     type: string
@@ -8563,14 +8746,6 @@ export namespace Prisma {
     color?: string | null
     rotation?: number | null
     properties?: NullableJsonNullValueInput | InputJsonValue
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type ProjectCreateManyLabelInput = {
-    id?: string
-    name: string
-    userId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -8623,30 +8798,6 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type ProjectUpdateWithoutLabelInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneWithoutProjectsNestedInput
-  }
-
-  export type ProjectUncheckedUpdateWithoutLabelInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    userId?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type ProjectUncheckedUpdateManyWithoutLabelInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    userId?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
 
 
   /**
@@ -8656,6 +8807,10 @@ export namespace Prisma {
      * @deprecated Use UserCountOutputTypeDefaultArgs instead
      */
     export type UserCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = UserCountOutputTypeDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use ProjectCountOutputTypeDefaultArgs instead
+     */
+    export type ProjectCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = ProjectCountOutputTypeDefaultArgs<ExtArgs>
     /**
      * @deprecated Use LabelCountOutputTypeDefaultArgs instead
      */
