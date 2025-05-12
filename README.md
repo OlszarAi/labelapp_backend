@@ -3,17 +3,18 @@
 ## Spis treści
 1. [Wprowadzenie](#wprowadzenie)
 2. [Architektura Systemu](#architektura-systemu)
-3. [Baza Danych](#baza-danych)
+3. [Schemat Działania Backendu](#schemat-działania-backendu)
+4. [Baza Danych](#baza-danych)
    - [Model Danych](#model-danych)
    - [Migracje](#migracje)
-4. [API](#api)
+5. [API](#api)
    - [Użytkownicy](#użytkownicy)
    - [Projekty](#projekty)
    - [Etykiety](#etykiety)
-5. [Autentykacja i Bezpieczeństwo](#autentykacja-i-bezpieczeństwo)
-6. [Konfiguracja](#konfiguracja)
-7. [Uruchomienie](#uruchomienie)
-8. [Środowisko Programistyczne](#środowisko-programistyczne)
+6. [Autentykacja i Bezpieczeństwo](#autentykacja-i-bezpieczeństwo)
+7. [Konfiguracja](#konfiguracja)
+8. [Uruchomienie](#uruchomienie)
+9. [Środowisko Programistyczne](#środowisko-programistyczne)
 
 ## Wprowadzenie
 
@@ -35,6 +36,55 @@ Główne komponenty systemu:
 3. **Authentication**: System JWT z bezpiecznymi ciasteczkami HttpOnly.
 4. **Controllers**: Implementacja logiki biznesowej dla każdego zasobu.
 5. **Routes**: Definicje endpointów API.
+
+## Schemat Działania Backendu
+
+![Schemat architektury backendu](image.png)
+
+Backend aplikacji LabelApp działa według następujących zasad:
+
+### Warstwa Bootstrapu i Konfiguracji
+
+1. **Express Bootstrap**: Inicjalizacja serwera Express.js, który pobiera konfigurację z plików `.gitignore`, `package.json`, `tsconfig.json` oraz zmiennych środowiskowych z pliku `.env`.
+2. **Inicjalizacja Serwera HTTP**: Uruchomienie serwera nasłuchującego na porcie zdefiniowanym w konfiguracji.
+
+### Warstwa Routingu
+
+Zapytania HTTP od klientów API są kierowane do odpowiednich warstw routingu:
+
+1. **Label Routes**: Obsługa endpointów związanych z etykietami.
+2. **Project Routes**: Obsługa endpointów związanych z projektami.
+3. **User Routes**: Obsługa endpointów związanych z użytkownikami.
+
+Wszystkie chronione ścieżki przechodzą przez middleware autentykacji, który weryfikuje tokeny JWT.
+
+### Warstwa Middleware
+
+**Auth Middleware (JWT)**: Weryfikacja tokenów JWT dla chronionych endpointów. Middleware sprawdza, czy token jest ważny i czy użytkownik ma uprawnienia do żądanego zasobu.
+
+### Warstwa Kontrolerów
+
+Kontrolery implementują logikę biznesową aplikacji:
+
+1. **Label Controller**: Zarządzanie operacjami CRUD dla etykiet.
+2. **Project Controller**: Zarządzanie operacjami CRUD dla projektów.
+3. **User Controller**: Zarządzanie operacjami związanymi z użytkownikami, w tym autentykacją.
+
+### Warstwa Dostępu do Danych
+
+1. **Prisma Client**: Klient ORM odpowiedzialny za komunikację z bazą danych PostgreSQL.
+2. **Operacje bazodanowe**: Wykonywanie zapytań do bazy danych, z uwzględnieniem relacji między modelami.
+
+### Usługi Zewnętrzne
+
+1. **SMTP Service**: Usługa wysyłania emaili, wykorzystywana m.in. do procesu resetowania hasła.
+2. **Zewnętrzne API**: Komunikacja z innymi systemami poprzez protokół HTTP.
+
+Taka architektura zapewnia:
+- **Separację odpowiedzialności**: Każda warstwa ma jasno określone zadania.
+- **Skalowalność**: Modułowa struktura ułatwia rozbudowę systemu.
+- **Bezpieczeństwo**: Centralizacja logiki autentykacji i autoryzacji.
+- **Utrzymywalność**: Przejrzysta organizacja kodu ułatwia debugowanie i rozwój.
 
 ## Baza Danych
 
