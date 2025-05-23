@@ -142,11 +142,11 @@ exports.Prisma.ResetTokenScalarFieldEnum = {
 exports.Prisma.ProjectScalarFieldEnum = {
   id: 'id',
   name: 'name',
-  icon: 'icon',
-  description: 'description',
-  userId: 'userId',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  updatedAt: 'updatedAt',
+  userId: 'userId',
+  description: 'description',
+  icon: 'icon'
 };
 
 exports.Prisma.LabelScalarFieldEnum = {
@@ -154,9 +154,9 @@ exports.Prisma.LabelScalarFieldEnum = {
   name: 'name',
   width: 'width',
   height: 'height',
-  projectId: 'projectId',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  updatedAt: 'updatedAt',
+  projectId: 'projectId'
 };
 
 exports.Prisma.LabelElementScalarFieldEnum = {
@@ -166,14 +166,14 @@ exports.Prisma.LabelElementScalarFieldEnum = {
   y: 'y',
   width: 'width',
   height: 'height',
-  size: 'size',
   value: 'value',
   color: 'color',
   rotation: 'rotation',
   labelId: 'labelId',
   properties: 'properties',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  updatedAt: 'updatedAt',
+  fontSize: 'fontSize'
 };
 
 exports.Prisma.SortOrder = {

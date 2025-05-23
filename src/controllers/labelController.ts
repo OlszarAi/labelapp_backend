@@ -49,18 +49,41 @@ export const createLabel = async (req: Request, res: Response) => {
         width,
         height,
         elements: {
-          create: elements.map((element: any) => ({
-            type: element.type,
-            x: element.x,
-            y: element.y,
-            width: element.width,
-            height: element.height,
-            size: element.size,
-            value: element.value,
-            color: element.color,
-            rotation: element.rotation || 0,
-            properties: element.properties || {}
-          }))
+          create: elements.map((element: any) => {
+            // Handle QR code vs text elements differently
+            const isTextElement = ['text', 'uuidText', 'company'].includes(element.type);
+            const isQrCode = element.type === 'qrCode';
+            
+            // Default properties for text formatting
+            let properties = element.properties || {};
+            
+            // Ensure text formatting is properly set
+            if (isTextElement) {
+              properties = {
+                bold: properties.bold || false, // Allow bold to be configurable for all elements
+                italic: properties.italic || false,
+                strikethrough: properties.strikethrough || false,
+                fontFamily: properties.fontFamily || 'Arial',
+                ...properties
+              };
+            }
+            
+            return {
+              type: element.type,
+              x: element.x,
+              y: element.y,
+              // For QR codes, width is the size
+              width: isQrCode && element.size ? element.size : element.width,
+              height: element.height,
+              // Use fontSize for text elements 
+              fontSize: isTextElement ? element.size : null,
+              // Size field has been removed from schema
+              value: element.value,
+              color: element.color,
+              rotation: element.rotation || 0,
+              properties
+            };
+          })
         }
       },
       include: {
@@ -103,18 +126,41 @@ export const updateLabel = async (req: Request, res: Response) => {
         width,
         height,
         elements: {
-          create: elements.map((element: any) => ({
-            type: element.type,
-            x: element.x,
-            y: element.y,
-            width: element.width,
-            height: element.height,
-            size: element.size,
-            value: element.value,
-            color: element.color,
-            rotation: element.rotation || 0,
-            properties: element.properties || {}
-          }))
+          create: elements.map((element: any) => {
+            // Handle QR code vs text elements differently
+            const isTextElement = ['text', 'uuidText', 'company'].includes(element.type);
+            const isQrCode = element.type === 'qrCode';
+            
+            // Default properties for text formatting
+            let properties = element.properties || {};
+            
+            // Ensure text formatting is properly set
+            if (isTextElement) {
+              properties = {
+                bold: properties.bold || false, // Allow bold to be configurable for all elements
+                italic: properties.italic || false,
+                strikethrough: properties.strikethrough || false,
+                fontFamily: properties.fontFamily || 'Arial',
+                ...properties
+              };
+            }
+            
+            return {
+              type: element.type,
+              x: element.x,
+              y: element.y,
+              // For QR codes, width is the size
+              width: isQrCode && element.size ? element.size : element.width,
+              height: element.height,
+              // Use fontSize for text elements 
+              fontSize: isTextElement ? element.size : null,
+              // Size field has been removed from schema
+              value: element.value,
+              color: element.color,
+              rotation: element.rotation || 0,
+              properties
+            };
+          })
         }
       },
       include: {
@@ -233,7 +279,41 @@ export const createLabelInProject = async (req: Request, res: Response) => {
         height,
         projectId,
         elements: {
-          create: elements
+          create: elements.map((element: any) => {
+            // Handle QR code vs text elements differently
+            const isTextElement = ['text', 'uuidText', 'company'].includes(element.type);
+            const isQrCode = element.type === 'qrCode';
+            
+            // Default properties for text formatting
+            let properties = element.properties || {};
+            
+            // Ensure text formatting is properly set
+            if (isTextElement) {
+              properties = {
+                bold: properties.bold || false, // Allow bold to be configurable for all elements
+                italic: properties.italic || false,
+                strikethrough: properties.strikethrough || false,
+                fontFamily: properties.fontFamily || 'Arial',
+                ...properties
+              };
+            }
+            
+            return {
+              type: element.type,
+              x: element.x,
+              y: element.y,
+              // For QR codes, width is the size
+              width: isQrCode && element.size ? element.size : (element.width ?? null),
+              height: element.height ?? null,
+              // Use fontSize directly if available, otherwise fall back to size
+              fontSize: isTextElement ? (element.fontSize ?? element.size ?? null) : null,
+              // Keep size for backward compatibility temporarily
+              value: element.value ?? null,
+              color: element.color ?? null,
+              rotation: element.rotation || 0,
+              properties
+            };
+          })
         }
       },
       include: {
@@ -256,6 +336,7 @@ export const updateLabelInProject = async (req: Request, res: Response) => {
   try {
     console.log('Updating label with id:', labelId);
     console.log('Project ID:', projectId);
+    console.log('Request body:', JSON.stringify(req.body, null, 2));
     
     if (!labelId) {
       console.error('Label ID is undefined or empty');
@@ -298,18 +379,45 @@ export const updateLabelInProject = async (req: Request, res: Response) => {
             width,
             height,
             elements: {
-              create: elements.map((element: any) => ({
-                type: element.type,
-                x: element.x,
-                y: element.y,
-                width: element.width ?? null,
-                height: element.height ?? null,
-                size: element.size ?? null,
-                value: element.value ?? null,
-                color: element.color ?? null,
-                rotation: element.rotation || 0,
-                properties: element.properties || {}
-              }))
+              create: elements.map((element: any) => {
+                // Handle QR code vs text elements differently
+                const isTextElement = ['text', 'uuidText', 'company'].includes(element.type);
+                const isQrCode = element.type === 'qrCode';
+                
+                // Default properties for text formatting
+                let properties = element.properties || {};
+
+                // Log for debugging
+                console.log(`Element type: ${element.type}, properties:`, properties);
+                console.log(`Element data:`, JSON.stringify(element, null, 2));
+                
+                // Ensure text formatting is properly set
+                if (isTextElement) {
+                  properties = {
+                    bold: properties.bold || false, // Allow bold to be configurable for all elements
+                    italic: properties.italic || false,
+                    strikethrough: properties.strikethrough || false,
+                    fontFamily: properties.fontFamily || 'Arial',
+                    ...properties
+                  };
+                }
+                
+                return {
+                  type: element.type,
+                  x: element.x,
+                  y: element.y,
+                  // For QR codes, width is the size
+                  width: isQrCode && element.size ? element.size : (element.width ?? null),
+                  height: element.height ?? null,
+                  // Use fontSize directly if available, otherwise fall back to size
+                  fontSize: isTextElement ? (element.fontSize ?? element.size ?? null) : null,
+                  // Size field has been removed from the schema
+                  value: element.value ?? null,
+                  color: element.color ?? null,
+                  rotation: element.rotation || 0,
+                  properties
+                };
+              })
             }
           },
           include: {

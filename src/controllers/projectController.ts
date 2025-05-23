@@ -94,7 +94,7 @@ export const createProject = async (req: Request, res: Response) => {
                 y: element.y,
                 width: element.width,
                 height: element.height,
-                size: element.size,
+                fontSize: element.fontSize || element.size, // Convert size to fontSize
                 value: element.value,
                 color: element.color,
                 rotation: element.rotation || 0,
@@ -222,7 +222,7 @@ export const updateProject = async (req: Request, res: Response) => {
               y: element.y,
               width: element.width,
               height: element.height,
-              size: element.size,
+              fontSize: element.fontSize || element.size, // Convert size to fontSize
               value: element.value,
               color: element.color,
               rotation: element.rotation || 0,
