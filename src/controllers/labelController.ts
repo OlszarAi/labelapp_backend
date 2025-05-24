@@ -9,6 +9,7 @@ export const getAllLabels = async (req: Request, res: Response) => {
         elements: true
       }
     });
+
     res.json(labels);
   } catch (error) {
     console.error('Error fetching labels:', error);
@@ -51,7 +52,7 @@ export const createLabel = async (req: Request, res: Response) => {
         elements: {
           create: elements.map((element: any) => {
             // Handle QR code vs text elements differently
-            const isTextElement = ['text', 'uuidText', 'company'].includes(element.type);
+            const isTextElement = ['text', 'uuidText', 'company', 'product'].includes(element.type);
             const isQrCode = element.type === 'qrCode';
             
             // Default properties for text formatting
@@ -76,7 +77,7 @@ export const createLabel = async (req: Request, res: Response) => {
               width: isQrCode && element.size ? element.size : element.width,
               height: element.height,
               // Use fontSize for text elements 
-              fontSize: isTextElement ? element.size : null,
+              fontSize: isTextElement ? (element.fontSize || properties.fontSize || 12) : null,
               // Size field has been removed from schema
               value: element.value,
               color: element.color,
@@ -128,7 +129,7 @@ export const updateLabel = async (req: Request, res: Response) => {
         elements: {
           create: elements.map((element: any) => {
             // Handle QR code vs text elements differently
-            const isTextElement = ['text', 'uuidText', 'company'].includes(element.type);
+            const isTextElement = ['text', 'uuidText', 'company', 'product'].includes(element.type);
             const isQrCode = element.type === 'qrCode';
             
             // Default properties for text formatting
@@ -153,7 +154,7 @@ export const updateLabel = async (req: Request, res: Response) => {
               width: isQrCode && element.size ? element.size : element.width,
               height: element.height,
               // Use fontSize for text elements 
-              fontSize: isTextElement ? element.size : null,
+              fontSize: isTextElement ? (element.fontSize || properties.fontSize || 12) : null,
               // Size field has been removed from schema
               value: element.value,
               color: element.color,
@@ -281,7 +282,7 @@ export const createLabelInProject = async (req: Request, res: Response) => {
         elements: {
           create: elements.map((element: any) => {
             // Handle QR code vs text elements differently
-            const isTextElement = ['text', 'uuidText', 'company'].includes(element.type);
+            const isTextElement = ['text', 'uuidText', 'company', 'product'].includes(element.type);
             const isQrCode = element.type === 'qrCode';
             
             // Default properties for text formatting
@@ -305,8 +306,8 @@ export const createLabelInProject = async (req: Request, res: Response) => {
               // For QR codes, width is the size
               width: isQrCode && element.size ? element.size : (element.width ?? null),
               height: element.height ?? null,
-              // Use fontSize directly if available, otherwise fall back to size
-              fontSize: isTextElement ? (element.fontSize ?? element.size ?? null) : null,
+              // Use fontSize directly if available, otherwise use properties.fontSize or default
+              fontSize: isTextElement ? (element.fontSize || properties.fontSize || 12) : null,
               // Keep size for backward compatibility temporarily
               value: element.value ?? null,
               color: element.color ?? null,
@@ -381,7 +382,7 @@ export const updateLabelInProject = async (req: Request, res: Response) => {
             elements: {
               create: elements.map((element: any) => {
                 // Handle QR code vs text elements differently
-                const isTextElement = ['text', 'uuidText', 'company'].includes(element.type);
+                const isTextElement = ['text', 'uuidText', 'company', 'product'].includes(element.type);
                 const isQrCode = element.type === 'qrCode';
                 
                 // Default properties for text formatting
@@ -409,8 +410,8 @@ export const updateLabelInProject = async (req: Request, res: Response) => {
                   // For QR codes, width is the size
                   width: isQrCode && element.size ? element.size : (element.width ?? null),
                   height: element.height ?? null,
-                  // Use fontSize directly if available, otherwise fall back to size
-                  fontSize: isTextElement ? (element.fontSize ?? element.size ?? null) : null,
+                  // Use fontSize directly if available, otherwise use properties.fontSize or default
+                  fontSize: isTextElement ? (element.fontSize || properties.fontSize || 12) : null,
                   // Size field has been removed from the schema
                   value: element.value ?? null,
                   color: element.color ?? null,
