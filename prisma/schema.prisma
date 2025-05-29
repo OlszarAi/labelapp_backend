@@ -9,14 +9,16 @@ datasource db {
 }
 
 model User {
-  id          String       @id @default(uuid())
-  username    String       @unique
-  email       String       @unique
-  password    String
-  createdAt   DateTime     @default(now())
-  updatedAt   DateTime     @updatedAt
-  projects    Project[]
-  resetTokens ResetToken[]
+  id             String            @id @default(uuid())
+  username       String            @unique
+  email          String            @unique
+  password       String
+  createdAt      DateTime          @default(now())
+  updatedAt      DateTime          @updatedAt
+  projects       Project[]
+  resetTokens    ResetToken[]
+  fabricProjects FabricProject[]
+  fabricTemplates FabricTemplate[]
 }
 
 model ResetToken {
@@ -68,4 +70,111 @@ model LabelElement {
   updatedAt  DateTime @updatedAt
   fontSize   Float?
   label      Label    @relation(fields: [labelId], references: [id], onDelete: Cascade)
+}
+
+// ========================================
+// FABRIC.JS EDITOR MODELS (NEW)
+// ========================================
+
+model FabricProject {
+  id          String        @id @default(uuid())
+  name        String
+  description String?
+  icon        String?
+  userId      String
+  user        User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  canvases    FabricCanvas[]
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  @@index([userId])
+  @@index([createdAt])
+}
+
+model FabricCanvas {
+  id          String           @id @default(uuid())
+  name        String
+  width       Float
+  height      Float
+  unit        String           @default("mm") // mm, px, in
+  background  String?          @default("#ffffff")
+  projectId   String
+  project     FabricProject    @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  objects     FabricObject[]
+  version     Int              @default(1)
+  metadata    Json?            @default("{}")
+  createdAt   DateTime         @default(now())
+  updatedAt   DateTime         @updatedAt
+
+  @@index([projectId])
+  @@index([createdAt])
+}
+
+model FabricObject {
+  id          String         @id @default(uuid())
+  type        String         // text, qrcode, uuid, shape, image
+  canvasId    String
+  canvas      FabricCanvas   @relation(fields: [canvasId], references: [id], onDelete: Cascade)
+  
+  // Position and transform
+  left        Float
+  top         Float
+  width       Float
+  height      Float
+  scaleX      Float          @default(1)
+  scaleY      Float          @default(1)
+  angle       Float          @default(0)
+  
+  // Styling
+  fill        String?
+  stroke      String?
+  strokeWidth Float?         @default(0)
+  opacity     Float          @default(1)
+  
+  // Content
+  text        String?        // For text objects
+  fontFamily  String?        @default("Arial")
+  fontSize    Float?         @default(16)
+  fontWeight  String?        @default("normal")
+  fontStyle   String?        @default("normal")
+  textAlign   String?        @default("left")
+  
+  // QR/UUID specific
+  qrValue     String?        // QR code content
+  uuidLength  Int?           // UUID length
+  qrErrorLevel String?       @default("M")
+  
+  // Layer management
+  zIndex      Int            @default(0)
+  locked      Boolean        @default(false)
+  visible     Boolean        @default(true)
+  
+  // Custom properties
+  metadata    Json?          @default("{}")
+  
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+
+  @@index([canvasId])
+  @@index([type])
+  @@index([zIndex])
+}
+
+model FabricTemplate {
+  id          String     @id @default(uuid())
+  name        String
+  description String?
+  category    String     // business-card, product-label, shipping, etc.
+  thumbnail   String?
+  canvasData  Json       // Serialized Fabric.js canvas
+  isPublic    Boolean    @default(false)
+  userId      String?
+  user        User?      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+
+  @@index([category])
+  @@index([isPublic])
+  @@index([userId])
+  @@index([createdAt])
 }

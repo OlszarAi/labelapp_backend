@@ -38,6 +38,26 @@ export type Label = $Result.DefaultSelection<Prisma.$LabelPayload>
  * 
  */
 export type LabelElement = $Result.DefaultSelection<Prisma.$LabelElementPayload>
+/**
+ * Model FabricProject
+ * 
+ */
+export type FabricProject = $Result.DefaultSelection<Prisma.$FabricProjectPayload>
+/**
+ * Model FabricCanvas
+ * 
+ */
+export type FabricCanvas = $Result.DefaultSelection<Prisma.$FabricCanvasPayload>
+/**
+ * Model FabricObject
+ * 
+ */
+export type FabricObject = $Result.DefaultSelection<Prisma.$FabricObjectPayload>
+/**
+ * Model FabricTemplate
+ * 
+ */
+export type FabricTemplate = $Result.DefaultSelection<Prisma.$FabricTemplatePayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -211,6 +231,46 @@ export class PrismaClient<
     * ```
     */
   get labelElement(): Prisma.LabelElementDelegate<ExtArgs>;
+
+  /**
+   * `prisma.fabricProject`: Exposes CRUD operations for the **FabricProject** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more FabricProjects
+    * const fabricProjects = await prisma.fabricProject.findMany()
+    * ```
+    */
+  get fabricProject(): Prisma.FabricProjectDelegate<ExtArgs>;
+
+  /**
+   * `prisma.fabricCanvas`: Exposes CRUD operations for the **FabricCanvas** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more FabricCanvas
+    * const fabricCanvas = await prisma.fabricCanvas.findMany()
+    * ```
+    */
+  get fabricCanvas(): Prisma.FabricCanvasDelegate<ExtArgs>;
+
+  /**
+   * `prisma.fabricObject`: Exposes CRUD operations for the **FabricObject** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more FabricObjects
+    * const fabricObjects = await prisma.fabricObject.findMany()
+    * ```
+    */
+  get fabricObject(): Prisma.FabricObjectDelegate<ExtArgs>;
+
+  /**
+   * `prisma.fabricTemplate`: Exposes CRUD operations for the **FabricTemplate** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more FabricTemplates
+    * const fabricTemplates = await prisma.fabricTemplate.findMany()
+    * ```
+    */
+  get fabricTemplate(): Prisma.FabricTemplateDelegate<ExtArgs>;
 }
 
 export namespace Prisma {
@@ -656,7 +716,11 @@ export namespace Prisma {
     ResetToken: 'ResetToken',
     Project: 'Project',
     Label: 'Label',
-    LabelElement: 'LabelElement'
+    LabelElement: 'LabelElement',
+    FabricProject: 'FabricProject',
+    FabricCanvas: 'FabricCanvas',
+    FabricObject: 'FabricObject',
+    FabricTemplate: 'FabricTemplate'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -672,7 +736,7 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> = {
     meta: {
-      modelProps: "user" | "resetToken" | "project" | "label" | "labelElement"
+      modelProps: "user" | "resetToken" | "project" | "label" | "labelElement" | "fabricProject" | "fabricCanvas" | "fabricObject" | "fabricTemplate"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1026,6 +1090,286 @@ export namespace Prisma {
           }
         }
       }
+      FabricProject: {
+        payload: Prisma.$FabricProjectPayload<ExtArgs>
+        fields: Prisma.FabricProjectFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.FabricProjectFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FabricProjectPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.FabricProjectFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FabricProjectPayload>
+          }
+          findFirst: {
+            args: Prisma.FabricProjectFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FabricProjectPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.FabricProjectFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FabricProjectPayload>
+          }
+          findMany: {
+            args: Prisma.FabricProjectFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FabricProjectPayload>[]
+          }
+          create: {
+            args: Prisma.FabricProjectCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FabricProjectPayload>
+          }
+          createMany: {
+            args: Prisma.FabricProjectCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.FabricProjectCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FabricProjectPayload>[]
+          }
+          delete: {
+            args: Prisma.FabricProjectDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FabricProjectPayload>
+          }
+          update: {
+            args: Prisma.FabricProjectUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FabricProjectPayload>
+          }
+          deleteMany: {
+            args: Prisma.FabricProjectDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.FabricProjectUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.FabricProjectUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FabricProjectPayload>
+          }
+          aggregate: {
+            args: Prisma.FabricProjectAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateFabricProject>
+          }
+          groupBy: {
+            args: Prisma.FabricProjectGroupByArgs<ExtArgs>
+            result: $Utils.Optional<FabricProjectGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.FabricProjectCountArgs<ExtArgs>
+            result: $Utils.Optional<FabricProjectCountAggregateOutputType> | number
+          }
+        }
+      }
+      FabricCanvas: {
+        payload: Prisma.$FabricCanvasPayload<ExtArgs>
+        fields: Prisma.FabricCanvasFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.FabricCanvasFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FabricCanvasPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.FabricCanvasFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FabricCanvasPayload>
+          }
+          findFirst: {
+            args: Prisma.FabricCanvasFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FabricCanvasPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.FabricCanvasFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FabricCanvasPayload>
+          }
+          findMany: {
+            args: Prisma.FabricCanvasFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FabricCanvasPayload>[]
+          }
+          create: {
+            args: Prisma.FabricCanvasCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FabricCanvasPayload>
+          }
+          createMany: {
+            args: Prisma.FabricCanvasCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.FabricCanvasCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FabricCanvasPayload>[]
+          }
+          delete: {
+            args: Prisma.FabricCanvasDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FabricCanvasPayload>
+          }
+          update: {
+            args: Prisma.FabricCanvasUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FabricCanvasPayload>
+          }
+          deleteMany: {
+            args: Prisma.FabricCanvasDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.FabricCanvasUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.FabricCanvasUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FabricCanvasPayload>
+          }
+          aggregate: {
+            args: Prisma.FabricCanvasAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateFabricCanvas>
+          }
+          groupBy: {
+            args: Prisma.FabricCanvasGroupByArgs<ExtArgs>
+            result: $Utils.Optional<FabricCanvasGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.FabricCanvasCountArgs<ExtArgs>
+            result: $Utils.Optional<FabricCanvasCountAggregateOutputType> | number
+          }
+        }
+      }
+      FabricObject: {
+        payload: Prisma.$FabricObjectPayload<ExtArgs>
+        fields: Prisma.FabricObjectFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.FabricObjectFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FabricObjectPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.FabricObjectFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FabricObjectPayload>
+          }
+          findFirst: {
+            args: Prisma.FabricObjectFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FabricObjectPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.FabricObjectFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FabricObjectPayload>
+          }
+          findMany: {
+            args: Prisma.FabricObjectFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FabricObjectPayload>[]
+          }
+          create: {
+            args: Prisma.FabricObjectCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FabricObjectPayload>
+          }
+          createMany: {
+            args: Prisma.FabricObjectCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.FabricObjectCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FabricObjectPayload>[]
+          }
+          delete: {
+            args: Prisma.FabricObjectDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FabricObjectPayload>
+          }
+          update: {
+            args: Prisma.FabricObjectUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FabricObjectPayload>
+          }
+          deleteMany: {
+            args: Prisma.FabricObjectDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.FabricObjectUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.FabricObjectUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FabricObjectPayload>
+          }
+          aggregate: {
+            args: Prisma.FabricObjectAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateFabricObject>
+          }
+          groupBy: {
+            args: Prisma.FabricObjectGroupByArgs<ExtArgs>
+            result: $Utils.Optional<FabricObjectGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.FabricObjectCountArgs<ExtArgs>
+            result: $Utils.Optional<FabricObjectCountAggregateOutputType> | number
+          }
+        }
+      }
+      FabricTemplate: {
+        payload: Prisma.$FabricTemplatePayload<ExtArgs>
+        fields: Prisma.FabricTemplateFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.FabricTemplateFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FabricTemplatePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.FabricTemplateFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FabricTemplatePayload>
+          }
+          findFirst: {
+            args: Prisma.FabricTemplateFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FabricTemplatePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.FabricTemplateFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FabricTemplatePayload>
+          }
+          findMany: {
+            args: Prisma.FabricTemplateFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FabricTemplatePayload>[]
+          }
+          create: {
+            args: Prisma.FabricTemplateCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FabricTemplatePayload>
+          }
+          createMany: {
+            args: Prisma.FabricTemplateCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.FabricTemplateCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FabricTemplatePayload>[]
+          }
+          delete: {
+            args: Prisma.FabricTemplateDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FabricTemplatePayload>
+          }
+          update: {
+            args: Prisma.FabricTemplateUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FabricTemplatePayload>
+          }
+          deleteMany: {
+            args: Prisma.FabricTemplateDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.FabricTemplateUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.FabricTemplateUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FabricTemplatePayload>
+          }
+          aggregate: {
+            args: Prisma.FabricTemplateAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateFabricTemplate>
+          }
+          groupBy: {
+            args: Prisma.FabricTemplateGroupByArgs<ExtArgs>
+            result: $Utils.Optional<FabricTemplateGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.FabricTemplateCountArgs<ExtArgs>
+            result: $Utils.Optional<FabricTemplateCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1189,11 +1533,15 @@ export namespace Prisma {
   export type UserCountOutputType = {
     projects: number
     resetTokens: number
+    fabricProjects: number
+    fabricTemplates: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     projects?: boolean | UserCountOutputTypeCountProjectsArgs
     resetTokens?: boolean | UserCountOutputTypeCountResetTokensArgs
+    fabricProjects?: boolean | UserCountOutputTypeCountFabricProjectsArgs
+    fabricTemplates?: boolean | UserCountOutputTypeCountFabricTemplatesArgs
   }
 
   // Custom InputTypes
@@ -1219,6 +1567,20 @@ export namespace Prisma {
    */
   export type UserCountOutputTypeCountResetTokensArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: ResetTokenWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountFabricProjectsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: FabricProjectWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountFabricTemplatesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: FabricTemplateWhereInput
   }
 
 
@@ -1281,6 +1643,68 @@ export namespace Prisma {
    */
   export type LabelCountOutputTypeCountElementsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: LabelElementWhereInput
+  }
+
+
+  /**
+   * Count Type FabricProjectCountOutputType
+   */
+
+  export type FabricProjectCountOutputType = {
+    canvases: number
+  }
+
+  export type FabricProjectCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    canvases?: boolean | FabricProjectCountOutputTypeCountCanvasesArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * FabricProjectCountOutputType without action
+   */
+  export type FabricProjectCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FabricProjectCountOutputType
+     */
+    select?: FabricProjectCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * FabricProjectCountOutputType without action
+   */
+  export type FabricProjectCountOutputTypeCountCanvasesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: FabricCanvasWhereInput
+  }
+
+
+  /**
+   * Count Type FabricCanvasCountOutputType
+   */
+
+  export type FabricCanvasCountOutputType = {
+    objects: number
+  }
+
+  export type FabricCanvasCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    objects?: boolean | FabricCanvasCountOutputTypeCountObjectsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * FabricCanvasCountOutputType without action
+   */
+  export type FabricCanvasCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FabricCanvasCountOutputType
+     */
+    select?: FabricCanvasCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * FabricCanvasCountOutputType without action
+   */
+  export type FabricCanvasCountOutputTypeCountObjectsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: FabricObjectWhereInput
   }
 
 
@@ -1462,6 +1886,8 @@ export namespace Prisma {
     updatedAt?: boolean
     projects?: boolean | User$projectsArgs<ExtArgs>
     resetTokens?: boolean | User$resetTokensArgs<ExtArgs>
+    fabricProjects?: boolean | User$fabricProjectsArgs<ExtArgs>
+    fabricTemplates?: boolean | User$fabricTemplatesArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -1486,6 +1912,8 @@ export namespace Prisma {
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     projects?: boolean | User$projectsArgs<ExtArgs>
     resetTokens?: boolean | User$resetTokensArgs<ExtArgs>
+    fabricProjects?: boolean | User$fabricProjectsArgs<ExtArgs>
+    fabricTemplates?: boolean | User$fabricTemplatesArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -1495,6 +1923,8 @@ export namespace Prisma {
     objects: {
       projects: Prisma.$ProjectPayload<ExtArgs>[]
       resetTokens: Prisma.$ResetTokenPayload<ExtArgs>[]
+      fabricProjects: Prisma.$FabricProjectPayload<ExtArgs>[]
+      fabricTemplates: Prisma.$FabricTemplatePayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -1869,6 +2299,8 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     projects<T extends User$projectsArgs<ExtArgs> = {}>(args?: Subset<T, User$projectsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "findMany"> | Null>
     resetTokens<T extends User$resetTokensArgs<ExtArgs> = {}>(args?: Subset<T, User$resetTokensArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ResetTokenPayload<ExtArgs>, T, "findMany"> | Null>
+    fabricProjects<T extends User$fabricProjectsArgs<ExtArgs> = {}>(args?: Subset<T, User$fabricProjectsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FabricProjectPayload<ExtArgs>, T, "findMany"> | Null>
+    fabricTemplates<T extends User$fabricTemplatesArgs<ExtArgs> = {}>(args?: Subset<T, User$fabricTemplatesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FabricTemplatePayload<ExtArgs>, T, "findMany"> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2255,6 +2687,46 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: ResetTokenScalarFieldEnum | ResetTokenScalarFieldEnum[]
+  }
+
+  /**
+   * User.fabricProjects
+   */
+  export type User$fabricProjectsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FabricProject
+     */
+    select?: FabricProjectSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FabricProjectInclude<ExtArgs> | null
+    where?: FabricProjectWhereInput
+    orderBy?: FabricProjectOrderByWithRelationInput | FabricProjectOrderByWithRelationInput[]
+    cursor?: FabricProjectWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: FabricProjectScalarFieldEnum | FabricProjectScalarFieldEnum[]
+  }
+
+  /**
+   * User.fabricTemplates
+   */
+  export type User$fabricTemplatesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FabricTemplate
+     */
+    select?: FabricTemplateSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FabricTemplateInclude<ExtArgs> | null
+    where?: FabricTemplateWhereInput
+    orderBy?: FabricTemplateOrderByWithRelationInput | FabricTemplateOrderByWithRelationInput[]
+    cursor?: FabricTemplateWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: FabricTemplateScalarFieldEnum | FabricTemplateScalarFieldEnum[]
   }
 
   /**
@@ -6331,6 +6803,4357 @@ export namespace Prisma {
 
 
   /**
+   * Model FabricProject
+   */
+
+  export type AggregateFabricProject = {
+    _count: FabricProjectCountAggregateOutputType | null
+    _min: FabricProjectMinAggregateOutputType | null
+    _max: FabricProjectMaxAggregateOutputType | null
+  }
+
+  export type FabricProjectMinAggregateOutputType = {
+    id: string | null
+    name: string | null
+    description: string | null
+    icon: string | null
+    userId: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type FabricProjectMaxAggregateOutputType = {
+    id: string | null
+    name: string | null
+    description: string | null
+    icon: string | null
+    userId: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type FabricProjectCountAggregateOutputType = {
+    id: number
+    name: number
+    description: number
+    icon: number
+    userId: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type FabricProjectMinAggregateInputType = {
+    id?: true
+    name?: true
+    description?: true
+    icon?: true
+    userId?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type FabricProjectMaxAggregateInputType = {
+    id?: true
+    name?: true
+    description?: true
+    icon?: true
+    userId?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type FabricProjectCountAggregateInputType = {
+    id?: true
+    name?: true
+    description?: true
+    icon?: true
+    userId?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type FabricProjectAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which FabricProject to aggregate.
+     */
+    where?: FabricProjectWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of FabricProjects to fetch.
+     */
+    orderBy?: FabricProjectOrderByWithRelationInput | FabricProjectOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: FabricProjectWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` FabricProjects from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` FabricProjects.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned FabricProjects
+    **/
+    _count?: true | FabricProjectCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: FabricProjectMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: FabricProjectMaxAggregateInputType
+  }
+
+  export type GetFabricProjectAggregateType<T extends FabricProjectAggregateArgs> = {
+        [P in keyof T & keyof AggregateFabricProject]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateFabricProject[P]>
+      : GetScalarType<T[P], AggregateFabricProject[P]>
+  }
+
+
+
+
+  export type FabricProjectGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: FabricProjectWhereInput
+    orderBy?: FabricProjectOrderByWithAggregationInput | FabricProjectOrderByWithAggregationInput[]
+    by: FabricProjectScalarFieldEnum[] | FabricProjectScalarFieldEnum
+    having?: FabricProjectScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: FabricProjectCountAggregateInputType | true
+    _min?: FabricProjectMinAggregateInputType
+    _max?: FabricProjectMaxAggregateInputType
+  }
+
+  export type FabricProjectGroupByOutputType = {
+    id: string
+    name: string
+    description: string | null
+    icon: string | null
+    userId: string
+    createdAt: Date
+    updatedAt: Date
+    _count: FabricProjectCountAggregateOutputType | null
+    _min: FabricProjectMinAggregateOutputType | null
+    _max: FabricProjectMaxAggregateOutputType | null
+  }
+
+  type GetFabricProjectGroupByPayload<T extends FabricProjectGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<FabricProjectGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof FabricProjectGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], FabricProjectGroupByOutputType[P]>
+            : GetScalarType<T[P], FabricProjectGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type FabricProjectSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    description?: boolean
+    icon?: boolean
+    userId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    canvases?: boolean | FabricProject$canvasesArgs<ExtArgs>
+    _count?: boolean | FabricProjectCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["fabricProject"]>
+
+  export type FabricProjectSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    description?: boolean
+    icon?: boolean
+    userId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["fabricProject"]>
+
+  export type FabricProjectSelectScalar = {
+    id?: boolean
+    name?: boolean
+    description?: boolean
+    icon?: boolean
+    userId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type FabricProjectInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    canvases?: boolean | FabricProject$canvasesArgs<ExtArgs>
+    _count?: boolean | FabricProjectCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type FabricProjectIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+
+  export type $FabricProjectPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "FabricProject"
+    objects: {
+      user: Prisma.$UserPayload<ExtArgs>
+      canvases: Prisma.$FabricCanvasPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      name: string
+      description: string | null
+      icon: string | null
+      userId: string
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["fabricProject"]>
+    composites: {}
+  }
+
+  type FabricProjectGetPayload<S extends boolean | null | undefined | FabricProjectDefaultArgs> = $Result.GetResult<Prisma.$FabricProjectPayload, S>
+
+  type FabricProjectCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<FabricProjectFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: FabricProjectCountAggregateInputType | true
+    }
+
+  export interface FabricProjectDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['FabricProject'], meta: { name: 'FabricProject' } }
+    /**
+     * Find zero or one FabricProject that matches the filter.
+     * @param {FabricProjectFindUniqueArgs} args - Arguments to find a FabricProject
+     * @example
+     * // Get one FabricProject
+     * const fabricProject = await prisma.fabricProject.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends FabricProjectFindUniqueArgs>(args: SelectSubset<T, FabricProjectFindUniqueArgs<ExtArgs>>): Prisma__FabricProjectClient<$Result.GetResult<Prisma.$FabricProjectPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one FabricProject that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {FabricProjectFindUniqueOrThrowArgs} args - Arguments to find a FabricProject
+     * @example
+     * // Get one FabricProject
+     * const fabricProject = await prisma.fabricProject.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends FabricProjectFindUniqueOrThrowArgs>(args: SelectSubset<T, FabricProjectFindUniqueOrThrowArgs<ExtArgs>>): Prisma__FabricProjectClient<$Result.GetResult<Prisma.$FabricProjectPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first FabricProject that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FabricProjectFindFirstArgs} args - Arguments to find a FabricProject
+     * @example
+     * // Get one FabricProject
+     * const fabricProject = await prisma.fabricProject.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends FabricProjectFindFirstArgs>(args?: SelectSubset<T, FabricProjectFindFirstArgs<ExtArgs>>): Prisma__FabricProjectClient<$Result.GetResult<Prisma.$FabricProjectPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first FabricProject that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FabricProjectFindFirstOrThrowArgs} args - Arguments to find a FabricProject
+     * @example
+     * // Get one FabricProject
+     * const fabricProject = await prisma.fabricProject.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends FabricProjectFindFirstOrThrowArgs>(args?: SelectSubset<T, FabricProjectFindFirstOrThrowArgs<ExtArgs>>): Prisma__FabricProjectClient<$Result.GetResult<Prisma.$FabricProjectPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more FabricProjects that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FabricProjectFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all FabricProjects
+     * const fabricProjects = await prisma.fabricProject.findMany()
+     * 
+     * // Get first 10 FabricProjects
+     * const fabricProjects = await prisma.fabricProject.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const fabricProjectWithIdOnly = await prisma.fabricProject.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends FabricProjectFindManyArgs>(args?: SelectSubset<T, FabricProjectFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FabricProjectPayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a FabricProject.
+     * @param {FabricProjectCreateArgs} args - Arguments to create a FabricProject.
+     * @example
+     * // Create one FabricProject
+     * const FabricProject = await prisma.fabricProject.create({
+     *   data: {
+     *     // ... data to create a FabricProject
+     *   }
+     * })
+     * 
+     */
+    create<T extends FabricProjectCreateArgs>(args: SelectSubset<T, FabricProjectCreateArgs<ExtArgs>>): Prisma__FabricProjectClient<$Result.GetResult<Prisma.$FabricProjectPayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many FabricProjects.
+     * @param {FabricProjectCreateManyArgs} args - Arguments to create many FabricProjects.
+     * @example
+     * // Create many FabricProjects
+     * const fabricProject = await prisma.fabricProject.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends FabricProjectCreateManyArgs>(args?: SelectSubset<T, FabricProjectCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many FabricProjects and returns the data saved in the database.
+     * @param {FabricProjectCreateManyAndReturnArgs} args - Arguments to create many FabricProjects.
+     * @example
+     * // Create many FabricProjects
+     * const fabricProject = await prisma.fabricProject.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many FabricProjects and only return the `id`
+     * const fabricProjectWithIdOnly = await prisma.fabricProject.createManyAndReturn({ 
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends FabricProjectCreateManyAndReturnArgs>(args?: SelectSubset<T, FabricProjectCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FabricProjectPayload<ExtArgs>, T, "createManyAndReturn">>
+
+    /**
+     * Delete a FabricProject.
+     * @param {FabricProjectDeleteArgs} args - Arguments to delete one FabricProject.
+     * @example
+     * // Delete one FabricProject
+     * const FabricProject = await prisma.fabricProject.delete({
+     *   where: {
+     *     // ... filter to delete one FabricProject
+     *   }
+     * })
+     * 
+     */
+    delete<T extends FabricProjectDeleteArgs>(args: SelectSubset<T, FabricProjectDeleteArgs<ExtArgs>>): Prisma__FabricProjectClient<$Result.GetResult<Prisma.$FabricProjectPayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one FabricProject.
+     * @param {FabricProjectUpdateArgs} args - Arguments to update one FabricProject.
+     * @example
+     * // Update one FabricProject
+     * const fabricProject = await prisma.fabricProject.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends FabricProjectUpdateArgs>(args: SelectSubset<T, FabricProjectUpdateArgs<ExtArgs>>): Prisma__FabricProjectClient<$Result.GetResult<Prisma.$FabricProjectPayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more FabricProjects.
+     * @param {FabricProjectDeleteManyArgs} args - Arguments to filter FabricProjects to delete.
+     * @example
+     * // Delete a few FabricProjects
+     * const { count } = await prisma.fabricProject.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends FabricProjectDeleteManyArgs>(args?: SelectSubset<T, FabricProjectDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more FabricProjects.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FabricProjectUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many FabricProjects
+     * const fabricProject = await prisma.fabricProject.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends FabricProjectUpdateManyArgs>(args: SelectSubset<T, FabricProjectUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one FabricProject.
+     * @param {FabricProjectUpsertArgs} args - Arguments to update or create a FabricProject.
+     * @example
+     * // Update or create a FabricProject
+     * const fabricProject = await prisma.fabricProject.upsert({
+     *   create: {
+     *     // ... data to create a FabricProject
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the FabricProject we want to update
+     *   }
+     * })
+     */
+    upsert<T extends FabricProjectUpsertArgs>(args: SelectSubset<T, FabricProjectUpsertArgs<ExtArgs>>): Prisma__FabricProjectClient<$Result.GetResult<Prisma.$FabricProjectPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of FabricProjects.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FabricProjectCountArgs} args - Arguments to filter FabricProjects to count.
+     * @example
+     * // Count the number of FabricProjects
+     * const count = await prisma.fabricProject.count({
+     *   where: {
+     *     // ... the filter for the FabricProjects we want to count
+     *   }
+     * })
+    **/
+    count<T extends FabricProjectCountArgs>(
+      args?: Subset<T, FabricProjectCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], FabricProjectCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a FabricProject.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FabricProjectAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends FabricProjectAggregateArgs>(args: Subset<T, FabricProjectAggregateArgs>): Prisma.PrismaPromise<GetFabricProjectAggregateType<T>>
+
+    /**
+     * Group by FabricProject.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FabricProjectGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends FabricProjectGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: FabricProjectGroupByArgs['orderBy'] }
+        : { orderBy?: FabricProjectGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, FabricProjectGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetFabricProjectGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the FabricProject model
+   */
+  readonly fields: FabricProjectFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for FabricProject.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__FabricProjectClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
+    canvases<T extends FabricProject$canvasesArgs<ExtArgs> = {}>(args?: Subset<T, FabricProject$canvasesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FabricCanvasPayload<ExtArgs>, T, "findMany"> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the FabricProject model
+   */ 
+  interface FabricProjectFieldRefs {
+    readonly id: FieldRef<"FabricProject", 'String'>
+    readonly name: FieldRef<"FabricProject", 'String'>
+    readonly description: FieldRef<"FabricProject", 'String'>
+    readonly icon: FieldRef<"FabricProject", 'String'>
+    readonly userId: FieldRef<"FabricProject", 'String'>
+    readonly createdAt: FieldRef<"FabricProject", 'DateTime'>
+    readonly updatedAt: FieldRef<"FabricProject", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * FabricProject findUnique
+   */
+  export type FabricProjectFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FabricProject
+     */
+    select?: FabricProjectSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FabricProjectInclude<ExtArgs> | null
+    /**
+     * Filter, which FabricProject to fetch.
+     */
+    where: FabricProjectWhereUniqueInput
+  }
+
+  /**
+   * FabricProject findUniqueOrThrow
+   */
+  export type FabricProjectFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FabricProject
+     */
+    select?: FabricProjectSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FabricProjectInclude<ExtArgs> | null
+    /**
+     * Filter, which FabricProject to fetch.
+     */
+    where: FabricProjectWhereUniqueInput
+  }
+
+  /**
+   * FabricProject findFirst
+   */
+  export type FabricProjectFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FabricProject
+     */
+    select?: FabricProjectSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FabricProjectInclude<ExtArgs> | null
+    /**
+     * Filter, which FabricProject to fetch.
+     */
+    where?: FabricProjectWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of FabricProjects to fetch.
+     */
+    orderBy?: FabricProjectOrderByWithRelationInput | FabricProjectOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for FabricProjects.
+     */
+    cursor?: FabricProjectWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` FabricProjects from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` FabricProjects.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of FabricProjects.
+     */
+    distinct?: FabricProjectScalarFieldEnum | FabricProjectScalarFieldEnum[]
+  }
+
+  /**
+   * FabricProject findFirstOrThrow
+   */
+  export type FabricProjectFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FabricProject
+     */
+    select?: FabricProjectSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FabricProjectInclude<ExtArgs> | null
+    /**
+     * Filter, which FabricProject to fetch.
+     */
+    where?: FabricProjectWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of FabricProjects to fetch.
+     */
+    orderBy?: FabricProjectOrderByWithRelationInput | FabricProjectOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for FabricProjects.
+     */
+    cursor?: FabricProjectWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` FabricProjects from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` FabricProjects.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of FabricProjects.
+     */
+    distinct?: FabricProjectScalarFieldEnum | FabricProjectScalarFieldEnum[]
+  }
+
+  /**
+   * FabricProject findMany
+   */
+  export type FabricProjectFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FabricProject
+     */
+    select?: FabricProjectSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FabricProjectInclude<ExtArgs> | null
+    /**
+     * Filter, which FabricProjects to fetch.
+     */
+    where?: FabricProjectWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of FabricProjects to fetch.
+     */
+    orderBy?: FabricProjectOrderByWithRelationInput | FabricProjectOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing FabricProjects.
+     */
+    cursor?: FabricProjectWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` FabricProjects from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` FabricProjects.
+     */
+    skip?: number
+    distinct?: FabricProjectScalarFieldEnum | FabricProjectScalarFieldEnum[]
+  }
+
+  /**
+   * FabricProject create
+   */
+  export type FabricProjectCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FabricProject
+     */
+    select?: FabricProjectSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FabricProjectInclude<ExtArgs> | null
+    /**
+     * The data needed to create a FabricProject.
+     */
+    data: XOR<FabricProjectCreateInput, FabricProjectUncheckedCreateInput>
+  }
+
+  /**
+   * FabricProject createMany
+   */
+  export type FabricProjectCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many FabricProjects.
+     */
+    data: FabricProjectCreateManyInput | FabricProjectCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * FabricProject createManyAndReturn
+   */
+  export type FabricProjectCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FabricProject
+     */
+    select?: FabricProjectSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * The data used to create many FabricProjects.
+     */
+    data: FabricProjectCreateManyInput | FabricProjectCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FabricProjectIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * FabricProject update
+   */
+  export type FabricProjectUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FabricProject
+     */
+    select?: FabricProjectSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FabricProjectInclude<ExtArgs> | null
+    /**
+     * The data needed to update a FabricProject.
+     */
+    data: XOR<FabricProjectUpdateInput, FabricProjectUncheckedUpdateInput>
+    /**
+     * Choose, which FabricProject to update.
+     */
+    where: FabricProjectWhereUniqueInput
+  }
+
+  /**
+   * FabricProject updateMany
+   */
+  export type FabricProjectUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update FabricProjects.
+     */
+    data: XOR<FabricProjectUpdateManyMutationInput, FabricProjectUncheckedUpdateManyInput>
+    /**
+     * Filter which FabricProjects to update
+     */
+    where?: FabricProjectWhereInput
+  }
+
+  /**
+   * FabricProject upsert
+   */
+  export type FabricProjectUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FabricProject
+     */
+    select?: FabricProjectSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FabricProjectInclude<ExtArgs> | null
+    /**
+     * The filter to search for the FabricProject to update in case it exists.
+     */
+    where: FabricProjectWhereUniqueInput
+    /**
+     * In case the FabricProject found by the `where` argument doesn't exist, create a new FabricProject with this data.
+     */
+    create: XOR<FabricProjectCreateInput, FabricProjectUncheckedCreateInput>
+    /**
+     * In case the FabricProject was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<FabricProjectUpdateInput, FabricProjectUncheckedUpdateInput>
+  }
+
+  /**
+   * FabricProject delete
+   */
+  export type FabricProjectDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FabricProject
+     */
+    select?: FabricProjectSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FabricProjectInclude<ExtArgs> | null
+    /**
+     * Filter which FabricProject to delete.
+     */
+    where: FabricProjectWhereUniqueInput
+  }
+
+  /**
+   * FabricProject deleteMany
+   */
+  export type FabricProjectDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which FabricProjects to delete
+     */
+    where?: FabricProjectWhereInput
+  }
+
+  /**
+   * FabricProject.canvases
+   */
+  export type FabricProject$canvasesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FabricCanvas
+     */
+    select?: FabricCanvasSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FabricCanvasInclude<ExtArgs> | null
+    where?: FabricCanvasWhereInput
+    orderBy?: FabricCanvasOrderByWithRelationInput | FabricCanvasOrderByWithRelationInput[]
+    cursor?: FabricCanvasWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: FabricCanvasScalarFieldEnum | FabricCanvasScalarFieldEnum[]
+  }
+
+  /**
+   * FabricProject without action
+   */
+  export type FabricProjectDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FabricProject
+     */
+    select?: FabricProjectSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FabricProjectInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model FabricCanvas
+   */
+
+  export type AggregateFabricCanvas = {
+    _count: FabricCanvasCountAggregateOutputType | null
+    _avg: FabricCanvasAvgAggregateOutputType | null
+    _sum: FabricCanvasSumAggregateOutputType | null
+    _min: FabricCanvasMinAggregateOutputType | null
+    _max: FabricCanvasMaxAggregateOutputType | null
+  }
+
+  export type FabricCanvasAvgAggregateOutputType = {
+    width: number | null
+    height: number | null
+    version: number | null
+  }
+
+  export type FabricCanvasSumAggregateOutputType = {
+    width: number | null
+    height: number | null
+    version: number | null
+  }
+
+  export type FabricCanvasMinAggregateOutputType = {
+    id: string | null
+    name: string | null
+    width: number | null
+    height: number | null
+    unit: string | null
+    background: string | null
+    projectId: string | null
+    version: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type FabricCanvasMaxAggregateOutputType = {
+    id: string | null
+    name: string | null
+    width: number | null
+    height: number | null
+    unit: string | null
+    background: string | null
+    projectId: string | null
+    version: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type FabricCanvasCountAggregateOutputType = {
+    id: number
+    name: number
+    width: number
+    height: number
+    unit: number
+    background: number
+    projectId: number
+    version: number
+    metadata: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type FabricCanvasAvgAggregateInputType = {
+    width?: true
+    height?: true
+    version?: true
+  }
+
+  export type FabricCanvasSumAggregateInputType = {
+    width?: true
+    height?: true
+    version?: true
+  }
+
+  export type FabricCanvasMinAggregateInputType = {
+    id?: true
+    name?: true
+    width?: true
+    height?: true
+    unit?: true
+    background?: true
+    projectId?: true
+    version?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type FabricCanvasMaxAggregateInputType = {
+    id?: true
+    name?: true
+    width?: true
+    height?: true
+    unit?: true
+    background?: true
+    projectId?: true
+    version?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type FabricCanvasCountAggregateInputType = {
+    id?: true
+    name?: true
+    width?: true
+    height?: true
+    unit?: true
+    background?: true
+    projectId?: true
+    version?: true
+    metadata?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type FabricCanvasAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which FabricCanvas to aggregate.
+     */
+    where?: FabricCanvasWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of FabricCanvas to fetch.
+     */
+    orderBy?: FabricCanvasOrderByWithRelationInput | FabricCanvasOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: FabricCanvasWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` FabricCanvas from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` FabricCanvas.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned FabricCanvas
+    **/
+    _count?: true | FabricCanvasCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: FabricCanvasAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: FabricCanvasSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: FabricCanvasMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: FabricCanvasMaxAggregateInputType
+  }
+
+  export type GetFabricCanvasAggregateType<T extends FabricCanvasAggregateArgs> = {
+        [P in keyof T & keyof AggregateFabricCanvas]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateFabricCanvas[P]>
+      : GetScalarType<T[P], AggregateFabricCanvas[P]>
+  }
+
+
+
+
+  export type FabricCanvasGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: FabricCanvasWhereInput
+    orderBy?: FabricCanvasOrderByWithAggregationInput | FabricCanvasOrderByWithAggregationInput[]
+    by: FabricCanvasScalarFieldEnum[] | FabricCanvasScalarFieldEnum
+    having?: FabricCanvasScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: FabricCanvasCountAggregateInputType | true
+    _avg?: FabricCanvasAvgAggregateInputType
+    _sum?: FabricCanvasSumAggregateInputType
+    _min?: FabricCanvasMinAggregateInputType
+    _max?: FabricCanvasMaxAggregateInputType
+  }
+
+  export type FabricCanvasGroupByOutputType = {
+    id: string
+    name: string
+    width: number
+    height: number
+    unit: string
+    background: string | null
+    projectId: string
+    version: number
+    metadata: JsonValue | null
+    createdAt: Date
+    updatedAt: Date
+    _count: FabricCanvasCountAggregateOutputType | null
+    _avg: FabricCanvasAvgAggregateOutputType | null
+    _sum: FabricCanvasSumAggregateOutputType | null
+    _min: FabricCanvasMinAggregateOutputType | null
+    _max: FabricCanvasMaxAggregateOutputType | null
+  }
+
+  type GetFabricCanvasGroupByPayload<T extends FabricCanvasGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<FabricCanvasGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof FabricCanvasGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], FabricCanvasGroupByOutputType[P]>
+            : GetScalarType<T[P], FabricCanvasGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type FabricCanvasSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    width?: boolean
+    height?: boolean
+    unit?: boolean
+    background?: boolean
+    projectId?: boolean
+    version?: boolean
+    metadata?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    project?: boolean | FabricProjectDefaultArgs<ExtArgs>
+    objects?: boolean | FabricCanvas$objectsArgs<ExtArgs>
+    _count?: boolean | FabricCanvasCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["fabricCanvas"]>
+
+  export type FabricCanvasSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    width?: boolean
+    height?: boolean
+    unit?: boolean
+    background?: boolean
+    projectId?: boolean
+    version?: boolean
+    metadata?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    project?: boolean | FabricProjectDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["fabricCanvas"]>
+
+  export type FabricCanvasSelectScalar = {
+    id?: boolean
+    name?: boolean
+    width?: boolean
+    height?: boolean
+    unit?: boolean
+    background?: boolean
+    projectId?: boolean
+    version?: boolean
+    metadata?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type FabricCanvasInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    project?: boolean | FabricProjectDefaultArgs<ExtArgs>
+    objects?: boolean | FabricCanvas$objectsArgs<ExtArgs>
+    _count?: boolean | FabricCanvasCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type FabricCanvasIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    project?: boolean | FabricProjectDefaultArgs<ExtArgs>
+  }
+
+  export type $FabricCanvasPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "FabricCanvas"
+    objects: {
+      project: Prisma.$FabricProjectPayload<ExtArgs>
+      objects: Prisma.$FabricObjectPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      name: string
+      width: number
+      height: number
+      unit: string
+      background: string | null
+      projectId: string
+      version: number
+      metadata: Prisma.JsonValue | null
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["fabricCanvas"]>
+    composites: {}
+  }
+
+  type FabricCanvasGetPayload<S extends boolean | null | undefined | FabricCanvasDefaultArgs> = $Result.GetResult<Prisma.$FabricCanvasPayload, S>
+
+  type FabricCanvasCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<FabricCanvasFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: FabricCanvasCountAggregateInputType | true
+    }
+
+  export interface FabricCanvasDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['FabricCanvas'], meta: { name: 'FabricCanvas' } }
+    /**
+     * Find zero or one FabricCanvas that matches the filter.
+     * @param {FabricCanvasFindUniqueArgs} args - Arguments to find a FabricCanvas
+     * @example
+     * // Get one FabricCanvas
+     * const fabricCanvas = await prisma.fabricCanvas.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends FabricCanvasFindUniqueArgs>(args: SelectSubset<T, FabricCanvasFindUniqueArgs<ExtArgs>>): Prisma__FabricCanvasClient<$Result.GetResult<Prisma.$FabricCanvasPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one FabricCanvas that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {FabricCanvasFindUniqueOrThrowArgs} args - Arguments to find a FabricCanvas
+     * @example
+     * // Get one FabricCanvas
+     * const fabricCanvas = await prisma.fabricCanvas.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends FabricCanvasFindUniqueOrThrowArgs>(args: SelectSubset<T, FabricCanvasFindUniqueOrThrowArgs<ExtArgs>>): Prisma__FabricCanvasClient<$Result.GetResult<Prisma.$FabricCanvasPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first FabricCanvas that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FabricCanvasFindFirstArgs} args - Arguments to find a FabricCanvas
+     * @example
+     * // Get one FabricCanvas
+     * const fabricCanvas = await prisma.fabricCanvas.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends FabricCanvasFindFirstArgs>(args?: SelectSubset<T, FabricCanvasFindFirstArgs<ExtArgs>>): Prisma__FabricCanvasClient<$Result.GetResult<Prisma.$FabricCanvasPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first FabricCanvas that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FabricCanvasFindFirstOrThrowArgs} args - Arguments to find a FabricCanvas
+     * @example
+     * // Get one FabricCanvas
+     * const fabricCanvas = await prisma.fabricCanvas.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends FabricCanvasFindFirstOrThrowArgs>(args?: SelectSubset<T, FabricCanvasFindFirstOrThrowArgs<ExtArgs>>): Prisma__FabricCanvasClient<$Result.GetResult<Prisma.$FabricCanvasPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more FabricCanvas that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FabricCanvasFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all FabricCanvas
+     * const fabricCanvas = await prisma.fabricCanvas.findMany()
+     * 
+     * // Get first 10 FabricCanvas
+     * const fabricCanvas = await prisma.fabricCanvas.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const fabricCanvasWithIdOnly = await prisma.fabricCanvas.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends FabricCanvasFindManyArgs>(args?: SelectSubset<T, FabricCanvasFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FabricCanvasPayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a FabricCanvas.
+     * @param {FabricCanvasCreateArgs} args - Arguments to create a FabricCanvas.
+     * @example
+     * // Create one FabricCanvas
+     * const FabricCanvas = await prisma.fabricCanvas.create({
+     *   data: {
+     *     // ... data to create a FabricCanvas
+     *   }
+     * })
+     * 
+     */
+    create<T extends FabricCanvasCreateArgs>(args: SelectSubset<T, FabricCanvasCreateArgs<ExtArgs>>): Prisma__FabricCanvasClient<$Result.GetResult<Prisma.$FabricCanvasPayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many FabricCanvas.
+     * @param {FabricCanvasCreateManyArgs} args - Arguments to create many FabricCanvas.
+     * @example
+     * // Create many FabricCanvas
+     * const fabricCanvas = await prisma.fabricCanvas.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends FabricCanvasCreateManyArgs>(args?: SelectSubset<T, FabricCanvasCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many FabricCanvas and returns the data saved in the database.
+     * @param {FabricCanvasCreateManyAndReturnArgs} args - Arguments to create many FabricCanvas.
+     * @example
+     * // Create many FabricCanvas
+     * const fabricCanvas = await prisma.fabricCanvas.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many FabricCanvas and only return the `id`
+     * const fabricCanvasWithIdOnly = await prisma.fabricCanvas.createManyAndReturn({ 
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends FabricCanvasCreateManyAndReturnArgs>(args?: SelectSubset<T, FabricCanvasCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FabricCanvasPayload<ExtArgs>, T, "createManyAndReturn">>
+
+    /**
+     * Delete a FabricCanvas.
+     * @param {FabricCanvasDeleteArgs} args - Arguments to delete one FabricCanvas.
+     * @example
+     * // Delete one FabricCanvas
+     * const FabricCanvas = await prisma.fabricCanvas.delete({
+     *   where: {
+     *     // ... filter to delete one FabricCanvas
+     *   }
+     * })
+     * 
+     */
+    delete<T extends FabricCanvasDeleteArgs>(args: SelectSubset<T, FabricCanvasDeleteArgs<ExtArgs>>): Prisma__FabricCanvasClient<$Result.GetResult<Prisma.$FabricCanvasPayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one FabricCanvas.
+     * @param {FabricCanvasUpdateArgs} args - Arguments to update one FabricCanvas.
+     * @example
+     * // Update one FabricCanvas
+     * const fabricCanvas = await prisma.fabricCanvas.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends FabricCanvasUpdateArgs>(args: SelectSubset<T, FabricCanvasUpdateArgs<ExtArgs>>): Prisma__FabricCanvasClient<$Result.GetResult<Prisma.$FabricCanvasPayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more FabricCanvas.
+     * @param {FabricCanvasDeleteManyArgs} args - Arguments to filter FabricCanvas to delete.
+     * @example
+     * // Delete a few FabricCanvas
+     * const { count } = await prisma.fabricCanvas.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends FabricCanvasDeleteManyArgs>(args?: SelectSubset<T, FabricCanvasDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more FabricCanvas.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FabricCanvasUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many FabricCanvas
+     * const fabricCanvas = await prisma.fabricCanvas.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends FabricCanvasUpdateManyArgs>(args: SelectSubset<T, FabricCanvasUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one FabricCanvas.
+     * @param {FabricCanvasUpsertArgs} args - Arguments to update or create a FabricCanvas.
+     * @example
+     * // Update or create a FabricCanvas
+     * const fabricCanvas = await prisma.fabricCanvas.upsert({
+     *   create: {
+     *     // ... data to create a FabricCanvas
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the FabricCanvas we want to update
+     *   }
+     * })
+     */
+    upsert<T extends FabricCanvasUpsertArgs>(args: SelectSubset<T, FabricCanvasUpsertArgs<ExtArgs>>): Prisma__FabricCanvasClient<$Result.GetResult<Prisma.$FabricCanvasPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of FabricCanvas.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FabricCanvasCountArgs} args - Arguments to filter FabricCanvas to count.
+     * @example
+     * // Count the number of FabricCanvas
+     * const count = await prisma.fabricCanvas.count({
+     *   where: {
+     *     // ... the filter for the FabricCanvas we want to count
+     *   }
+     * })
+    **/
+    count<T extends FabricCanvasCountArgs>(
+      args?: Subset<T, FabricCanvasCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], FabricCanvasCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a FabricCanvas.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FabricCanvasAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends FabricCanvasAggregateArgs>(args: Subset<T, FabricCanvasAggregateArgs>): Prisma.PrismaPromise<GetFabricCanvasAggregateType<T>>
+
+    /**
+     * Group by FabricCanvas.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FabricCanvasGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends FabricCanvasGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: FabricCanvasGroupByArgs['orderBy'] }
+        : { orderBy?: FabricCanvasGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, FabricCanvasGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetFabricCanvasGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the FabricCanvas model
+   */
+  readonly fields: FabricCanvasFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for FabricCanvas.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__FabricCanvasClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    project<T extends FabricProjectDefaultArgs<ExtArgs> = {}>(args?: Subset<T, FabricProjectDefaultArgs<ExtArgs>>): Prisma__FabricProjectClient<$Result.GetResult<Prisma.$FabricProjectPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
+    objects<T extends FabricCanvas$objectsArgs<ExtArgs> = {}>(args?: Subset<T, FabricCanvas$objectsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FabricObjectPayload<ExtArgs>, T, "findMany"> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the FabricCanvas model
+   */ 
+  interface FabricCanvasFieldRefs {
+    readonly id: FieldRef<"FabricCanvas", 'String'>
+    readonly name: FieldRef<"FabricCanvas", 'String'>
+    readonly width: FieldRef<"FabricCanvas", 'Float'>
+    readonly height: FieldRef<"FabricCanvas", 'Float'>
+    readonly unit: FieldRef<"FabricCanvas", 'String'>
+    readonly background: FieldRef<"FabricCanvas", 'String'>
+    readonly projectId: FieldRef<"FabricCanvas", 'String'>
+    readonly version: FieldRef<"FabricCanvas", 'Int'>
+    readonly metadata: FieldRef<"FabricCanvas", 'Json'>
+    readonly createdAt: FieldRef<"FabricCanvas", 'DateTime'>
+    readonly updatedAt: FieldRef<"FabricCanvas", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * FabricCanvas findUnique
+   */
+  export type FabricCanvasFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FabricCanvas
+     */
+    select?: FabricCanvasSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FabricCanvasInclude<ExtArgs> | null
+    /**
+     * Filter, which FabricCanvas to fetch.
+     */
+    where: FabricCanvasWhereUniqueInput
+  }
+
+  /**
+   * FabricCanvas findUniqueOrThrow
+   */
+  export type FabricCanvasFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FabricCanvas
+     */
+    select?: FabricCanvasSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FabricCanvasInclude<ExtArgs> | null
+    /**
+     * Filter, which FabricCanvas to fetch.
+     */
+    where: FabricCanvasWhereUniqueInput
+  }
+
+  /**
+   * FabricCanvas findFirst
+   */
+  export type FabricCanvasFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FabricCanvas
+     */
+    select?: FabricCanvasSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FabricCanvasInclude<ExtArgs> | null
+    /**
+     * Filter, which FabricCanvas to fetch.
+     */
+    where?: FabricCanvasWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of FabricCanvas to fetch.
+     */
+    orderBy?: FabricCanvasOrderByWithRelationInput | FabricCanvasOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for FabricCanvas.
+     */
+    cursor?: FabricCanvasWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` FabricCanvas from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` FabricCanvas.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of FabricCanvas.
+     */
+    distinct?: FabricCanvasScalarFieldEnum | FabricCanvasScalarFieldEnum[]
+  }
+
+  /**
+   * FabricCanvas findFirstOrThrow
+   */
+  export type FabricCanvasFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FabricCanvas
+     */
+    select?: FabricCanvasSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FabricCanvasInclude<ExtArgs> | null
+    /**
+     * Filter, which FabricCanvas to fetch.
+     */
+    where?: FabricCanvasWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of FabricCanvas to fetch.
+     */
+    orderBy?: FabricCanvasOrderByWithRelationInput | FabricCanvasOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for FabricCanvas.
+     */
+    cursor?: FabricCanvasWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` FabricCanvas from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` FabricCanvas.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of FabricCanvas.
+     */
+    distinct?: FabricCanvasScalarFieldEnum | FabricCanvasScalarFieldEnum[]
+  }
+
+  /**
+   * FabricCanvas findMany
+   */
+  export type FabricCanvasFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FabricCanvas
+     */
+    select?: FabricCanvasSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FabricCanvasInclude<ExtArgs> | null
+    /**
+     * Filter, which FabricCanvas to fetch.
+     */
+    where?: FabricCanvasWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of FabricCanvas to fetch.
+     */
+    orderBy?: FabricCanvasOrderByWithRelationInput | FabricCanvasOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing FabricCanvas.
+     */
+    cursor?: FabricCanvasWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` FabricCanvas from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` FabricCanvas.
+     */
+    skip?: number
+    distinct?: FabricCanvasScalarFieldEnum | FabricCanvasScalarFieldEnum[]
+  }
+
+  /**
+   * FabricCanvas create
+   */
+  export type FabricCanvasCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FabricCanvas
+     */
+    select?: FabricCanvasSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FabricCanvasInclude<ExtArgs> | null
+    /**
+     * The data needed to create a FabricCanvas.
+     */
+    data: XOR<FabricCanvasCreateInput, FabricCanvasUncheckedCreateInput>
+  }
+
+  /**
+   * FabricCanvas createMany
+   */
+  export type FabricCanvasCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many FabricCanvas.
+     */
+    data: FabricCanvasCreateManyInput | FabricCanvasCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * FabricCanvas createManyAndReturn
+   */
+  export type FabricCanvasCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FabricCanvas
+     */
+    select?: FabricCanvasSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * The data used to create many FabricCanvas.
+     */
+    data: FabricCanvasCreateManyInput | FabricCanvasCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FabricCanvasIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * FabricCanvas update
+   */
+  export type FabricCanvasUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FabricCanvas
+     */
+    select?: FabricCanvasSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FabricCanvasInclude<ExtArgs> | null
+    /**
+     * The data needed to update a FabricCanvas.
+     */
+    data: XOR<FabricCanvasUpdateInput, FabricCanvasUncheckedUpdateInput>
+    /**
+     * Choose, which FabricCanvas to update.
+     */
+    where: FabricCanvasWhereUniqueInput
+  }
+
+  /**
+   * FabricCanvas updateMany
+   */
+  export type FabricCanvasUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update FabricCanvas.
+     */
+    data: XOR<FabricCanvasUpdateManyMutationInput, FabricCanvasUncheckedUpdateManyInput>
+    /**
+     * Filter which FabricCanvas to update
+     */
+    where?: FabricCanvasWhereInput
+  }
+
+  /**
+   * FabricCanvas upsert
+   */
+  export type FabricCanvasUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FabricCanvas
+     */
+    select?: FabricCanvasSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FabricCanvasInclude<ExtArgs> | null
+    /**
+     * The filter to search for the FabricCanvas to update in case it exists.
+     */
+    where: FabricCanvasWhereUniqueInput
+    /**
+     * In case the FabricCanvas found by the `where` argument doesn't exist, create a new FabricCanvas with this data.
+     */
+    create: XOR<FabricCanvasCreateInput, FabricCanvasUncheckedCreateInput>
+    /**
+     * In case the FabricCanvas was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<FabricCanvasUpdateInput, FabricCanvasUncheckedUpdateInput>
+  }
+
+  /**
+   * FabricCanvas delete
+   */
+  export type FabricCanvasDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FabricCanvas
+     */
+    select?: FabricCanvasSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FabricCanvasInclude<ExtArgs> | null
+    /**
+     * Filter which FabricCanvas to delete.
+     */
+    where: FabricCanvasWhereUniqueInput
+  }
+
+  /**
+   * FabricCanvas deleteMany
+   */
+  export type FabricCanvasDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which FabricCanvas to delete
+     */
+    where?: FabricCanvasWhereInput
+  }
+
+  /**
+   * FabricCanvas.objects
+   */
+  export type FabricCanvas$objectsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FabricObject
+     */
+    select?: FabricObjectSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FabricObjectInclude<ExtArgs> | null
+    where?: FabricObjectWhereInput
+    orderBy?: FabricObjectOrderByWithRelationInput | FabricObjectOrderByWithRelationInput[]
+    cursor?: FabricObjectWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: FabricObjectScalarFieldEnum | FabricObjectScalarFieldEnum[]
+  }
+
+  /**
+   * FabricCanvas without action
+   */
+  export type FabricCanvasDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FabricCanvas
+     */
+    select?: FabricCanvasSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FabricCanvasInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model FabricObject
+   */
+
+  export type AggregateFabricObject = {
+    _count: FabricObjectCountAggregateOutputType | null
+    _avg: FabricObjectAvgAggregateOutputType | null
+    _sum: FabricObjectSumAggregateOutputType | null
+    _min: FabricObjectMinAggregateOutputType | null
+    _max: FabricObjectMaxAggregateOutputType | null
+  }
+
+  export type FabricObjectAvgAggregateOutputType = {
+    left: number | null
+    top: number | null
+    width: number | null
+    height: number | null
+    scaleX: number | null
+    scaleY: number | null
+    angle: number | null
+    strokeWidth: number | null
+    opacity: number | null
+    fontSize: number | null
+    uuidLength: number | null
+    zIndex: number | null
+  }
+
+  export type FabricObjectSumAggregateOutputType = {
+    left: number | null
+    top: number | null
+    width: number | null
+    height: number | null
+    scaleX: number | null
+    scaleY: number | null
+    angle: number | null
+    strokeWidth: number | null
+    opacity: number | null
+    fontSize: number | null
+    uuidLength: number | null
+    zIndex: number | null
+  }
+
+  export type FabricObjectMinAggregateOutputType = {
+    id: string | null
+    type: string | null
+    canvasId: string | null
+    left: number | null
+    top: number | null
+    width: number | null
+    height: number | null
+    scaleX: number | null
+    scaleY: number | null
+    angle: number | null
+    fill: string | null
+    stroke: string | null
+    strokeWidth: number | null
+    opacity: number | null
+    text: string | null
+    fontFamily: string | null
+    fontSize: number | null
+    fontWeight: string | null
+    fontStyle: string | null
+    textAlign: string | null
+    qrValue: string | null
+    uuidLength: number | null
+    qrErrorLevel: string | null
+    zIndex: number | null
+    locked: boolean | null
+    visible: boolean | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type FabricObjectMaxAggregateOutputType = {
+    id: string | null
+    type: string | null
+    canvasId: string | null
+    left: number | null
+    top: number | null
+    width: number | null
+    height: number | null
+    scaleX: number | null
+    scaleY: number | null
+    angle: number | null
+    fill: string | null
+    stroke: string | null
+    strokeWidth: number | null
+    opacity: number | null
+    text: string | null
+    fontFamily: string | null
+    fontSize: number | null
+    fontWeight: string | null
+    fontStyle: string | null
+    textAlign: string | null
+    qrValue: string | null
+    uuidLength: number | null
+    qrErrorLevel: string | null
+    zIndex: number | null
+    locked: boolean | null
+    visible: boolean | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type FabricObjectCountAggregateOutputType = {
+    id: number
+    type: number
+    canvasId: number
+    left: number
+    top: number
+    width: number
+    height: number
+    scaleX: number
+    scaleY: number
+    angle: number
+    fill: number
+    stroke: number
+    strokeWidth: number
+    opacity: number
+    text: number
+    fontFamily: number
+    fontSize: number
+    fontWeight: number
+    fontStyle: number
+    textAlign: number
+    qrValue: number
+    uuidLength: number
+    qrErrorLevel: number
+    zIndex: number
+    locked: number
+    visible: number
+    metadata: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type FabricObjectAvgAggregateInputType = {
+    left?: true
+    top?: true
+    width?: true
+    height?: true
+    scaleX?: true
+    scaleY?: true
+    angle?: true
+    strokeWidth?: true
+    opacity?: true
+    fontSize?: true
+    uuidLength?: true
+    zIndex?: true
+  }
+
+  export type FabricObjectSumAggregateInputType = {
+    left?: true
+    top?: true
+    width?: true
+    height?: true
+    scaleX?: true
+    scaleY?: true
+    angle?: true
+    strokeWidth?: true
+    opacity?: true
+    fontSize?: true
+    uuidLength?: true
+    zIndex?: true
+  }
+
+  export type FabricObjectMinAggregateInputType = {
+    id?: true
+    type?: true
+    canvasId?: true
+    left?: true
+    top?: true
+    width?: true
+    height?: true
+    scaleX?: true
+    scaleY?: true
+    angle?: true
+    fill?: true
+    stroke?: true
+    strokeWidth?: true
+    opacity?: true
+    text?: true
+    fontFamily?: true
+    fontSize?: true
+    fontWeight?: true
+    fontStyle?: true
+    textAlign?: true
+    qrValue?: true
+    uuidLength?: true
+    qrErrorLevel?: true
+    zIndex?: true
+    locked?: true
+    visible?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type FabricObjectMaxAggregateInputType = {
+    id?: true
+    type?: true
+    canvasId?: true
+    left?: true
+    top?: true
+    width?: true
+    height?: true
+    scaleX?: true
+    scaleY?: true
+    angle?: true
+    fill?: true
+    stroke?: true
+    strokeWidth?: true
+    opacity?: true
+    text?: true
+    fontFamily?: true
+    fontSize?: true
+    fontWeight?: true
+    fontStyle?: true
+    textAlign?: true
+    qrValue?: true
+    uuidLength?: true
+    qrErrorLevel?: true
+    zIndex?: true
+    locked?: true
+    visible?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type FabricObjectCountAggregateInputType = {
+    id?: true
+    type?: true
+    canvasId?: true
+    left?: true
+    top?: true
+    width?: true
+    height?: true
+    scaleX?: true
+    scaleY?: true
+    angle?: true
+    fill?: true
+    stroke?: true
+    strokeWidth?: true
+    opacity?: true
+    text?: true
+    fontFamily?: true
+    fontSize?: true
+    fontWeight?: true
+    fontStyle?: true
+    textAlign?: true
+    qrValue?: true
+    uuidLength?: true
+    qrErrorLevel?: true
+    zIndex?: true
+    locked?: true
+    visible?: true
+    metadata?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type FabricObjectAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which FabricObject to aggregate.
+     */
+    where?: FabricObjectWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of FabricObjects to fetch.
+     */
+    orderBy?: FabricObjectOrderByWithRelationInput | FabricObjectOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: FabricObjectWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` FabricObjects from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` FabricObjects.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned FabricObjects
+    **/
+    _count?: true | FabricObjectCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: FabricObjectAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: FabricObjectSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: FabricObjectMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: FabricObjectMaxAggregateInputType
+  }
+
+  export type GetFabricObjectAggregateType<T extends FabricObjectAggregateArgs> = {
+        [P in keyof T & keyof AggregateFabricObject]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateFabricObject[P]>
+      : GetScalarType<T[P], AggregateFabricObject[P]>
+  }
+
+
+
+
+  export type FabricObjectGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: FabricObjectWhereInput
+    orderBy?: FabricObjectOrderByWithAggregationInput | FabricObjectOrderByWithAggregationInput[]
+    by: FabricObjectScalarFieldEnum[] | FabricObjectScalarFieldEnum
+    having?: FabricObjectScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: FabricObjectCountAggregateInputType | true
+    _avg?: FabricObjectAvgAggregateInputType
+    _sum?: FabricObjectSumAggregateInputType
+    _min?: FabricObjectMinAggregateInputType
+    _max?: FabricObjectMaxAggregateInputType
+  }
+
+  export type FabricObjectGroupByOutputType = {
+    id: string
+    type: string
+    canvasId: string
+    left: number
+    top: number
+    width: number
+    height: number
+    scaleX: number
+    scaleY: number
+    angle: number
+    fill: string | null
+    stroke: string | null
+    strokeWidth: number | null
+    opacity: number
+    text: string | null
+    fontFamily: string | null
+    fontSize: number | null
+    fontWeight: string | null
+    fontStyle: string | null
+    textAlign: string | null
+    qrValue: string | null
+    uuidLength: number | null
+    qrErrorLevel: string | null
+    zIndex: number
+    locked: boolean
+    visible: boolean
+    metadata: JsonValue | null
+    createdAt: Date
+    updatedAt: Date
+    _count: FabricObjectCountAggregateOutputType | null
+    _avg: FabricObjectAvgAggregateOutputType | null
+    _sum: FabricObjectSumAggregateOutputType | null
+    _min: FabricObjectMinAggregateOutputType | null
+    _max: FabricObjectMaxAggregateOutputType | null
+  }
+
+  type GetFabricObjectGroupByPayload<T extends FabricObjectGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<FabricObjectGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof FabricObjectGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], FabricObjectGroupByOutputType[P]>
+            : GetScalarType<T[P], FabricObjectGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type FabricObjectSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    type?: boolean
+    canvasId?: boolean
+    left?: boolean
+    top?: boolean
+    width?: boolean
+    height?: boolean
+    scaleX?: boolean
+    scaleY?: boolean
+    angle?: boolean
+    fill?: boolean
+    stroke?: boolean
+    strokeWidth?: boolean
+    opacity?: boolean
+    text?: boolean
+    fontFamily?: boolean
+    fontSize?: boolean
+    fontWeight?: boolean
+    fontStyle?: boolean
+    textAlign?: boolean
+    qrValue?: boolean
+    uuidLength?: boolean
+    qrErrorLevel?: boolean
+    zIndex?: boolean
+    locked?: boolean
+    visible?: boolean
+    metadata?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    canvas?: boolean | FabricCanvasDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["fabricObject"]>
+
+  export type FabricObjectSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    type?: boolean
+    canvasId?: boolean
+    left?: boolean
+    top?: boolean
+    width?: boolean
+    height?: boolean
+    scaleX?: boolean
+    scaleY?: boolean
+    angle?: boolean
+    fill?: boolean
+    stroke?: boolean
+    strokeWidth?: boolean
+    opacity?: boolean
+    text?: boolean
+    fontFamily?: boolean
+    fontSize?: boolean
+    fontWeight?: boolean
+    fontStyle?: boolean
+    textAlign?: boolean
+    qrValue?: boolean
+    uuidLength?: boolean
+    qrErrorLevel?: boolean
+    zIndex?: boolean
+    locked?: boolean
+    visible?: boolean
+    metadata?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    canvas?: boolean | FabricCanvasDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["fabricObject"]>
+
+  export type FabricObjectSelectScalar = {
+    id?: boolean
+    type?: boolean
+    canvasId?: boolean
+    left?: boolean
+    top?: boolean
+    width?: boolean
+    height?: boolean
+    scaleX?: boolean
+    scaleY?: boolean
+    angle?: boolean
+    fill?: boolean
+    stroke?: boolean
+    strokeWidth?: boolean
+    opacity?: boolean
+    text?: boolean
+    fontFamily?: boolean
+    fontSize?: boolean
+    fontWeight?: boolean
+    fontStyle?: boolean
+    textAlign?: boolean
+    qrValue?: boolean
+    uuidLength?: boolean
+    qrErrorLevel?: boolean
+    zIndex?: boolean
+    locked?: boolean
+    visible?: boolean
+    metadata?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type FabricObjectInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    canvas?: boolean | FabricCanvasDefaultArgs<ExtArgs>
+  }
+  export type FabricObjectIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    canvas?: boolean | FabricCanvasDefaultArgs<ExtArgs>
+  }
+
+  export type $FabricObjectPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "FabricObject"
+    objects: {
+      canvas: Prisma.$FabricCanvasPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      type: string
+      canvasId: string
+      left: number
+      top: number
+      width: number
+      height: number
+      scaleX: number
+      scaleY: number
+      angle: number
+      fill: string | null
+      stroke: string | null
+      strokeWidth: number | null
+      opacity: number
+      text: string | null
+      fontFamily: string | null
+      fontSize: number | null
+      fontWeight: string | null
+      fontStyle: string | null
+      textAlign: string | null
+      qrValue: string | null
+      uuidLength: number | null
+      qrErrorLevel: string | null
+      zIndex: number
+      locked: boolean
+      visible: boolean
+      metadata: Prisma.JsonValue | null
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["fabricObject"]>
+    composites: {}
+  }
+
+  type FabricObjectGetPayload<S extends boolean | null | undefined | FabricObjectDefaultArgs> = $Result.GetResult<Prisma.$FabricObjectPayload, S>
+
+  type FabricObjectCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<FabricObjectFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: FabricObjectCountAggregateInputType | true
+    }
+
+  export interface FabricObjectDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['FabricObject'], meta: { name: 'FabricObject' } }
+    /**
+     * Find zero or one FabricObject that matches the filter.
+     * @param {FabricObjectFindUniqueArgs} args - Arguments to find a FabricObject
+     * @example
+     * // Get one FabricObject
+     * const fabricObject = await prisma.fabricObject.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends FabricObjectFindUniqueArgs>(args: SelectSubset<T, FabricObjectFindUniqueArgs<ExtArgs>>): Prisma__FabricObjectClient<$Result.GetResult<Prisma.$FabricObjectPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one FabricObject that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {FabricObjectFindUniqueOrThrowArgs} args - Arguments to find a FabricObject
+     * @example
+     * // Get one FabricObject
+     * const fabricObject = await prisma.fabricObject.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends FabricObjectFindUniqueOrThrowArgs>(args: SelectSubset<T, FabricObjectFindUniqueOrThrowArgs<ExtArgs>>): Prisma__FabricObjectClient<$Result.GetResult<Prisma.$FabricObjectPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first FabricObject that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FabricObjectFindFirstArgs} args - Arguments to find a FabricObject
+     * @example
+     * // Get one FabricObject
+     * const fabricObject = await prisma.fabricObject.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends FabricObjectFindFirstArgs>(args?: SelectSubset<T, FabricObjectFindFirstArgs<ExtArgs>>): Prisma__FabricObjectClient<$Result.GetResult<Prisma.$FabricObjectPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first FabricObject that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FabricObjectFindFirstOrThrowArgs} args - Arguments to find a FabricObject
+     * @example
+     * // Get one FabricObject
+     * const fabricObject = await prisma.fabricObject.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends FabricObjectFindFirstOrThrowArgs>(args?: SelectSubset<T, FabricObjectFindFirstOrThrowArgs<ExtArgs>>): Prisma__FabricObjectClient<$Result.GetResult<Prisma.$FabricObjectPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more FabricObjects that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FabricObjectFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all FabricObjects
+     * const fabricObjects = await prisma.fabricObject.findMany()
+     * 
+     * // Get first 10 FabricObjects
+     * const fabricObjects = await prisma.fabricObject.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const fabricObjectWithIdOnly = await prisma.fabricObject.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends FabricObjectFindManyArgs>(args?: SelectSubset<T, FabricObjectFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FabricObjectPayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a FabricObject.
+     * @param {FabricObjectCreateArgs} args - Arguments to create a FabricObject.
+     * @example
+     * // Create one FabricObject
+     * const FabricObject = await prisma.fabricObject.create({
+     *   data: {
+     *     // ... data to create a FabricObject
+     *   }
+     * })
+     * 
+     */
+    create<T extends FabricObjectCreateArgs>(args: SelectSubset<T, FabricObjectCreateArgs<ExtArgs>>): Prisma__FabricObjectClient<$Result.GetResult<Prisma.$FabricObjectPayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many FabricObjects.
+     * @param {FabricObjectCreateManyArgs} args - Arguments to create many FabricObjects.
+     * @example
+     * // Create many FabricObjects
+     * const fabricObject = await prisma.fabricObject.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends FabricObjectCreateManyArgs>(args?: SelectSubset<T, FabricObjectCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many FabricObjects and returns the data saved in the database.
+     * @param {FabricObjectCreateManyAndReturnArgs} args - Arguments to create many FabricObjects.
+     * @example
+     * // Create many FabricObjects
+     * const fabricObject = await prisma.fabricObject.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many FabricObjects and only return the `id`
+     * const fabricObjectWithIdOnly = await prisma.fabricObject.createManyAndReturn({ 
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends FabricObjectCreateManyAndReturnArgs>(args?: SelectSubset<T, FabricObjectCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FabricObjectPayload<ExtArgs>, T, "createManyAndReturn">>
+
+    /**
+     * Delete a FabricObject.
+     * @param {FabricObjectDeleteArgs} args - Arguments to delete one FabricObject.
+     * @example
+     * // Delete one FabricObject
+     * const FabricObject = await prisma.fabricObject.delete({
+     *   where: {
+     *     // ... filter to delete one FabricObject
+     *   }
+     * })
+     * 
+     */
+    delete<T extends FabricObjectDeleteArgs>(args: SelectSubset<T, FabricObjectDeleteArgs<ExtArgs>>): Prisma__FabricObjectClient<$Result.GetResult<Prisma.$FabricObjectPayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one FabricObject.
+     * @param {FabricObjectUpdateArgs} args - Arguments to update one FabricObject.
+     * @example
+     * // Update one FabricObject
+     * const fabricObject = await prisma.fabricObject.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends FabricObjectUpdateArgs>(args: SelectSubset<T, FabricObjectUpdateArgs<ExtArgs>>): Prisma__FabricObjectClient<$Result.GetResult<Prisma.$FabricObjectPayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more FabricObjects.
+     * @param {FabricObjectDeleteManyArgs} args - Arguments to filter FabricObjects to delete.
+     * @example
+     * // Delete a few FabricObjects
+     * const { count } = await prisma.fabricObject.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends FabricObjectDeleteManyArgs>(args?: SelectSubset<T, FabricObjectDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more FabricObjects.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FabricObjectUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many FabricObjects
+     * const fabricObject = await prisma.fabricObject.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends FabricObjectUpdateManyArgs>(args: SelectSubset<T, FabricObjectUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one FabricObject.
+     * @param {FabricObjectUpsertArgs} args - Arguments to update or create a FabricObject.
+     * @example
+     * // Update or create a FabricObject
+     * const fabricObject = await prisma.fabricObject.upsert({
+     *   create: {
+     *     // ... data to create a FabricObject
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the FabricObject we want to update
+     *   }
+     * })
+     */
+    upsert<T extends FabricObjectUpsertArgs>(args: SelectSubset<T, FabricObjectUpsertArgs<ExtArgs>>): Prisma__FabricObjectClient<$Result.GetResult<Prisma.$FabricObjectPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of FabricObjects.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FabricObjectCountArgs} args - Arguments to filter FabricObjects to count.
+     * @example
+     * // Count the number of FabricObjects
+     * const count = await prisma.fabricObject.count({
+     *   where: {
+     *     // ... the filter for the FabricObjects we want to count
+     *   }
+     * })
+    **/
+    count<T extends FabricObjectCountArgs>(
+      args?: Subset<T, FabricObjectCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], FabricObjectCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a FabricObject.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FabricObjectAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends FabricObjectAggregateArgs>(args: Subset<T, FabricObjectAggregateArgs>): Prisma.PrismaPromise<GetFabricObjectAggregateType<T>>
+
+    /**
+     * Group by FabricObject.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FabricObjectGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends FabricObjectGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: FabricObjectGroupByArgs['orderBy'] }
+        : { orderBy?: FabricObjectGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, FabricObjectGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetFabricObjectGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the FabricObject model
+   */
+  readonly fields: FabricObjectFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for FabricObject.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__FabricObjectClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    canvas<T extends FabricCanvasDefaultArgs<ExtArgs> = {}>(args?: Subset<T, FabricCanvasDefaultArgs<ExtArgs>>): Prisma__FabricCanvasClient<$Result.GetResult<Prisma.$FabricCanvasPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the FabricObject model
+   */ 
+  interface FabricObjectFieldRefs {
+    readonly id: FieldRef<"FabricObject", 'String'>
+    readonly type: FieldRef<"FabricObject", 'String'>
+    readonly canvasId: FieldRef<"FabricObject", 'String'>
+    readonly left: FieldRef<"FabricObject", 'Float'>
+    readonly top: FieldRef<"FabricObject", 'Float'>
+    readonly width: FieldRef<"FabricObject", 'Float'>
+    readonly height: FieldRef<"FabricObject", 'Float'>
+    readonly scaleX: FieldRef<"FabricObject", 'Float'>
+    readonly scaleY: FieldRef<"FabricObject", 'Float'>
+    readonly angle: FieldRef<"FabricObject", 'Float'>
+    readonly fill: FieldRef<"FabricObject", 'String'>
+    readonly stroke: FieldRef<"FabricObject", 'String'>
+    readonly strokeWidth: FieldRef<"FabricObject", 'Float'>
+    readonly opacity: FieldRef<"FabricObject", 'Float'>
+    readonly text: FieldRef<"FabricObject", 'String'>
+    readonly fontFamily: FieldRef<"FabricObject", 'String'>
+    readonly fontSize: FieldRef<"FabricObject", 'Float'>
+    readonly fontWeight: FieldRef<"FabricObject", 'String'>
+    readonly fontStyle: FieldRef<"FabricObject", 'String'>
+    readonly textAlign: FieldRef<"FabricObject", 'String'>
+    readonly qrValue: FieldRef<"FabricObject", 'String'>
+    readonly uuidLength: FieldRef<"FabricObject", 'Int'>
+    readonly qrErrorLevel: FieldRef<"FabricObject", 'String'>
+    readonly zIndex: FieldRef<"FabricObject", 'Int'>
+    readonly locked: FieldRef<"FabricObject", 'Boolean'>
+    readonly visible: FieldRef<"FabricObject", 'Boolean'>
+    readonly metadata: FieldRef<"FabricObject", 'Json'>
+    readonly createdAt: FieldRef<"FabricObject", 'DateTime'>
+    readonly updatedAt: FieldRef<"FabricObject", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * FabricObject findUnique
+   */
+  export type FabricObjectFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FabricObject
+     */
+    select?: FabricObjectSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FabricObjectInclude<ExtArgs> | null
+    /**
+     * Filter, which FabricObject to fetch.
+     */
+    where: FabricObjectWhereUniqueInput
+  }
+
+  /**
+   * FabricObject findUniqueOrThrow
+   */
+  export type FabricObjectFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FabricObject
+     */
+    select?: FabricObjectSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FabricObjectInclude<ExtArgs> | null
+    /**
+     * Filter, which FabricObject to fetch.
+     */
+    where: FabricObjectWhereUniqueInput
+  }
+
+  /**
+   * FabricObject findFirst
+   */
+  export type FabricObjectFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FabricObject
+     */
+    select?: FabricObjectSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FabricObjectInclude<ExtArgs> | null
+    /**
+     * Filter, which FabricObject to fetch.
+     */
+    where?: FabricObjectWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of FabricObjects to fetch.
+     */
+    orderBy?: FabricObjectOrderByWithRelationInput | FabricObjectOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for FabricObjects.
+     */
+    cursor?: FabricObjectWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` FabricObjects from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` FabricObjects.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of FabricObjects.
+     */
+    distinct?: FabricObjectScalarFieldEnum | FabricObjectScalarFieldEnum[]
+  }
+
+  /**
+   * FabricObject findFirstOrThrow
+   */
+  export type FabricObjectFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FabricObject
+     */
+    select?: FabricObjectSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FabricObjectInclude<ExtArgs> | null
+    /**
+     * Filter, which FabricObject to fetch.
+     */
+    where?: FabricObjectWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of FabricObjects to fetch.
+     */
+    orderBy?: FabricObjectOrderByWithRelationInput | FabricObjectOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for FabricObjects.
+     */
+    cursor?: FabricObjectWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` FabricObjects from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` FabricObjects.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of FabricObjects.
+     */
+    distinct?: FabricObjectScalarFieldEnum | FabricObjectScalarFieldEnum[]
+  }
+
+  /**
+   * FabricObject findMany
+   */
+  export type FabricObjectFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FabricObject
+     */
+    select?: FabricObjectSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FabricObjectInclude<ExtArgs> | null
+    /**
+     * Filter, which FabricObjects to fetch.
+     */
+    where?: FabricObjectWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of FabricObjects to fetch.
+     */
+    orderBy?: FabricObjectOrderByWithRelationInput | FabricObjectOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing FabricObjects.
+     */
+    cursor?: FabricObjectWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` FabricObjects from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` FabricObjects.
+     */
+    skip?: number
+    distinct?: FabricObjectScalarFieldEnum | FabricObjectScalarFieldEnum[]
+  }
+
+  /**
+   * FabricObject create
+   */
+  export type FabricObjectCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FabricObject
+     */
+    select?: FabricObjectSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FabricObjectInclude<ExtArgs> | null
+    /**
+     * The data needed to create a FabricObject.
+     */
+    data: XOR<FabricObjectCreateInput, FabricObjectUncheckedCreateInput>
+  }
+
+  /**
+   * FabricObject createMany
+   */
+  export type FabricObjectCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many FabricObjects.
+     */
+    data: FabricObjectCreateManyInput | FabricObjectCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * FabricObject createManyAndReturn
+   */
+  export type FabricObjectCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FabricObject
+     */
+    select?: FabricObjectSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * The data used to create many FabricObjects.
+     */
+    data: FabricObjectCreateManyInput | FabricObjectCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FabricObjectIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * FabricObject update
+   */
+  export type FabricObjectUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FabricObject
+     */
+    select?: FabricObjectSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FabricObjectInclude<ExtArgs> | null
+    /**
+     * The data needed to update a FabricObject.
+     */
+    data: XOR<FabricObjectUpdateInput, FabricObjectUncheckedUpdateInput>
+    /**
+     * Choose, which FabricObject to update.
+     */
+    where: FabricObjectWhereUniqueInput
+  }
+
+  /**
+   * FabricObject updateMany
+   */
+  export type FabricObjectUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update FabricObjects.
+     */
+    data: XOR<FabricObjectUpdateManyMutationInput, FabricObjectUncheckedUpdateManyInput>
+    /**
+     * Filter which FabricObjects to update
+     */
+    where?: FabricObjectWhereInput
+  }
+
+  /**
+   * FabricObject upsert
+   */
+  export type FabricObjectUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FabricObject
+     */
+    select?: FabricObjectSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FabricObjectInclude<ExtArgs> | null
+    /**
+     * The filter to search for the FabricObject to update in case it exists.
+     */
+    where: FabricObjectWhereUniqueInput
+    /**
+     * In case the FabricObject found by the `where` argument doesn't exist, create a new FabricObject with this data.
+     */
+    create: XOR<FabricObjectCreateInput, FabricObjectUncheckedCreateInput>
+    /**
+     * In case the FabricObject was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<FabricObjectUpdateInput, FabricObjectUncheckedUpdateInput>
+  }
+
+  /**
+   * FabricObject delete
+   */
+  export type FabricObjectDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FabricObject
+     */
+    select?: FabricObjectSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FabricObjectInclude<ExtArgs> | null
+    /**
+     * Filter which FabricObject to delete.
+     */
+    where: FabricObjectWhereUniqueInput
+  }
+
+  /**
+   * FabricObject deleteMany
+   */
+  export type FabricObjectDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which FabricObjects to delete
+     */
+    where?: FabricObjectWhereInput
+  }
+
+  /**
+   * FabricObject without action
+   */
+  export type FabricObjectDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FabricObject
+     */
+    select?: FabricObjectSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FabricObjectInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model FabricTemplate
+   */
+
+  export type AggregateFabricTemplate = {
+    _count: FabricTemplateCountAggregateOutputType | null
+    _min: FabricTemplateMinAggregateOutputType | null
+    _max: FabricTemplateMaxAggregateOutputType | null
+  }
+
+  export type FabricTemplateMinAggregateOutputType = {
+    id: string | null
+    name: string | null
+    description: string | null
+    category: string | null
+    thumbnail: string | null
+    isPublic: boolean | null
+    userId: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type FabricTemplateMaxAggregateOutputType = {
+    id: string | null
+    name: string | null
+    description: string | null
+    category: string | null
+    thumbnail: string | null
+    isPublic: boolean | null
+    userId: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type FabricTemplateCountAggregateOutputType = {
+    id: number
+    name: number
+    description: number
+    category: number
+    thumbnail: number
+    canvasData: number
+    isPublic: number
+    userId: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type FabricTemplateMinAggregateInputType = {
+    id?: true
+    name?: true
+    description?: true
+    category?: true
+    thumbnail?: true
+    isPublic?: true
+    userId?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type FabricTemplateMaxAggregateInputType = {
+    id?: true
+    name?: true
+    description?: true
+    category?: true
+    thumbnail?: true
+    isPublic?: true
+    userId?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type FabricTemplateCountAggregateInputType = {
+    id?: true
+    name?: true
+    description?: true
+    category?: true
+    thumbnail?: true
+    canvasData?: true
+    isPublic?: true
+    userId?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type FabricTemplateAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which FabricTemplate to aggregate.
+     */
+    where?: FabricTemplateWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of FabricTemplates to fetch.
+     */
+    orderBy?: FabricTemplateOrderByWithRelationInput | FabricTemplateOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: FabricTemplateWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` FabricTemplates from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` FabricTemplates.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned FabricTemplates
+    **/
+    _count?: true | FabricTemplateCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: FabricTemplateMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: FabricTemplateMaxAggregateInputType
+  }
+
+  export type GetFabricTemplateAggregateType<T extends FabricTemplateAggregateArgs> = {
+        [P in keyof T & keyof AggregateFabricTemplate]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateFabricTemplate[P]>
+      : GetScalarType<T[P], AggregateFabricTemplate[P]>
+  }
+
+
+
+
+  export type FabricTemplateGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: FabricTemplateWhereInput
+    orderBy?: FabricTemplateOrderByWithAggregationInput | FabricTemplateOrderByWithAggregationInput[]
+    by: FabricTemplateScalarFieldEnum[] | FabricTemplateScalarFieldEnum
+    having?: FabricTemplateScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: FabricTemplateCountAggregateInputType | true
+    _min?: FabricTemplateMinAggregateInputType
+    _max?: FabricTemplateMaxAggregateInputType
+  }
+
+  export type FabricTemplateGroupByOutputType = {
+    id: string
+    name: string
+    description: string | null
+    category: string
+    thumbnail: string | null
+    canvasData: JsonValue
+    isPublic: boolean
+    userId: string | null
+    createdAt: Date
+    updatedAt: Date
+    _count: FabricTemplateCountAggregateOutputType | null
+    _min: FabricTemplateMinAggregateOutputType | null
+    _max: FabricTemplateMaxAggregateOutputType | null
+  }
+
+  type GetFabricTemplateGroupByPayload<T extends FabricTemplateGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<FabricTemplateGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof FabricTemplateGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], FabricTemplateGroupByOutputType[P]>
+            : GetScalarType<T[P], FabricTemplateGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type FabricTemplateSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    description?: boolean
+    category?: boolean
+    thumbnail?: boolean
+    canvasData?: boolean
+    isPublic?: boolean
+    userId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    user?: boolean | FabricTemplate$userArgs<ExtArgs>
+  }, ExtArgs["result"]["fabricTemplate"]>
+
+  export type FabricTemplateSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    description?: boolean
+    category?: boolean
+    thumbnail?: boolean
+    canvasData?: boolean
+    isPublic?: boolean
+    userId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    user?: boolean | FabricTemplate$userArgs<ExtArgs>
+  }, ExtArgs["result"]["fabricTemplate"]>
+
+  export type FabricTemplateSelectScalar = {
+    id?: boolean
+    name?: boolean
+    description?: boolean
+    category?: boolean
+    thumbnail?: boolean
+    canvasData?: boolean
+    isPublic?: boolean
+    userId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type FabricTemplateInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | FabricTemplate$userArgs<ExtArgs>
+  }
+  export type FabricTemplateIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | FabricTemplate$userArgs<ExtArgs>
+  }
+
+  export type $FabricTemplatePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "FabricTemplate"
+    objects: {
+      user: Prisma.$UserPayload<ExtArgs> | null
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      name: string
+      description: string | null
+      category: string
+      thumbnail: string | null
+      canvasData: Prisma.JsonValue
+      isPublic: boolean
+      userId: string | null
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["fabricTemplate"]>
+    composites: {}
+  }
+
+  type FabricTemplateGetPayload<S extends boolean | null | undefined | FabricTemplateDefaultArgs> = $Result.GetResult<Prisma.$FabricTemplatePayload, S>
+
+  type FabricTemplateCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<FabricTemplateFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: FabricTemplateCountAggregateInputType | true
+    }
+
+  export interface FabricTemplateDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['FabricTemplate'], meta: { name: 'FabricTemplate' } }
+    /**
+     * Find zero or one FabricTemplate that matches the filter.
+     * @param {FabricTemplateFindUniqueArgs} args - Arguments to find a FabricTemplate
+     * @example
+     * // Get one FabricTemplate
+     * const fabricTemplate = await prisma.fabricTemplate.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends FabricTemplateFindUniqueArgs>(args: SelectSubset<T, FabricTemplateFindUniqueArgs<ExtArgs>>): Prisma__FabricTemplateClient<$Result.GetResult<Prisma.$FabricTemplatePayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one FabricTemplate that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {FabricTemplateFindUniqueOrThrowArgs} args - Arguments to find a FabricTemplate
+     * @example
+     * // Get one FabricTemplate
+     * const fabricTemplate = await prisma.fabricTemplate.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends FabricTemplateFindUniqueOrThrowArgs>(args: SelectSubset<T, FabricTemplateFindUniqueOrThrowArgs<ExtArgs>>): Prisma__FabricTemplateClient<$Result.GetResult<Prisma.$FabricTemplatePayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first FabricTemplate that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FabricTemplateFindFirstArgs} args - Arguments to find a FabricTemplate
+     * @example
+     * // Get one FabricTemplate
+     * const fabricTemplate = await prisma.fabricTemplate.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends FabricTemplateFindFirstArgs>(args?: SelectSubset<T, FabricTemplateFindFirstArgs<ExtArgs>>): Prisma__FabricTemplateClient<$Result.GetResult<Prisma.$FabricTemplatePayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first FabricTemplate that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FabricTemplateFindFirstOrThrowArgs} args - Arguments to find a FabricTemplate
+     * @example
+     * // Get one FabricTemplate
+     * const fabricTemplate = await prisma.fabricTemplate.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends FabricTemplateFindFirstOrThrowArgs>(args?: SelectSubset<T, FabricTemplateFindFirstOrThrowArgs<ExtArgs>>): Prisma__FabricTemplateClient<$Result.GetResult<Prisma.$FabricTemplatePayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more FabricTemplates that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FabricTemplateFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all FabricTemplates
+     * const fabricTemplates = await prisma.fabricTemplate.findMany()
+     * 
+     * // Get first 10 FabricTemplates
+     * const fabricTemplates = await prisma.fabricTemplate.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const fabricTemplateWithIdOnly = await prisma.fabricTemplate.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends FabricTemplateFindManyArgs>(args?: SelectSubset<T, FabricTemplateFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FabricTemplatePayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a FabricTemplate.
+     * @param {FabricTemplateCreateArgs} args - Arguments to create a FabricTemplate.
+     * @example
+     * // Create one FabricTemplate
+     * const FabricTemplate = await prisma.fabricTemplate.create({
+     *   data: {
+     *     // ... data to create a FabricTemplate
+     *   }
+     * })
+     * 
+     */
+    create<T extends FabricTemplateCreateArgs>(args: SelectSubset<T, FabricTemplateCreateArgs<ExtArgs>>): Prisma__FabricTemplateClient<$Result.GetResult<Prisma.$FabricTemplatePayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many FabricTemplates.
+     * @param {FabricTemplateCreateManyArgs} args - Arguments to create many FabricTemplates.
+     * @example
+     * // Create many FabricTemplates
+     * const fabricTemplate = await prisma.fabricTemplate.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends FabricTemplateCreateManyArgs>(args?: SelectSubset<T, FabricTemplateCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many FabricTemplates and returns the data saved in the database.
+     * @param {FabricTemplateCreateManyAndReturnArgs} args - Arguments to create many FabricTemplates.
+     * @example
+     * // Create many FabricTemplates
+     * const fabricTemplate = await prisma.fabricTemplate.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many FabricTemplates and only return the `id`
+     * const fabricTemplateWithIdOnly = await prisma.fabricTemplate.createManyAndReturn({ 
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends FabricTemplateCreateManyAndReturnArgs>(args?: SelectSubset<T, FabricTemplateCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FabricTemplatePayload<ExtArgs>, T, "createManyAndReturn">>
+
+    /**
+     * Delete a FabricTemplate.
+     * @param {FabricTemplateDeleteArgs} args - Arguments to delete one FabricTemplate.
+     * @example
+     * // Delete one FabricTemplate
+     * const FabricTemplate = await prisma.fabricTemplate.delete({
+     *   where: {
+     *     // ... filter to delete one FabricTemplate
+     *   }
+     * })
+     * 
+     */
+    delete<T extends FabricTemplateDeleteArgs>(args: SelectSubset<T, FabricTemplateDeleteArgs<ExtArgs>>): Prisma__FabricTemplateClient<$Result.GetResult<Prisma.$FabricTemplatePayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one FabricTemplate.
+     * @param {FabricTemplateUpdateArgs} args - Arguments to update one FabricTemplate.
+     * @example
+     * // Update one FabricTemplate
+     * const fabricTemplate = await prisma.fabricTemplate.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends FabricTemplateUpdateArgs>(args: SelectSubset<T, FabricTemplateUpdateArgs<ExtArgs>>): Prisma__FabricTemplateClient<$Result.GetResult<Prisma.$FabricTemplatePayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more FabricTemplates.
+     * @param {FabricTemplateDeleteManyArgs} args - Arguments to filter FabricTemplates to delete.
+     * @example
+     * // Delete a few FabricTemplates
+     * const { count } = await prisma.fabricTemplate.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends FabricTemplateDeleteManyArgs>(args?: SelectSubset<T, FabricTemplateDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more FabricTemplates.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FabricTemplateUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many FabricTemplates
+     * const fabricTemplate = await prisma.fabricTemplate.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends FabricTemplateUpdateManyArgs>(args: SelectSubset<T, FabricTemplateUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one FabricTemplate.
+     * @param {FabricTemplateUpsertArgs} args - Arguments to update or create a FabricTemplate.
+     * @example
+     * // Update or create a FabricTemplate
+     * const fabricTemplate = await prisma.fabricTemplate.upsert({
+     *   create: {
+     *     // ... data to create a FabricTemplate
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the FabricTemplate we want to update
+     *   }
+     * })
+     */
+    upsert<T extends FabricTemplateUpsertArgs>(args: SelectSubset<T, FabricTemplateUpsertArgs<ExtArgs>>): Prisma__FabricTemplateClient<$Result.GetResult<Prisma.$FabricTemplatePayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of FabricTemplates.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FabricTemplateCountArgs} args - Arguments to filter FabricTemplates to count.
+     * @example
+     * // Count the number of FabricTemplates
+     * const count = await prisma.fabricTemplate.count({
+     *   where: {
+     *     // ... the filter for the FabricTemplates we want to count
+     *   }
+     * })
+    **/
+    count<T extends FabricTemplateCountArgs>(
+      args?: Subset<T, FabricTemplateCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], FabricTemplateCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a FabricTemplate.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FabricTemplateAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends FabricTemplateAggregateArgs>(args: Subset<T, FabricTemplateAggregateArgs>): Prisma.PrismaPromise<GetFabricTemplateAggregateType<T>>
+
+    /**
+     * Group by FabricTemplate.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FabricTemplateGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends FabricTemplateGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: FabricTemplateGroupByArgs['orderBy'] }
+        : { orderBy?: FabricTemplateGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, FabricTemplateGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetFabricTemplateGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the FabricTemplate model
+   */
+  readonly fields: FabricTemplateFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for FabricTemplate.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__FabricTemplateClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends FabricTemplate$userArgs<ExtArgs> = {}>(args?: Subset<T, FabricTemplate$userArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the FabricTemplate model
+   */ 
+  interface FabricTemplateFieldRefs {
+    readonly id: FieldRef<"FabricTemplate", 'String'>
+    readonly name: FieldRef<"FabricTemplate", 'String'>
+    readonly description: FieldRef<"FabricTemplate", 'String'>
+    readonly category: FieldRef<"FabricTemplate", 'String'>
+    readonly thumbnail: FieldRef<"FabricTemplate", 'String'>
+    readonly canvasData: FieldRef<"FabricTemplate", 'Json'>
+    readonly isPublic: FieldRef<"FabricTemplate", 'Boolean'>
+    readonly userId: FieldRef<"FabricTemplate", 'String'>
+    readonly createdAt: FieldRef<"FabricTemplate", 'DateTime'>
+    readonly updatedAt: FieldRef<"FabricTemplate", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * FabricTemplate findUnique
+   */
+  export type FabricTemplateFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FabricTemplate
+     */
+    select?: FabricTemplateSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FabricTemplateInclude<ExtArgs> | null
+    /**
+     * Filter, which FabricTemplate to fetch.
+     */
+    where: FabricTemplateWhereUniqueInput
+  }
+
+  /**
+   * FabricTemplate findUniqueOrThrow
+   */
+  export type FabricTemplateFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FabricTemplate
+     */
+    select?: FabricTemplateSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FabricTemplateInclude<ExtArgs> | null
+    /**
+     * Filter, which FabricTemplate to fetch.
+     */
+    where: FabricTemplateWhereUniqueInput
+  }
+
+  /**
+   * FabricTemplate findFirst
+   */
+  export type FabricTemplateFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FabricTemplate
+     */
+    select?: FabricTemplateSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FabricTemplateInclude<ExtArgs> | null
+    /**
+     * Filter, which FabricTemplate to fetch.
+     */
+    where?: FabricTemplateWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of FabricTemplates to fetch.
+     */
+    orderBy?: FabricTemplateOrderByWithRelationInput | FabricTemplateOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for FabricTemplates.
+     */
+    cursor?: FabricTemplateWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` FabricTemplates from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` FabricTemplates.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of FabricTemplates.
+     */
+    distinct?: FabricTemplateScalarFieldEnum | FabricTemplateScalarFieldEnum[]
+  }
+
+  /**
+   * FabricTemplate findFirstOrThrow
+   */
+  export type FabricTemplateFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FabricTemplate
+     */
+    select?: FabricTemplateSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FabricTemplateInclude<ExtArgs> | null
+    /**
+     * Filter, which FabricTemplate to fetch.
+     */
+    where?: FabricTemplateWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of FabricTemplates to fetch.
+     */
+    orderBy?: FabricTemplateOrderByWithRelationInput | FabricTemplateOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for FabricTemplates.
+     */
+    cursor?: FabricTemplateWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` FabricTemplates from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` FabricTemplates.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of FabricTemplates.
+     */
+    distinct?: FabricTemplateScalarFieldEnum | FabricTemplateScalarFieldEnum[]
+  }
+
+  /**
+   * FabricTemplate findMany
+   */
+  export type FabricTemplateFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FabricTemplate
+     */
+    select?: FabricTemplateSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FabricTemplateInclude<ExtArgs> | null
+    /**
+     * Filter, which FabricTemplates to fetch.
+     */
+    where?: FabricTemplateWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of FabricTemplates to fetch.
+     */
+    orderBy?: FabricTemplateOrderByWithRelationInput | FabricTemplateOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing FabricTemplates.
+     */
+    cursor?: FabricTemplateWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` FabricTemplates from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` FabricTemplates.
+     */
+    skip?: number
+    distinct?: FabricTemplateScalarFieldEnum | FabricTemplateScalarFieldEnum[]
+  }
+
+  /**
+   * FabricTemplate create
+   */
+  export type FabricTemplateCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FabricTemplate
+     */
+    select?: FabricTemplateSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FabricTemplateInclude<ExtArgs> | null
+    /**
+     * The data needed to create a FabricTemplate.
+     */
+    data: XOR<FabricTemplateCreateInput, FabricTemplateUncheckedCreateInput>
+  }
+
+  /**
+   * FabricTemplate createMany
+   */
+  export type FabricTemplateCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many FabricTemplates.
+     */
+    data: FabricTemplateCreateManyInput | FabricTemplateCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * FabricTemplate createManyAndReturn
+   */
+  export type FabricTemplateCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FabricTemplate
+     */
+    select?: FabricTemplateSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * The data used to create many FabricTemplates.
+     */
+    data: FabricTemplateCreateManyInput | FabricTemplateCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FabricTemplateIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * FabricTemplate update
+   */
+  export type FabricTemplateUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FabricTemplate
+     */
+    select?: FabricTemplateSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FabricTemplateInclude<ExtArgs> | null
+    /**
+     * The data needed to update a FabricTemplate.
+     */
+    data: XOR<FabricTemplateUpdateInput, FabricTemplateUncheckedUpdateInput>
+    /**
+     * Choose, which FabricTemplate to update.
+     */
+    where: FabricTemplateWhereUniqueInput
+  }
+
+  /**
+   * FabricTemplate updateMany
+   */
+  export type FabricTemplateUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update FabricTemplates.
+     */
+    data: XOR<FabricTemplateUpdateManyMutationInput, FabricTemplateUncheckedUpdateManyInput>
+    /**
+     * Filter which FabricTemplates to update
+     */
+    where?: FabricTemplateWhereInput
+  }
+
+  /**
+   * FabricTemplate upsert
+   */
+  export type FabricTemplateUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FabricTemplate
+     */
+    select?: FabricTemplateSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FabricTemplateInclude<ExtArgs> | null
+    /**
+     * The filter to search for the FabricTemplate to update in case it exists.
+     */
+    where: FabricTemplateWhereUniqueInput
+    /**
+     * In case the FabricTemplate found by the `where` argument doesn't exist, create a new FabricTemplate with this data.
+     */
+    create: XOR<FabricTemplateCreateInput, FabricTemplateUncheckedCreateInput>
+    /**
+     * In case the FabricTemplate was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<FabricTemplateUpdateInput, FabricTemplateUncheckedUpdateInput>
+  }
+
+  /**
+   * FabricTemplate delete
+   */
+  export type FabricTemplateDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FabricTemplate
+     */
+    select?: FabricTemplateSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FabricTemplateInclude<ExtArgs> | null
+    /**
+     * Filter which FabricTemplate to delete.
+     */
+    where: FabricTemplateWhereUniqueInput
+  }
+
+  /**
+   * FabricTemplate deleteMany
+   */
+  export type FabricTemplateDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which FabricTemplates to delete
+     */
+    where?: FabricTemplateWhereInput
+  }
+
+  /**
+   * FabricTemplate.user
+   */
+  export type FabricTemplate$userArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    where?: UserWhereInput
+  }
+
+  /**
+   * FabricTemplate without action
+   */
+  export type FabricTemplateDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FabricTemplate
+     */
+    select?: FabricTemplateSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FabricTemplateInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -6413,6 +11236,87 @@ export namespace Prisma {
   export type LabelElementScalarFieldEnum = (typeof LabelElementScalarFieldEnum)[keyof typeof LabelElementScalarFieldEnum]
 
 
+  export const FabricProjectScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    description: 'description',
+    icon: 'icon',
+    userId: 'userId',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type FabricProjectScalarFieldEnum = (typeof FabricProjectScalarFieldEnum)[keyof typeof FabricProjectScalarFieldEnum]
+
+
+  export const FabricCanvasScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    width: 'width',
+    height: 'height',
+    unit: 'unit',
+    background: 'background',
+    projectId: 'projectId',
+    version: 'version',
+    metadata: 'metadata',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type FabricCanvasScalarFieldEnum = (typeof FabricCanvasScalarFieldEnum)[keyof typeof FabricCanvasScalarFieldEnum]
+
+
+  export const FabricObjectScalarFieldEnum: {
+    id: 'id',
+    type: 'type',
+    canvasId: 'canvasId',
+    left: 'left',
+    top: 'top',
+    width: 'width',
+    height: 'height',
+    scaleX: 'scaleX',
+    scaleY: 'scaleY',
+    angle: 'angle',
+    fill: 'fill',
+    stroke: 'stroke',
+    strokeWidth: 'strokeWidth',
+    opacity: 'opacity',
+    text: 'text',
+    fontFamily: 'fontFamily',
+    fontSize: 'fontSize',
+    fontWeight: 'fontWeight',
+    fontStyle: 'fontStyle',
+    textAlign: 'textAlign',
+    qrValue: 'qrValue',
+    uuidLength: 'uuidLength',
+    qrErrorLevel: 'qrErrorLevel',
+    zIndex: 'zIndex',
+    locked: 'locked',
+    visible: 'visible',
+    metadata: 'metadata',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type FabricObjectScalarFieldEnum = (typeof FabricObjectScalarFieldEnum)[keyof typeof FabricObjectScalarFieldEnum]
+
+
+  export const FabricTemplateScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    description: 'description',
+    category: 'category',
+    thumbnail: 'thumbnail',
+    canvasData: 'canvasData',
+    isPublic: 'isPublic',
+    userId: 'userId',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type FabricTemplateScalarFieldEnum = (typeof FabricTemplateScalarFieldEnum)[keyof typeof FabricTemplateScalarFieldEnum]
+
+
   export const SortOrder: {
     asc: 'asc',
     desc: 'desc'
@@ -6427,6 +11331,13 @@ export namespace Prisma {
   };
 
   export type NullableJsonNullValueInput = (typeof NullableJsonNullValueInput)[keyof typeof NullableJsonNullValueInput]
+
+
+  export const JsonNullValueInput: {
+    JsonNull: typeof JsonNull
+  };
+
+  export type JsonNullValueInput = (typeof JsonNullValueInput)[keyof typeof JsonNullValueInput]
 
 
   export const QueryMode: {
@@ -6520,6 +11431,13 @@ export namespace Prisma {
    */
   export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
     
+
+
+  /**
+   * Reference to a field of type 'Boolean'
+   */
+  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
+    
   /**
    * Deep Input Types
    */
@@ -6537,6 +11455,8 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"User"> | Date | string
     projects?: ProjectListRelationFilter
     resetTokens?: ResetTokenListRelationFilter
+    fabricProjects?: FabricProjectListRelationFilter
+    fabricTemplates?: FabricTemplateListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
@@ -6548,6 +11468,8 @@ export namespace Prisma {
     updatedAt?: SortOrder
     projects?: ProjectOrderByRelationAggregateInput
     resetTokens?: ResetTokenOrderByRelationAggregateInput
+    fabricProjects?: FabricProjectOrderByRelationAggregateInput
+    fabricTemplates?: FabricTemplateOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -6562,6 +11484,8 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"User"> | Date | string
     projects?: ProjectListRelationFilter
     resetTokens?: ResetTokenListRelationFilter
+    fabricProjects?: FabricProjectListRelationFilter
+    fabricTemplates?: FabricTemplateListRelationFilter
   }, "id" | "username" | "email">
 
   export type UserOrderByWithAggregationInput = {
@@ -6883,6 +11807,421 @@ export namespace Prisma {
     fontSize?: FloatNullableWithAggregatesFilter<"LabelElement"> | number | null
   }
 
+  export type FabricProjectWhereInput = {
+    AND?: FabricProjectWhereInput | FabricProjectWhereInput[]
+    OR?: FabricProjectWhereInput[]
+    NOT?: FabricProjectWhereInput | FabricProjectWhereInput[]
+    id?: StringFilter<"FabricProject"> | string
+    name?: StringFilter<"FabricProject"> | string
+    description?: StringNullableFilter<"FabricProject"> | string | null
+    icon?: StringNullableFilter<"FabricProject"> | string | null
+    userId?: StringFilter<"FabricProject"> | string
+    createdAt?: DateTimeFilter<"FabricProject"> | Date | string
+    updatedAt?: DateTimeFilter<"FabricProject"> | Date | string
+    user?: XOR<UserRelationFilter, UserWhereInput>
+    canvases?: FabricCanvasListRelationFilter
+  }
+
+  export type FabricProjectOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrderInput | SortOrder
+    icon?: SortOrderInput | SortOrder
+    userId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    user?: UserOrderByWithRelationInput
+    canvases?: FabricCanvasOrderByRelationAggregateInput
+  }
+
+  export type FabricProjectWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: FabricProjectWhereInput | FabricProjectWhereInput[]
+    OR?: FabricProjectWhereInput[]
+    NOT?: FabricProjectWhereInput | FabricProjectWhereInput[]
+    name?: StringFilter<"FabricProject"> | string
+    description?: StringNullableFilter<"FabricProject"> | string | null
+    icon?: StringNullableFilter<"FabricProject"> | string | null
+    userId?: StringFilter<"FabricProject"> | string
+    createdAt?: DateTimeFilter<"FabricProject"> | Date | string
+    updatedAt?: DateTimeFilter<"FabricProject"> | Date | string
+    user?: XOR<UserRelationFilter, UserWhereInput>
+    canvases?: FabricCanvasListRelationFilter
+  }, "id">
+
+  export type FabricProjectOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrderInput | SortOrder
+    icon?: SortOrderInput | SortOrder
+    userId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: FabricProjectCountOrderByAggregateInput
+    _max?: FabricProjectMaxOrderByAggregateInput
+    _min?: FabricProjectMinOrderByAggregateInput
+  }
+
+  export type FabricProjectScalarWhereWithAggregatesInput = {
+    AND?: FabricProjectScalarWhereWithAggregatesInput | FabricProjectScalarWhereWithAggregatesInput[]
+    OR?: FabricProjectScalarWhereWithAggregatesInput[]
+    NOT?: FabricProjectScalarWhereWithAggregatesInput | FabricProjectScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"FabricProject"> | string
+    name?: StringWithAggregatesFilter<"FabricProject"> | string
+    description?: StringNullableWithAggregatesFilter<"FabricProject"> | string | null
+    icon?: StringNullableWithAggregatesFilter<"FabricProject"> | string | null
+    userId?: StringWithAggregatesFilter<"FabricProject"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"FabricProject"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"FabricProject"> | Date | string
+  }
+
+  export type FabricCanvasWhereInput = {
+    AND?: FabricCanvasWhereInput | FabricCanvasWhereInput[]
+    OR?: FabricCanvasWhereInput[]
+    NOT?: FabricCanvasWhereInput | FabricCanvasWhereInput[]
+    id?: StringFilter<"FabricCanvas"> | string
+    name?: StringFilter<"FabricCanvas"> | string
+    width?: FloatFilter<"FabricCanvas"> | number
+    height?: FloatFilter<"FabricCanvas"> | number
+    unit?: StringFilter<"FabricCanvas"> | string
+    background?: StringNullableFilter<"FabricCanvas"> | string | null
+    projectId?: StringFilter<"FabricCanvas"> | string
+    version?: IntFilter<"FabricCanvas"> | number
+    metadata?: JsonNullableFilter<"FabricCanvas">
+    createdAt?: DateTimeFilter<"FabricCanvas"> | Date | string
+    updatedAt?: DateTimeFilter<"FabricCanvas"> | Date | string
+    project?: XOR<FabricProjectRelationFilter, FabricProjectWhereInput>
+    objects?: FabricObjectListRelationFilter
+  }
+
+  export type FabricCanvasOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    width?: SortOrder
+    height?: SortOrder
+    unit?: SortOrder
+    background?: SortOrderInput | SortOrder
+    projectId?: SortOrder
+    version?: SortOrder
+    metadata?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    project?: FabricProjectOrderByWithRelationInput
+    objects?: FabricObjectOrderByRelationAggregateInput
+  }
+
+  export type FabricCanvasWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: FabricCanvasWhereInput | FabricCanvasWhereInput[]
+    OR?: FabricCanvasWhereInput[]
+    NOT?: FabricCanvasWhereInput | FabricCanvasWhereInput[]
+    name?: StringFilter<"FabricCanvas"> | string
+    width?: FloatFilter<"FabricCanvas"> | number
+    height?: FloatFilter<"FabricCanvas"> | number
+    unit?: StringFilter<"FabricCanvas"> | string
+    background?: StringNullableFilter<"FabricCanvas"> | string | null
+    projectId?: StringFilter<"FabricCanvas"> | string
+    version?: IntFilter<"FabricCanvas"> | number
+    metadata?: JsonNullableFilter<"FabricCanvas">
+    createdAt?: DateTimeFilter<"FabricCanvas"> | Date | string
+    updatedAt?: DateTimeFilter<"FabricCanvas"> | Date | string
+    project?: XOR<FabricProjectRelationFilter, FabricProjectWhereInput>
+    objects?: FabricObjectListRelationFilter
+  }, "id">
+
+  export type FabricCanvasOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    width?: SortOrder
+    height?: SortOrder
+    unit?: SortOrder
+    background?: SortOrderInput | SortOrder
+    projectId?: SortOrder
+    version?: SortOrder
+    metadata?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: FabricCanvasCountOrderByAggregateInput
+    _avg?: FabricCanvasAvgOrderByAggregateInput
+    _max?: FabricCanvasMaxOrderByAggregateInput
+    _min?: FabricCanvasMinOrderByAggregateInput
+    _sum?: FabricCanvasSumOrderByAggregateInput
+  }
+
+  export type FabricCanvasScalarWhereWithAggregatesInput = {
+    AND?: FabricCanvasScalarWhereWithAggregatesInput | FabricCanvasScalarWhereWithAggregatesInput[]
+    OR?: FabricCanvasScalarWhereWithAggregatesInput[]
+    NOT?: FabricCanvasScalarWhereWithAggregatesInput | FabricCanvasScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"FabricCanvas"> | string
+    name?: StringWithAggregatesFilter<"FabricCanvas"> | string
+    width?: FloatWithAggregatesFilter<"FabricCanvas"> | number
+    height?: FloatWithAggregatesFilter<"FabricCanvas"> | number
+    unit?: StringWithAggregatesFilter<"FabricCanvas"> | string
+    background?: StringNullableWithAggregatesFilter<"FabricCanvas"> | string | null
+    projectId?: StringWithAggregatesFilter<"FabricCanvas"> | string
+    version?: IntWithAggregatesFilter<"FabricCanvas"> | number
+    metadata?: JsonNullableWithAggregatesFilter<"FabricCanvas">
+    createdAt?: DateTimeWithAggregatesFilter<"FabricCanvas"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"FabricCanvas"> | Date | string
+  }
+
+  export type FabricObjectWhereInput = {
+    AND?: FabricObjectWhereInput | FabricObjectWhereInput[]
+    OR?: FabricObjectWhereInput[]
+    NOT?: FabricObjectWhereInput | FabricObjectWhereInput[]
+    id?: StringFilter<"FabricObject"> | string
+    type?: StringFilter<"FabricObject"> | string
+    canvasId?: StringFilter<"FabricObject"> | string
+    left?: FloatFilter<"FabricObject"> | number
+    top?: FloatFilter<"FabricObject"> | number
+    width?: FloatFilter<"FabricObject"> | number
+    height?: FloatFilter<"FabricObject"> | number
+    scaleX?: FloatFilter<"FabricObject"> | number
+    scaleY?: FloatFilter<"FabricObject"> | number
+    angle?: FloatFilter<"FabricObject"> | number
+    fill?: StringNullableFilter<"FabricObject"> | string | null
+    stroke?: StringNullableFilter<"FabricObject"> | string | null
+    strokeWidth?: FloatNullableFilter<"FabricObject"> | number | null
+    opacity?: FloatFilter<"FabricObject"> | number
+    text?: StringNullableFilter<"FabricObject"> | string | null
+    fontFamily?: StringNullableFilter<"FabricObject"> | string | null
+    fontSize?: FloatNullableFilter<"FabricObject"> | number | null
+    fontWeight?: StringNullableFilter<"FabricObject"> | string | null
+    fontStyle?: StringNullableFilter<"FabricObject"> | string | null
+    textAlign?: StringNullableFilter<"FabricObject"> | string | null
+    qrValue?: StringNullableFilter<"FabricObject"> | string | null
+    uuidLength?: IntNullableFilter<"FabricObject"> | number | null
+    qrErrorLevel?: StringNullableFilter<"FabricObject"> | string | null
+    zIndex?: IntFilter<"FabricObject"> | number
+    locked?: BoolFilter<"FabricObject"> | boolean
+    visible?: BoolFilter<"FabricObject"> | boolean
+    metadata?: JsonNullableFilter<"FabricObject">
+    createdAt?: DateTimeFilter<"FabricObject"> | Date | string
+    updatedAt?: DateTimeFilter<"FabricObject"> | Date | string
+    canvas?: XOR<FabricCanvasRelationFilter, FabricCanvasWhereInput>
+  }
+
+  export type FabricObjectOrderByWithRelationInput = {
+    id?: SortOrder
+    type?: SortOrder
+    canvasId?: SortOrder
+    left?: SortOrder
+    top?: SortOrder
+    width?: SortOrder
+    height?: SortOrder
+    scaleX?: SortOrder
+    scaleY?: SortOrder
+    angle?: SortOrder
+    fill?: SortOrderInput | SortOrder
+    stroke?: SortOrderInput | SortOrder
+    strokeWidth?: SortOrderInput | SortOrder
+    opacity?: SortOrder
+    text?: SortOrderInput | SortOrder
+    fontFamily?: SortOrderInput | SortOrder
+    fontSize?: SortOrderInput | SortOrder
+    fontWeight?: SortOrderInput | SortOrder
+    fontStyle?: SortOrderInput | SortOrder
+    textAlign?: SortOrderInput | SortOrder
+    qrValue?: SortOrderInput | SortOrder
+    uuidLength?: SortOrderInput | SortOrder
+    qrErrorLevel?: SortOrderInput | SortOrder
+    zIndex?: SortOrder
+    locked?: SortOrder
+    visible?: SortOrder
+    metadata?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    canvas?: FabricCanvasOrderByWithRelationInput
+  }
+
+  export type FabricObjectWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: FabricObjectWhereInput | FabricObjectWhereInput[]
+    OR?: FabricObjectWhereInput[]
+    NOT?: FabricObjectWhereInput | FabricObjectWhereInput[]
+    type?: StringFilter<"FabricObject"> | string
+    canvasId?: StringFilter<"FabricObject"> | string
+    left?: FloatFilter<"FabricObject"> | number
+    top?: FloatFilter<"FabricObject"> | number
+    width?: FloatFilter<"FabricObject"> | number
+    height?: FloatFilter<"FabricObject"> | number
+    scaleX?: FloatFilter<"FabricObject"> | number
+    scaleY?: FloatFilter<"FabricObject"> | number
+    angle?: FloatFilter<"FabricObject"> | number
+    fill?: StringNullableFilter<"FabricObject"> | string | null
+    stroke?: StringNullableFilter<"FabricObject"> | string | null
+    strokeWidth?: FloatNullableFilter<"FabricObject"> | number | null
+    opacity?: FloatFilter<"FabricObject"> | number
+    text?: StringNullableFilter<"FabricObject"> | string | null
+    fontFamily?: StringNullableFilter<"FabricObject"> | string | null
+    fontSize?: FloatNullableFilter<"FabricObject"> | number | null
+    fontWeight?: StringNullableFilter<"FabricObject"> | string | null
+    fontStyle?: StringNullableFilter<"FabricObject"> | string | null
+    textAlign?: StringNullableFilter<"FabricObject"> | string | null
+    qrValue?: StringNullableFilter<"FabricObject"> | string | null
+    uuidLength?: IntNullableFilter<"FabricObject"> | number | null
+    qrErrorLevel?: StringNullableFilter<"FabricObject"> | string | null
+    zIndex?: IntFilter<"FabricObject"> | number
+    locked?: BoolFilter<"FabricObject"> | boolean
+    visible?: BoolFilter<"FabricObject"> | boolean
+    metadata?: JsonNullableFilter<"FabricObject">
+    createdAt?: DateTimeFilter<"FabricObject"> | Date | string
+    updatedAt?: DateTimeFilter<"FabricObject"> | Date | string
+    canvas?: XOR<FabricCanvasRelationFilter, FabricCanvasWhereInput>
+  }, "id">
+
+  export type FabricObjectOrderByWithAggregationInput = {
+    id?: SortOrder
+    type?: SortOrder
+    canvasId?: SortOrder
+    left?: SortOrder
+    top?: SortOrder
+    width?: SortOrder
+    height?: SortOrder
+    scaleX?: SortOrder
+    scaleY?: SortOrder
+    angle?: SortOrder
+    fill?: SortOrderInput | SortOrder
+    stroke?: SortOrderInput | SortOrder
+    strokeWidth?: SortOrderInput | SortOrder
+    opacity?: SortOrder
+    text?: SortOrderInput | SortOrder
+    fontFamily?: SortOrderInput | SortOrder
+    fontSize?: SortOrderInput | SortOrder
+    fontWeight?: SortOrderInput | SortOrder
+    fontStyle?: SortOrderInput | SortOrder
+    textAlign?: SortOrderInput | SortOrder
+    qrValue?: SortOrderInput | SortOrder
+    uuidLength?: SortOrderInput | SortOrder
+    qrErrorLevel?: SortOrderInput | SortOrder
+    zIndex?: SortOrder
+    locked?: SortOrder
+    visible?: SortOrder
+    metadata?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: FabricObjectCountOrderByAggregateInput
+    _avg?: FabricObjectAvgOrderByAggregateInput
+    _max?: FabricObjectMaxOrderByAggregateInput
+    _min?: FabricObjectMinOrderByAggregateInput
+    _sum?: FabricObjectSumOrderByAggregateInput
+  }
+
+  export type FabricObjectScalarWhereWithAggregatesInput = {
+    AND?: FabricObjectScalarWhereWithAggregatesInput | FabricObjectScalarWhereWithAggregatesInput[]
+    OR?: FabricObjectScalarWhereWithAggregatesInput[]
+    NOT?: FabricObjectScalarWhereWithAggregatesInput | FabricObjectScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"FabricObject"> | string
+    type?: StringWithAggregatesFilter<"FabricObject"> | string
+    canvasId?: StringWithAggregatesFilter<"FabricObject"> | string
+    left?: FloatWithAggregatesFilter<"FabricObject"> | number
+    top?: FloatWithAggregatesFilter<"FabricObject"> | number
+    width?: FloatWithAggregatesFilter<"FabricObject"> | number
+    height?: FloatWithAggregatesFilter<"FabricObject"> | number
+    scaleX?: FloatWithAggregatesFilter<"FabricObject"> | number
+    scaleY?: FloatWithAggregatesFilter<"FabricObject"> | number
+    angle?: FloatWithAggregatesFilter<"FabricObject"> | number
+    fill?: StringNullableWithAggregatesFilter<"FabricObject"> | string | null
+    stroke?: StringNullableWithAggregatesFilter<"FabricObject"> | string | null
+    strokeWidth?: FloatNullableWithAggregatesFilter<"FabricObject"> | number | null
+    opacity?: FloatWithAggregatesFilter<"FabricObject"> | number
+    text?: StringNullableWithAggregatesFilter<"FabricObject"> | string | null
+    fontFamily?: StringNullableWithAggregatesFilter<"FabricObject"> | string | null
+    fontSize?: FloatNullableWithAggregatesFilter<"FabricObject"> | number | null
+    fontWeight?: StringNullableWithAggregatesFilter<"FabricObject"> | string | null
+    fontStyle?: StringNullableWithAggregatesFilter<"FabricObject"> | string | null
+    textAlign?: StringNullableWithAggregatesFilter<"FabricObject"> | string | null
+    qrValue?: StringNullableWithAggregatesFilter<"FabricObject"> | string | null
+    uuidLength?: IntNullableWithAggregatesFilter<"FabricObject"> | number | null
+    qrErrorLevel?: StringNullableWithAggregatesFilter<"FabricObject"> | string | null
+    zIndex?: IntWithAggregatesFilter<"FabricObject"> | number
+    locked?: BoolWithAggregatesFilter<"FabricObject"> | boolean
+    visible?: BoolWithAggregatesFilter<"FabricObject"> | boolean
+    metadata?: JsonNullableWithAggregatesFilter<"FabricObject">
+    createdAt?: DateTimeWithAggregatesFilter<"FabricObject"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"FabricObject"> | Date | string
+  }
+
+  export type FabricTemplateWhereInput = {
+    AND?: FabricTemplateWhereInput | FabricTemplateWhereInput[]
+    OR?: FabricTemplateWhereInput[]
+    NOT?: FabricTemplateWhereInput | FabricTemplateWhereInput[]
+    id?: StringFilter<"FabricTemplate"> | string
+    name?: StringFilter<"FabricTemplate"> | string
+    description?: StringNullableFilter<"FabricTemplate"> | string | null
+    category?: StringFilter<"FabricTemplate"> | string
+    thumbnail?: StringNullableFilter<"FabricTemplate"> | string | null
+    canvasData?: JsonFilter<"FabricTemplate">
+    isPublic?: BoolFilter<"FabricTemplate"> | boolean
+    userId?: StringNullableFilter<"FabricTemplate"> | string | null
+    createdAt?: DateTimeFilter<"FabricTemplate"> | Date | string
+    updatedAt?: DateTimeFilter<"FabricTemplate"> | Date | string
+    user?: XOR<UserNullableRelationFilter, UserWhereInput> | null
+  }
+
+  export type FabricTemplateOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrderInput | SortOrder
+    category?: SortOrder
+    thumbnail?: SortOrderInput | SortOrder
+    canvasData?: SortOrder
+    isPublic?: SortOrder
+    userId?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    user?: UserOrderByWithRelationInput
+  }
+
+  export type FabricTemplateWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: FabricTemplateWhereInput | FabricTemplateWhereInput[]
+    OR?: FabricTemplateWhereInput[]
+    NOT?: FabricTemplateWhereInput | FabricTemplateWhereInput[]
+    name?: StringFilter<"FabricTemplate"> | string
+    description?: StringNullableFilter<"FabricTemplate"> | string | null
+    category?: StringFilter<"FabricTemplate"> | string
+    thumbnail?: StringNullableFilter<"FabricTemplate"> | string | null
+    canvasData?: JsonFilter<"FabricTemplate">
+    isPublic?: BoolFilter<"FabricTemplate"> | boolean
+    userId?: StringNullableFilter<"FabricTemplate"> | string | null
+    createdAt?: DateTimeFilter<"FabricTemplate"> | Date | string
+    updatedAt?: DateTimeFilter<"FabricTemplate"> | Date | string
+    user?: XOR<UserNullableRelationFilter, UserWhereInput> | null
+  }, "id">
+
+  export type FabricTemplateOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrderInput | SortOrder
+    category?: SortOrder
+    thumbnail?: SortOrderInput | SortOrder
+    canvasData?: SortOrder
+    isPublic?: SortOrder
+    userId?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: FabricTemplateCountOrderByAggregateInput
+    _max?: FabricTemplateMaxOrderByAggregateInput
+    _min?: FabricTemplateMinOrderByAggregateInput
+  }
+
+  export type FabricTemplateScalarWhereWithAggregatesInput = {
+    AND?: FabricTemplateScalarWhereWithAggregatesInput | FabricTemplateScalarWhereWithAggregatesInput[]
+    OR?: FabricTemplateScalarWhereWithAggregatesInput[]
+    NOT?: FabricTemplateScalarWhereWithAggregatesInput | FabricTemplateScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"FabricTemplate"> | string
+    name?: StringWithAggregatesFilter<"FabricTemplate"> | string
+    description?: StringNullableWithAggregatesFilter<"FabricTemplate"> | string | null
+    category?: StringWithAggregatesFilter<"FabricTemplate"> | string
+    thumbnail?: StringNullableWithAggregatesFilter<"FabricTemplate"> | string | null
+    canvasData?: JsonWithAggregatesFilter<"FabricTemplate">
+    isPublic?: BoolWithAggregatesFilter<"FabricTemplate"> | boolean
+    userId?: StringNullableWithAggregatesFilter<"FabricTemplate"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"FabricTemplate"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"FabricTemplate"> | Date | string
+  }
+
   export type UserCreateInput = {
     id?: string
     username: string
@@ -6892,6 +12231,8 @@ export namespace Prisma {
     updatedAt?: Date | string
     projects?: ProjectCreateNestedManyWithoutUserInput
     resetTokens?: ResetTokenCreateNestedManyWithoutUserInput
+    fabricProjects?: FabricProjectCreateNestedManyWithoutUserInput
+    fabricTemplates?: FabricTemplateCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -6903,6 +12244,8 @@ export namespace Prisma {
     updatedAt?: Date | string
     projects?: ProjectUncheckedCreateNestedManyWithoutUserInput
     resetTokens?: ResetTokenUncheckedCreateNestedManyWithoutUserInput
+    fabricProjects?: FabricProjectUncheckedCreateNestedManyWithoutUserInput
+    fabricTemplates?: FabricTemplateUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserUpdateInput = {
@@ -6914,6 +12257,8 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     projects?: ProjectUpdateManyWithoutUserNestedInput
     resetTokens?: ResetTokenUpdateManyWithoutUserNestedInput
+    fabricProjects?: FabricProjectUpdateManyWithoutUserNestedInput
+    fabricTemplates?: FabricTemplateUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -6925,6 +12270,8 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     projects?: ProjectUncheckedUpdateManyWithoutUserNestedInput
     resetTokens?: ResetTokenUncheckedUpdateManyWithoutUserNestedInput
+    fabricProjects?: FabricProjectUncheckedUpdateManyWithoutUserNestedInput
+    fabricTemplates?: FabricTemplateUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -7273,6 +12620,493 @@ export namespace Prisma {
     fontSize?: NullableFloatFieldUpdateOperationsInput | number | null
   }
 
+  export type FabricProjectCreateInput = {
+    id?: string
+    name: string
+    description?: string | null
+    icon?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    user: UserCreateNestedOneWithoutFabricProjectsInput
+    canvases?: FabricCanvasCreateNestedManyWithoutProjectInput
+  }
+
+  export type FabricProjectUncheckedCreateInput = {
+    id?: string
+    name: string
+    description?: string | null
+    icon?: string | null
+    userId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    canvases?: FabricCanvasUncheckedCreateNestedManyWithoutProjectInput
+  }
+
+  export type FabricProjectUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    icon?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutFabricProjectsNestedInput
+    canvases?: FabricCanvasUpdateManyWithoutProjectNestedInput
+  }
+
+  export type FabricProjectUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    icon?: NullableStringFieldUpdateOperationsInput | string | null
+    userId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    canvases?: FabricCanvasUncheckedUpdateManyWithoutProjectNestedInput
+  }
+
+  export type FabricProjectCreateManyInput = {
+    id?: string
+    name: string
+    description?: string | null
+    icon?: string | null
+    userId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type FabricProjectUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    icon?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type FabricProjectUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    icon?: NullableStringFieldUpdateOperationsInput | string | null
+    userId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type FabricCanvasCreateInput = {
+    id?: string
+    name: string
+    width: number
+    height: number
+    unit?: string
+    background?: string | null
+    version?: number
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    project: FabricProjectCreateNestedOneWithoutCanvasesInput
+    objects?: FabricObjectCreateNestedManyWithoutCanvasInput
+  }
+
+  export type FabricCanvasUncheckedCreateInput = {
+    id?: string
+    name: string
+    width: number
+    height: number
+    unit?: string
+    background?: string | null
+    projectId: string
+    version?: number
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    objects?: FabricObjectUncheckedCreateNestedManyWithoutCanvasInput
+  }
+
+  export type FabricCanvasUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    width?: FloatFieldUpdateOperationsInput | number
+    height?: FloatFieldUpdateOperationsInput | number
+    unit?: StringFieldUpdateOperationsInput | string
+    background?: NullableStringFieldUpdateOperationsInput | string | null
+    version?: IntFieldUpdateOperationsInput | number
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    project?: FabricProjectUpdateOneRequiredWithoutCanvasesNestedInput
+    objects?: FabricObjectUpdateManyWithoutCanvasNestedInput
+  }
+
+  export type FabricCanvasUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    width?: FloatFieldUpdateOperationsInput | number
+    height?: FloatFieldUpdateOperationsInput | number
+    unit?: StringFieldUpdateOperationsInput | string
+    background?: NullableStringFieldUpdateOperationsInput | string | null
+    projectId?: StringFieldUpdateOperationsInput | string
+    version?: IntFieldUpdateOperationsInput | number
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    objects?: FabricObjectUncheckedUpdateManyWithoutCanvasNestedInput
+  }
+
+  export type FabricCanvasCreateManyInput = {
+    id?: string
+    name: string
+    width: number
+    height: number
+    unit?: string
+    background?: string | null
+    projectId: string
+    version?: number
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type FabricCanvasUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    width?: FloatFieldUpdateOperationsInput | number
+    height?: FloatFieldUpdateOperationsInput | number
+    unit?: StringFieldUpdateOperationsInput | string
+    background?: NullableStringFieldUpdateOperationsInput | string | null
+    version?: IntFieldUpdateOperationsInput | number
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type FabricCanvasUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    width?: FloatFieldUpdateOperationsInput | number
+    height?: FloatFieldUpdateOperationsInput | number
+    unit?: StringFieldUpdateOperationsInput | string
+    background?: NullableStringFieldUpdateOperationsInput | string | null
+    projectId?: StringFieldUpdateOperationsInput | string
+    version?: IntFieldUpdateOperationsInput | number
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type FabricObjectCreateInput = {
+    id?: string
+    type: string
+    left: number
+    top: number
+    width: number
+    height: number
+    scaleX?: number
+    scaleY?: number
+    angle?: number
+    fill?: string | null
+    stroke?: string | null
+    strokeWidth?: number | null
+    opacity?: number
+    text?: string | null
+    fontFamily?: string | null
+    fontSize?: number | null
+    fontWeight?: string | null
+    fontStyle?: string | null
+    textAlign?: string | null
+    qrValue?: string | null
+    uuidLength?: number | null
+    qrErrorLevel?: string | null
+    zIndex?: number
+    locked?: boolean
+    visible?: boolean
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    canvas: FabricCanvasCreateNestedOneWithoutObjectsInput
+  }
+
+  export type FabricObjectUncheckedCreateInput = {
+    id?: string
+    type: string
+    canvasId: string
+    left: number
+    top: number
+    width: number
+    height: number
+    scaleX?: number
+    scaleY?: number
+    angle?: number
+    fill?: string | null
+    stroke?: string | null
+    strokeWidth?: number | null
+    opacity?: number
+    text?: string | null
+    fontFamily?: string | null
+    fontSize?: number | null
+    fontWeight?: string | null
+    fontStyle?: string | null
+    textAlign?: string | null
+    qrValue?: string | null
+    uuidLength?: number | null
+    qrErrorLevel?: string | null
+    zIndex?: number
+    locked?: boolean
+    visible?: boolean
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type FabricObjectUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    left?: FloatFieldUpdateOperationsInput | number
+    top?: FloatFieldUpdateOperationsInput | number
+    width?: FloatFieldUpdateOperationsInput | number
+    height?: FloatFieldUpdateOperationsInput | number
+    scaleX?: FloatFieldUpdateOperationsInput | number
+    scaleY?: FloatFieldUpdateOperationsInput | number
+    angle?: FloatFieldUpdateOperationsInput | number
+    fill?: NullableStringFieldUpdateOperationsInput | string | null
+    stroke?: NullableStringFieldUpdateOperationsInput | string | null
+    strokeWidth?: NullableFloatFieldUpdateOperationsInput | number | null
+    opacity?: FloatFieldUpdateOperationsInput | number
+    text?: NullableStringFieldUpdateOperationsInput | string | null
+    fontFamily?: NullableStringFieldUpdateOperationsInput | string | null
+    fontSize?: NullableFloatFieldUpdateOperationsInput | number | null
+    fontWeight?: NullableStringFieldUpdateOperationsInput | string | null
+    fontStyle?: NullableStringFieldUpdateOperationsInput | string | null
+    textAlign?: NullableStringFieldUpdateOperationsInput | string | null
+    qrValue?: NullableStringFieldUpdateOperationsInput | string | null
+    uuidLength?: NullableIntFieldUpdateOperationsInput | number | null
+    qrErrorLevel?: NullableStringFieldUpdateOperationsInput | string | null
+    zIndex?: IntFieldUpdateOperationsInput | number
+    locked?: BoolFieldUpdateOperationsInput | boolean
+    visible?: BoolFieldUpdateOperationsInput | boolean
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    canvas?: FabricCanvasUpdateOneRequiredWithoutObjectsNestedInput
+  }
+
+  export type FabricObjectUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    canvasId?: StringFieldUpdateOperationsInput | string
+    left?: FloatFieldUpdateOperationsInput | number
+    top?: FloatFieldUpdateOperationsInput | number
+    width?: FloatFieldUpdateOperationsInput | number
+    height?: FloatFieldUpdateOperationsInput | number
+    scaleX?: FloatFieldUpdateOperationsInput | number
+    scaleY?: FloatFieldUpdateOperationsInput | number
+    angle?: FloatFieldUpdateOperationsInput | number
+    fill?: NullableStringFieldUpdateOperationsInput | string | null
+    stroke?: NullableStringFieldUpdateOperationsInput | string | null
+    strokeWidth?: NullableFloatFieldUpdateOperationsInput | number | null
+    opacity?: FloatFieldUpdateOperationsInput | number
+    text?: NullableStringFieldUpdateOperationsInput | string | null
+    fontFamily?: NullableStringFieldUpdateOperationsInput | string | null
+    fontSize?: NullableFloatFieldUpdateOperationsInput | number | null
+    fontWeight?: NullableStringFieldUpdateOperationsInput | string | null
+    fontStyle?: NullableStringFieldUpdateOperationsInput | string | null
+    textAlign?: NullableStringFieldUpdateOperationsInput | string | null
+    qrValue?: NullableStringFieldUpdateOperationsInput | string | null
+    uuidLength?: NullableIntFieldUpdateOperationsInput | number | null
+    qrErrorLevel?: NullableStringFieldUpdateOperationsInput | string | null
+    zIndex?: IntFieldUpdateOperationsInput | number
+    locked?: BoolFieldUpdateOperationsInput | boolean
+    visible?: BoolFieldUpdateOperationsInput | boolean
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type FabricObjectCreateManyInput = {
+    id?: string
+    type: string
+    canvasId: string
+    left: number
+    top: number
+    width: number
+    height: number
+    scaleX?: number
+    scaleY?: number
+    angle?: number
+    fill?: string | null
+    stroke?: string | null
+    strokeWidth?: number | null
+    opacity?: number
+    text?: string | null
+    fontFamily?: string | null
+    fontSize?: number | null
+    fontWeight?: string | null
+    fontStyle?: string | null
+    textAlign?: string | null
+    qrValue?: string | null
+    uuidLength?: number | null
+    qrErrorLevel?: string | null
+    zIndex?: number
+    locked?: boolean
+    visible?: boolean
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type FabricObjectUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    left?: FloatFieldUpdateOperationsInput | number
+    top?: FloatFieldUpdateOperationsInput | number
+    width?: FloatFieldUpdateOperationsInput | number
+    height?: FloatFieldUpdateOperationsInput | number
+    scaleX?: FloatFieldUpdateOperationsInput | number
+    scaleY?: FloatFieldUpdateOperationsInput | number
+    angle?: FloatFieldUpdateOperationsInput | number
+    fill?: NullableStringFieldUpdateOperationsInput | string | null
+    stroke?: NullableStringFieldUpdateOperationsInput | string | null
+    strokeWidth?: NullableFloatFieldUpdateOperationsInput | number | null
+    opacity?: FloatFieldUpdateOperationsInput | number
+    text?: NullableStringFieldUpdateOperationsInput | string | null
+    fontFamily?: NullableStringFieldUpdateOperationsInput | string | null
+    fontSize?: NullableFloatFieldUpdateOperationsInput | number | null
+    fontWeight?: NullableStringFieldUpdateOperationsInput | string | null
+    fontStyle?: NullableStringFieldUpdateOperationsInput | string | null
+    textAlign?: NullableStringFieldUpdateOperationsInput | string | null
+    qrValue?: NullableStringFieldUpdateOperationsInput | string | null
+    uuidLength?: NullableIntFieldUpdateOperationsInput | number | null
+    qrErrorLevel?: NullableStringFieldUpdateOperationsInput | string | null
+    zIndex?: IntFieldUpdateOperationsInput | number
+    locked?: BoolFieldUpdateOperationsInput | boolean
+    visible?: BoolFieldUpdateOperationsInput | boolean
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type FabricObjectUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    canvasId?: StringFieldUpdateOperationsInput | string
+    left?: FloatFieldUpdateOperationsInput | number
+    top?: FloatFieldUpdateOperationsInput | number
+    width?: FloatFieldUpdateOperationsInput | number
+    height?: FloatFieldUpdateOperationsInput | number
+    scaleX?: FloatFieldUpdateOperationsInput | number
+    scaleY?: FloatFieldUpdateOperationsInput | number
+    angle?: FloatFieldUpdateOperationsInput | number
+    fill?: NullableStringFieldUpdateOperationsInput | string | null
+    stroke?: NullableStringFieldUpdateOperationsInput | string | null
+    strokeWidth?: NullableFloatFieldUpdateOperationsInput | number | null
+    opacity?: FloatFieldUpdateOperationsInput | number
+    text?: NullableStringFieldUpdateOperationsInput | string | null
+    fontFamily?: NullableStringFieldUpdateOperationsInput | string | null
+    fontSize?: NullableFloatFieldUpdateOperationsInput | number | null
+    fontWeight?: NullableStringFieldUpdateOperationsInput | string | null
+    fontStyle?: NullableStringFieldUpdateOperationsInput | string | null
+    textAlign?: NullableStringFieldUpdateOperationsInput | string | null
+    qrValue?: NullableStringFieldUpdateOperationsInput | string | null
+    uuidLength?: NullableIntFieldUpdateOperationsInput | number | null
+    qrErrorLevel?: NullableStringFieldUpdateOperationsInput | string | null
+    zIndex?: IntFieldUpdateOperationsInput | number
+    locked?: BoolFieldUpdateOperationsInput | boolean
+    visible?: BoolFieldUpdateOperationsInput | boolean
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type FabricTemplateCreateInput = {
+    id?: string
+    name: string
+    description?: string | null
+    category: string
+    thumbnail?: string | null
+    canvasData: JsonNullValueInput | InputJsonValue
+    isPublic?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    user?: UserCreateNestedOneWithoutFabricTemplatesInput
+  }
+
+  export type FabricTemplateUncheckedCreateInput = {
+    id?: string
+    name: string
+    description?: string | null
+    category: string
+    thumbnail?: string | null
+    canvasData: JsonNullValueInput | InputJsonValue
+    isPublic?: boolean
+    userId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type FabricTemplateUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: StringFieldUpdateOperationsInput | string
+    thumbnail?: NullableStringFieldUpdateOperationsInput | string | null
+    canvasData?: JsonNullValueInput | InputJsonValue
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneWithoutFabricTemplatesNestedInput
+  }
+
+  export type FabricTemplateUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: StringFieldUpdateOperationsInput | string
+    thumbnail?: NullableStringFieldUpdateOperationsInput | string | null
+    canvasData?: JsonNullValueInput | InputJsonValue
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    userId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type FabricTemplateCreateManyInput = {
+    id?: string
+    name: string
+    description?: string | null
+    category: string
+    thumbnail?: string | null
+    canvasData: JsonNullValueInput | InputJsonValue
+    isPublic?: boolean
+    userId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type FabricTemplateUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: StringFieldUpdateOperationsInput | string
+    thumbnail?: NullableStringFieldUpdateOperationsInput | string | null
+    canvasData?: JsonNullValueInput | InputJsonValue
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type FabricTemplateUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: StringFieldUpdateOperationsInput | string
+    thumbnail?: NullableStringFieldUpdateOperationsInput | string | null
+    canvasData?: JsonNullValueInput | InputJsonValue
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    userId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type StringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -7311,11 +13145,31 @@ export namespace Prisma {
     none?: ResetTokenWhereInput
   }
 
+  export type FabricProjectListRelationFilter = {
+    every?: FabricProjectWhereInput
+    some?: FabricProjectWhereInput
+    none?: FabricProjectWhereInput
+  }
+
+  export type FabricTemplateListRelationFilter = {
+    every?: FabricTemplateWhereInput
+    some?: FabricTemplateWhereInput
+    none?: FabricTemplateWhereInput
+  }
+
   export type ProjectOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
   export type ResetTokenOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type FabricProjectOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type FabricTemplateOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -7718,6 +13572,393 @@ export namespace Prisma {
     _max?: NestedJsonNullableFilter<$PrismaModel>
   }
 
+  export type FabricCanvasListRelationFilter = {
+    every?: FabricCanvasWhereInput
+    some?: FabricCanvasWhereInput
+    none?: FabricCanvasWhereInput
+  }
+
+  export type FabricCanvasOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type FabricProjectCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    icon?: SortOrder
+    userId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type FabricProjectMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    icon?: SortOrder
+    userId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type FabricProjectMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    icon?: SortOrder
+    userId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type IntFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntFilter<$PrismaModel> | number
+  }
+
+  export type FabricProjectRelationFilter = {
+    is?: FabricProjectWhereInput
+    isNot?: FabricProjectWhereInput
+  }
+
+  export type FabricObjectListRelationFilter = {
+    every?: FabricObjectWhereInput
+    some?: FabricObjectWhereInput
+    none?: FabricObjectWhereInput
+  }
+
+  export type FabricObjectOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type FabricCanvasCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    width?: SortOrder
+    height?: SortOrder
+    unit?: SortOrder
+    background?: SortOrder
+    projectId?: SortOrder
+    version?: SortOrder
+    metadata?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type FabricCanvasAvgOrderByAggregateInput = {
+    width?: SortOrder
+    height?: SortOrder
+    version?: SortOrder
+  }
+
+  export type FabricCanvasMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    width?: SortOrder
+    height?: SortOrder
+    unit?: SortOrder
+    background?: SortOrder
+    projectId?: SortOrder
+    version?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type FabricCanvasMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    width?: SortOrder
+    height?: SortOrder
+    unit?: SortOrder
+    background?: SortOrder
+    projectId?: SortOrder
+    version?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type FabricCanvasSumOrderByAggregateInput = {
+    width?: SortOrder
+    height?: SortOrder
+    version?: SortOrder
+  }
+
+  export type IntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
+  }
+
+  export type IntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type BoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
+  export type FabricCanvasRelationFilter = {
+    is?: FabricCanvasWhereInput
+    isNot?: FabricCanvasWhereInput
+  }
+
+  export type FabricObjectCountOrderByAggregateInput = {
+    id?: SortOrder
+    type?: SortOrder
+    canvasId?: SortOrder
+    left?: SortOrder
+    top?: SortOrder
+    width?: SortOrder
+    height?: SortOrder
+    scaleX?: SortOrder
+    scaleY?: SortOrder
+    angle?: SortOrder
+    fill?: SortOrder
+    stroke?: SortOrder
+    strokeWidth?: SortOrder
+    opacity?: SortOrder
+    text?: SortOrder
+    fontFamily?: SortOrder
+    fontSize?: SortOrder
+    fontWeight?: SortOrder
+    fontStyle?: SortOrder
+    textAlign?: SortOrder
+    qrValue?: SortOrder
+    uuidLength?: SortOrder
+    qrErrorLevel?: SortOrder
+    zIndex?: SortOrder
+    locked?: SortOrder
+    visible?: SortOrder
+    metadata?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type FabricObjectAvgOrderByAggregateInput = {
+    left?: SortOrder
+    top?: SortOrder
+    width?: SortOrder
+    height?: SortOrder
+    scaleX?: SortOrder
+    scaleY?: SortOrder
+    angle?: SortOrder
+    strokeWidth?: SortOrder
+    opacity?: SortOrder
+    fontSize?: SortOrder
+    uuidLength?: SortOrder
+    zIndex?: SortOrder
+  }
+
+  export type FabricObjectMaxOrderByAggregateInput = {
+    id?: SortOrder
+    type?: SortOrder
+    canvasId?: SortOrder
+    left?: SortOrder
+    top?: SortOrder
+    width?: SortOrder
+    height?: SortOrder
+    scaleX?: SortOrder
+    scaleY?: SortOrder
+    angle?: SortOrder
+    fill?: SortOrder
+    stroke?: SortOrder
+    strokeWidth?: SortOrder
+    opacity?: SortOrder
+    text?: SortOrder
+    fontFamily?: SortOrder
+    fontSize?: SortOrder
+    fontWeight?: SortOrder
+    fontStyle?: SortOrder
+    textAlign?: SortOrder
+    qrValue?: SortOrder
+    uuidLength?: SortOrder
+    qrErrorLevel?: SortOrder
+    zIndex?: SortOrder
+    locked?: SortOrder
+    visible?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type FabricObjectMinOrderByAggregateInput = {
+    id?: SortOrder
+    type?: SortOrder
+    canvasId?: SortOrder
+    left?: SortOrder
+    top?: SortOrder
+    width?: SortOrder
+    height?: SortOrder
+    scaleX?: SortOrder
+    scaleY?: SortOrder
+    angle?: SortOrder
+    fill?: SortOrder
+    stroke?: SortOrder
+    strokeWidth?: SortOrder
+    opacity?: SortOrder
+    text?: SortOrder
+    fontFamily?: SortOrder
+    fontSize?: SortOrder
+    fontWeight?: SortOrder
+    fontStyle?: SortOrder
+    textAlign?: SortOrder
+    qrValue?: SortOrder
+    uuidLength?: SortOrder
+    qrErrorLevel?: SortOrder
+    zIndex?: SortOrder
+    locked?: SortOrder
+    visible?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type FabricObjectSumOrderByAggregateInput = {
+    left?: SortOrder
+    top?: SortOrder
+    width?: SortOrder
+    height?: SortOrder
+    scaleX?: SortOrder
+    scaleY?: SortOrder
+    angle?: SortOrder
+    strokeWidth?: SortOrder
+    opacity?: SortOrder
+    fontSize?: SortOrder
+    uuidLength?: SortOrder
+    zIndex?: SortOrder
+  }
+
+  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
+  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
+  }
+  export type JsonFilter<$PrismaModel = never> = 
+    | PatchUndefined<
+        Either<Required<JsonFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonFilterBase<$PrismaModel>>, 'path'>>,
+        Required<JsonFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<JsonFilterBase<$PrismaModel>>, 'path'>>
+
+  export type JsonFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+  }
+
+  export type FabricTemplateCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    category?: SortOrder
+    thumbnail?: SortOrder
+    canvasData?: SortOrder
+    isPublic?: SortOrder
+    userId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type FabricTemplateMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    category?: SortOrder
+    thumbnail?: SortOrder
+    isPublic?: SortOrder
+    userId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type FabricTemplateMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    category?: SortOrder
+    thumbnail?: SortOrder
+    isPublic?: SortOrder
+    userId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+  export type JsonWithAggregatesFilter<$PrismaModel = never> = 
+    | PatchUndefined<
+        Either<Required<JsonWithAggregatesFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonWithAggregatesFilterBase<$PrismaModel>>, 'path'>>,
+        Required<JsonWithAggregatesFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<JsonWithAggregatesFilterBase<$PrismaModel>>, 'path'>>
+
+  export type JsonWithAggregatesFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedJsonFilter<$PrismaModel>
+    _max?: NestedJsonFilter<$PrismaModel>
+  }
+
   export type ProjectCreateNestedManyWithoutUserInput = {
     create?: XOR<ProjectCreateWithoutUserInput, ProjectUncheckedCreateWithoutUserInput> | ProjectCreateWithoutUserInput[] | ProjectUncheckedCreateWithoutUserInput[]
     connectOrCreate?: ProjectCreateOrConnectWithoutUserInput | ProjectCreateOrConnectWithoutUserInput[]
@@ -7732,6 +13973,20 @@ export namespace Prisma {
     connect?: ResetTokenWhereUniqueInput | ResetTokenWhereUniqueInput[]
   }
 
+  export type FabricProjectCreateNestedManyWithoutUserInput = {
+    create?: XOR<FabricProjectCreateWithoutUserInput, FabricProjectUncheckedCreateWithoutUserInput> | FabricProjectCreateWithoutUserInput[] | FabricProjectUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: FabricProjectCreateOrConnectWithoutUserInput | FabricProjectCreateOrConnectWithoutUserInput[]
+    createMany?: FabricProjectCreateManyUserInputEnvelope
+    connect?: FabricProjectWhereUniqueInput | FabricProjectWhereUniqueInput[]
+  }
+
+  export type FabricTemplateCreateNestedManyWithoutUserInput = {
+    create?: XOR<FabricTemplateCreateWithoutUserInput, FabricTemplateUncheckedCreateWithoutUserInput> | FabricTemplateCreateWithoutUserInput[] | FabricTemplateUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: FabricTemplateCreateOrConnectWithoutUserInput | FabricTemplateCreateOrConnectWithoutUserInput[]
+    createMany?: FabricTemplateCreateManyUserInputEnvelope
+    connect?: FabricTemplateWhereUniqueInput | FabricTemplateWhereUniqueInput[]
+  }
+
   export type ProjectUncheckedCreateNestedManyWithoutUserInput = {
     create?: XOR<ProjectCreateWithoutUserInput, ProjectUncheckedCreateWithoutUserInput> | ProjectCreateWithoutUserInput[] | ProjectUncheckedCreateWithoutUserInput[]
     connectOrCreate?: ProjectCreateOrConnectWithoutUserInput | ProjectCreateOrConnectWithoutUserInput[]
@@ -7744,6 +13999,20 @@ export namespace Prisma {
     connectOrCreate?: ResetTokenCreateOrConnectWithoutUserInput | ResetTokenCreateOrConnectWithoutUserInput[]
     createMany?: ResetTokenCreateManyUserInputEnvelope
     connect?: ResetTokenWhereUniqueInput | ResetTokenWhereUniqueInput[]
+  }
+
+  export type FabricProjectUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<FabricProjectCreateWithoutUserInput, FabricProjectUncheckedCreateWithoutUserInput> | FabricProjectCreateWithoutUserInput[] | FabricProjectUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: FabricProjectCreateOrConnectWithoutUserInput | FabricProjectCreateOrConnectWithoutUserInput[]
+    createMany?: FabricProjectCreateManyUserInputEnvelope
+    connect?: FabricProjectWhereUniqueInput | FabricProjectWhereUniqueInput[]
+  }
+
+  export type FabricTemplateUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<FabricTemplateCreateWithoutUserInput, FabricTemplateUncheckedCreateWithoutUserInput> | FabricTemplateCreateWithoutUserInput[] | FabricTemplateUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: FabricTemplateCreateOrConnectWithoutUserInput | FabricTemplateCreateOrConnectWithoutUserInput[]
+    createMany?: FabricTemplateCreateManyUserInputEnvelope
+    connect?: FabricTemplateWhereUniqueInput | FabricTemplateWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -7782,6 +14051,34 @@ export namespace Prisma {
     deleteMany?: ResetTokenScalarWhereInput | ResetTokenScalarWhereInput[]
   }
 
+  export type FabricProjectUpdateManyWithoutUserNestedInput = {
+    create?: XOR<FabricProjectCreateWithoutUserInput, FabricProjectUncheckedCreateWithoutUserInput> | FabricProjectCreateWithoutUserInput[] | FabricProjectUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: FabricProjectCreateOrConnectWithoutUserInput | FabricProjectCreateOrConnectWithoutUserInput[]
+    upsert?: FabricProjectUpsertWithWhereUniqueWithoutUserInput | FabricProjectUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: FabricProjectCreateManyUserInputEnvelope
+    set?: FabricProjectWhereUniqueInput | FabricProjectWhereUniqueInput[]
+    disconnect?: FabricProjectWhereUniqueInput | FabricProjectWhereUniqueInput[]
+    delete?: FabricProjectWhereUniqueInput | FabricProjectWhereUniqueInput[]
+    connect?: FabricProjectWhereUniqueInput | FabricProjectWhereUniqueInput[]
+    update?: FabricProjectUpdateWithWhereUniqueWithoutUserInput | FabricProjectUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: FabricProjectUpdateManyWithWhereWithoutUserInput | FabricProjectUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: FabricProjectScalarWhereInput | FabricProjectScalarWhereInput[]
+  }
+
+  export type FabricTemplateUpdateManyWithoutUserNestedInput = {
+    create?: XOR<FabricTemplateCreateWithoutUserInput, FabricTemplateUncheckedCreateWithoutUserInput> | FabricTemplateCreateWithoutUserInput[] | FabricTemplateUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: FabricTemplateCreateOrConnectWithoutUserInput | FabricTemplateCreateOrConnectWithoutUserInput[]
+    upsert?: FabricTemplateUpsertWithWhereUniqueWithoutUserInput | FabricTemplateUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: FabricTemplateCreateManyUserInputEnvelope
+    set?: FabricTemplateWhereUniqueInput | FabricTemplateWhereUniqueInput[]
+    disconnect?: FabricTemplateWhereUniqueInput | FabricTemplateWhereUniqueInput[]
+    delete?: FabricTemplateWhereUniqueInput | FabricTemplateWhereUniqueInput[]
+    connect?: FabricTemplateWhereUniqueInput | FabricTemplateWhereUniqueInput[]
+    update?: FabricTemplateUpdateWithWhereUniqueWithoutUserInput | FabricTemplateUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: FabricTemplateUpdateManyWithWhereWithoutUserInput | FabricTemplateUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: FabricTemplateScalarWhereInput | FabricTemplateScalarWhereInput[]
+  }
+
   export type ProjectUncheckedUpdateManyWithoutUserNestedInput = {
     create?: XOR<ProjectCreateWithoutUserInput, ProjectUncheckedCreateWithoutUserInput> | ProjectCreateWithoutUserInput[] | ProjectUncheckedCreateWithoutUserInput[]
     connectOrCreate?: ProjectCreateOrConnectWithoutUserInput | ProjectCreateOrConnectWithoutUserInput[]
@@ -7808,6 +14105,34 @@ export namespace Prisma {
     update?: ResetTokenUpdateWithWhereUniqueWithoutUserInput | ResetTokenUpdateWithWhereUniqueWithoutUserInput[]
     updateMany?: ResetTokenUpdateManyWithWhereWithoutUserInput | ResetTokenUpdateManyWithWhereWithoutUserInput[]
     deleteMany?: ResetTokenScalarWhereInput | ResetTokenScalarWhereInput[]
+  }
+
+  export type FabricProjectUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<FabricProjectCreateWithoutUserInput, FabricProjectUncheckedCreateWithoutUserInput> | FabricProjectCreateWithoutUserInput[] | FabricProjectUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: FabricProjectCreateOrConnectWithoutUserInput | FabricProjectCreateOrConnectWithoutUserInput[]
+    upsert?: FabricProjectUpsertWithWhereUniqueWithoutUserInput | FabricProjectUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: FabricProjectCreateManyUserInputEnvelope
+    set?: FabricProjectWhereUniqueInput | FabricProjectWhereUniqueInput[]
+    disconnect?: FabricProjectWhereUniqueInput | FabricProjectWhereUniqueInput[]
+    delete?: FabricProjectWhereUniqueInput | FabricProjectWhereUniqueInput[]
+    connect?: FabricProjectWhereUniqueInput | FabricProjectWhereUniqueInput[]
+    update?: FabricProjectUpdateWithWhereUniqueWithoutUserInput | FabricProjectUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: FabricProjectUpdateManyWithWhereWithoutUserInput | FabricProjectUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: FabricProjectScalarWhereInput | FabricProjectScalarWhereInput[]
+  }
+
+  export type FabricTemplateUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<FabricTemplateCreateWithoutUserInput, FabricTemplateUncheckedCreateWithoutUserInput> | FabricTemplateCreateWithoutUserInput[] | FabricTemplateUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: FabricTemplateCreateOrConnectWithoutUserInput | FabricTemplateCreateOrConnectWithoutUserInput[]
+    upsert?: FabricTemplateUpsertWithWhereUniqueWithoutUserInput | FabricTemplateUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: FabricTemplateCreateManyUserInputEnvelope
+    set?: FabricTemplateWhereUniqueInput | FabricTemplateWhereUniqueInput[]
+    disconnect?: FabricTemplateWhereUniqueInput | FabricTemplateWhereUniqueInput[]
+    delete?: FabricTemplateWhereUniqueInput | FabricTemplateWhereUniqueInput[]
+    connect?: FabricTemplateWhereUniqueInput | FabricTemplateWhereUniqueInput[]
+    update?: FabricTemplateUpdateWithWhereUniqueWithoutUserInput | FabricTemplateUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: FabricTemplateUpdateManyWithWhereWithoutUserInput | FabricTemplateUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: FabricTemplateScalarWhereInput | FabricTemplateScalarWhereInput[]
   }
 
   export type UserCreateNestedOneWithoutResetTokensInput = {
@@ -7972,6 +14297,168 @@ export namespace Prisma {
     upsert?: LabelUpsertWithoutElementsInput
     connect?: LabelWhereUniqueInput
     update?: XOR<XOR<LabelUpdateToOneWithWhereWithoutElementsInput, LabelUpdateWithoutElementsInput>, LabelUncheckedUpdateWithoutElementsInput>
+  }
+
+  export type UserCreateNestedOneWithoutFabricProjectsInput = {
+    create?: XOR<UserCreateWithoutFabricProjectsInput, UserUncheckedCreateWithoutFabricProjectsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutFabricProjectsInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type FabricCanvasCreateNestedManyWithoutProjectInput = {
+    create?: XOR<FabricCanvasCreateWithoutProjectInput, FabricCanvasUncheckedCreateWithoutProjectInput> | FabricCanvasCreateWithoutProjectInput[] | FabricCanvasUncheckedCreateWithoutProjectInput[]
+    connectOrCreate?: FabricCanvasCreateOrConnectWithoutProjectInput | FabricCanvasCreateOrConnectWithoutProjectInput[]
+    createMany?: FabricCanvasCreateManyProjectInputEnvelope
+    connect?: FabricCanvasWhereUniqueInput | FabricCanvasWhereUniqueInput[]
+  }
+
+  export type FabricCanvasUncheckedCreateNestedManyWithoutProjectInput = {
+    create?: XOR<FabricCanvasCreateWithoutProjectInput, FabricCanvasUncheckedCreateWithoutProjectInput> | FabricCanvasCreateWithoutProjectInput[] | FabricCanvasUncheckedCreateWithoutProjectInput[]
+    connectOrCreate?: FabricCanvasCreateOrConnectWithoutProjectInput | FabricCanvasCreateOrConnectWithoutProjectInput[]
+    createMany?: FabricCanvasCreateManyProjectInputEnvelope
+    connect?: FabricCanvasWhereUniqueInput | FabricCanvasWhereUniqueInput[]
+  }
+
+  export type UserUpdateOneRequiredWithoutFabricProjectsNestedInput = {
+    create?: XOR<UserCreateWithoutFabricProjectsInput, UserUncheckedCreateWithoutFabricProjectsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutFabricProjectsInput
+    upsert?: UserUpsertWithoutFabricProjectsInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutFabricProjectsInput, UserUpdateWithoutFabricProjectsInput>, UserUncheckedUpdateWithoutFabricProjectsInput>
+  }
+
+  export type FabricCanvasUpdateManyWithoutProjectNestedInput = {
+    create?: XOR<FabricCanvasCreateWithoutProjectInput, FabricCanvasUncheckedCreateWithoutProjectInput> | FabricCanvasCreateWithoutProjectInput[] | FabricCanvasUncheckedCreateWithoutProjectInput[]
+    connectOrCreate?: FabricCanvasCreateOrConnectWithoutProjectInput | FabricCanvasCreateOrConnectWithoutProjectInput[]
+    upsert?: FabricCanvasUpsertWithWhereUniqueWithoutProjectInput | FabricCanvasUpsertWithWhereUniqueWithoutProjectInput[]
+    createMany?: FabricCanvasCreateManyProjectInputEnvelope
+    set?: FabricCanvasWhereUniqueInput | FabricCanvasWhereUniqueInput[]
+    disconnect?: FabricCanvasWhereUniqueInput | FabricCanvasWhereUniqueInput[]
+    delete?: FabricCanvasWhereUniqueInput | FabricCanvasWhereUniqueInput[]
+    connect?: FabricCanvasWhereUniqueInput | FabricCanvasWhereUniqueInput[]
+    update?: FabricCanvasUpdateWithWhereUniqueWithoutProjectInput | FabricCanvasUpdateWithWhereUniqueWithoutProjectInput[]
+    updateMany?: FabricCanvasUpdateManyWithWhereWithoutProjectInput | FabricCanvasUpdateManyWithWhereWithoutProjectInput[]
+    deleteMany?: FabricCanvasScalarWhereInput | FabricCanvasScalarWhereInput[]
+  }
+
+  export type FabricCanvasUncheckedUpdateManyWithoutProjectNestedInput = {
+    create?: XOR<FabricCanvasCreateWithoutProjectInput, FabricCanvasUncheckedCreateWithoutProjectInput> | FabricCanvasCreateWithoutProjectInput[] | FabricCanvasUncheckedCreateWithoutProjectInput[]
+    connectOrCreate?: FabricCanvasCreateOrConnectWithoutProjectInput | FabricCanvasCreateOrConnectWithoutProjectInput[]
+    upsert?: FabricCanvasUpsertWithWhereUniqueWithoutProjectInput | FabricCanvasUpsertWithWhereUniqueWithoutProjectInput[]
+    createMany?: FabricCanvasCreateManyProjectInputEnvelope
+    set?: FabricCanvasWhereUniqueInput | FabricCanvasWhereUniqueInput[]
+    disconnect?: FabricCanvasWhereUniqueInput | FabricCanvasWhereUniqueInput[]
+    delete?: FabricCanvasWhereUniqueInput | FabricCanvasWhereUniqueInput[]
+    connect?: FabricCanvasWhereUniqueInput | FabricCanvasWhereUniqueInput[]
+    update?: FabricCanvasUpdateWithWhereUniqueWithoutProjectInput | FabricCanvasUpdateWithWhereUniqueWithoutProjectInput[]
+    updateMany?: FabricCanvasUpdateManyWithWhereWithoutProjectInput | FabricCanvasUpdateManyWithWhereWithoutProjectInput[]
+    deleteMany?: FabricCanvasScalarWhereInput | FabricCanvasScalarWhereInput[]
+  }
+
+  export type FabricProjectCreateNestedOneWithoutCanvasesInput = {
+    create?: XOR<FabricProjectCreateWithoutCanvasesInput, FabricProjectUncheckedCreateWithoutCanvasesInput>
+    connectOrCreate?: FabricProjectCreateOrConnectWithoutCanvasesInput
+    connect?: FabricProjectWhereUniqueInput
+  }
+
+  export type FabricObjectCreateNestedManyWithoutCanvasInput = {
+    create?: XOR<FabricObjectCreateWithoutCanvasInput, FabricObjectUncheckedCreateWithoutCanvasInput> | FabricObjectCreateWithoutCanvasInput[] | FabricObjectUncheckedCreateWithoutCanvasInput[]
+    connectOrCreate?: FabricObjectCreateOrConnectWithoutCanvasInput | FabricObjectCreateOrConnectWithoutCanvasInput[]
+    createMany?: FabricObjectCreateManyCanvasInputEnvelope
+    connect?: FabricObjectWhereUniqueInput | FabricObjectWhereUniqueInput[]
+  }
+
+  export type FabricObjectUncheckedCreateNestedManyWithoutCanvasInput = {
+    create?: XOR<FabricObjectCreateWithoutCanvasInput, FabricObjectUncheckedCreateWithoutCanvasInput> | FabricObjectCreateWithoutCanvasInput[] | FabricObjectUncheckedCreateWithoutCanvasInput[]
+    connectOrCreate?: FabricObjectCreateOrConnectWithoutCanvasInput | FabricObjectCreateOrConnectWithoutCanvasInput[]
+    createMany?: FabricObjectCreateManyCanvasInputEnvelope
+    connect?: FabricObjectWhereUniqueInput | FabricObjectWhereUniqueInput[]
+  }
+
+  export type IntFieldUpdateOperationsInput = {
+    set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type FabricProjectUpdateOneRequiredWithoutCanvasesNestedInput = {
+    create?: XOR<FabricProjectCreateWithoutCanvasesInput, FabricProjectUncheckedCreateWithoutCanvasesInput>
+    connectOrCreate?: FabricProjectCreateOrConnectWithoutCanvasesInput
+    upsert?: FabricProjectUpsertWithoutCanvasesInput
+    connect?: FabricProjectWhereUniqueInput
+    update?: XOR<XOR<FabricProjectUpdateToOneWithWhereWithoutCanvasesInput, FabricProjectUpdateWithoutCanvasesInput>, FabricProjectUncheckedUpdateWithoutCanvasesInput>
+  }
+
+  export type FabricObjectUpdateManyWithoutCanvasNestedInput = {
+    create?: XOR<FabricObjectCreateWithoutCanvasInput, FabricObjectUncheckedCreateWithoutCanvasInput> | FabricObjectCreateWithoutCanvasInput[] | FabricObjectUncheckedCreateWithoutCanvasInput[]
+    connectOrCreate?: FabricObjectCreateOrConnectWithoutCanvasInput | FabricObjectCreateOrConnectWithoutCanvasInput[]
+    upsert?: FabricObjectUpsertWithWhereUniqueWithoutCanvasInput | FabricObjectUpsertWithWhereUniqueWithoutCanvasInput[]
+    createMany?: FabricObjectCreateManyCanvasInputEnvelope
+    set?: FabricObjectWhereUniqueInput | FabricObjectWhereUniqueInput[]
+    disconnect?: FabricObjectWhereUniqueInput | FabricObjectWhereUniqueInput[]
+    delete?: FabricObjectWhereUniqueInput | FabricObjectWhereUniqueInput[]
+    connect?: FabricObjectWhereUniqueInput | FabricObjectWhereUniqueInput[]
+    update?: FabricObjectUpdateWithWhereUniqueWithoutCanvasInput | FabricObjectUpdateWithWhereUniqueWithoutCanvasInput[]
+    updateMany?: FabricObjectUpdateManyWithWhereWithoutCanvasInput | FabricObjectUpdateManyWithWhereWithoutCanvasInput[]
+    deleteMany?: FabricObjectScalarWhereInput | FabricObjectScalarWhereInput[]
+  }
+
+  export type FabricObjectUncheckedUpdateManyWithoutCanvasNestedInput = {
+    create?: XOR<FabricObjectCreateWithoutCanvasInput, FabricObjectUncheckedCreateWithoutCanvasInput> | FabricObjectCreateWithoutCanvasInput[] | FabricObjectUncheckedCreateWithoutCanvasInput[]
+    connectOrCreate?: FabricObjectCreateOrConnectWithoutCanvasInput | FabricObjectCreateOrConnectWithoutCanvasInput[]
+    upsert?: FabricObjectUpsertWithWhereUniqueWithoutCanvasInput | FabricObjectUpsertWithWhereUniqueWithoutCanvasInput[]
+    createMany?: FabricObjectCreateManyCanvasInputEnvelope
+    set?: FabricObjectWhereUniqueInput | FabricObjectWhereUniqueInput[]
+    disconnect?: FabricObjectWhereUniqueInput | FabricObjectWhereUniqueInput[]
+    delete?: FabricObjectWhereUniqueInput | FabricObjectWhereUniqueInput[]
+    connect?: FabricObjectWhereUniqueInput | FabricObjectWhereUniqueInput[]
+    update?: FabricObjectUpdateWithWhereUniqueWithoutCanvasInput | FabricObjectUpdateWithWhereUniqueWithoutCanvasInput[]
+    updateMany?: FabricObjectUpdateManyWithWhereWithoutCanvasInput | FabricObjectUpdateManyWithWhereWithoutCanvasInput[]
+    deleteMany?: FabricObjectScalarWhereInput | FabricObjectScalarWhereInput[]
+  }
+
+  export type FabricCanvasCreateNestedOneWithoutObjectsInput = {
+    create?: XOR<FabricCanvasCreateWithoutObjectsInput, FabricCanvasUncheckedCreateWithoutObjectsInput>
+    connectOrCreate?: FabricCanvasCreateOrConnectWithoutObjectsInput
+    connect?: FabricCanvasWhereUniqueInput
+  }
+
+  export type NullableIntFieldUpdateOperationsInput = {
+    set?: number | null
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type BoolFieldUpdateOperationsInput = {
+    set?: boolean
+  }
+
+  export type FabricCanvasUpdateOneRequiredWithoutObjectsNestedInput = {
+    create?: XOR<FabricCanvasCreateWithoutObjectsInput, FabricCanvasUncheckedCreateWithoutObjectsInput>
+    connectOrCreate?: FabricCanvasCreateOrConnectWithoutObjectsInput
+    upsert?: FabricCanvasUpsertWithoutObjectsInput
+    connect?: FabricCanvasWhereUniqueInput
+    update?: XOR<XOR<FabricCanvasUpdateToOneWithWhereWithoutObjectsInput, FabricCanvasUpdateWithoutObjectsInput>, FabricCanvasUncheckedUpdateWithoutObjectsInput>
+  }
+
+  export type UserCreateNestedOneWithoutFabricTemplatesInput = {
+    create?: XOR<UserCreateWithoutFabricTemplatesInput, UserUncheckedCreateWithoutFabricTemplatesInput>
+    connectOrCreate?: UserCreateOrConnectWithoutFabricTemplatesInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type UserUpdateOneWithoutFabricTemplatesNestedInput = {
+    create?: XOR<UserCreateWithoutFabricTemplatesInput, UserUncheckedCreateWithoutFabricTemplatesInput>
+    connectOrCreate?: UserCreateOrConnectWithoutFabricTemplatesInput
+    upsert?: UserUpsertWithoutFabricTemplatesInput
+    disconnect?: UserWhereInput | boolean
+    delete?: UserWhereInput | boolean
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutFabricTemplatesInput, UserUpdateWithoutFabricTemplatesInput>, UserUncheckedUpdateWithoutFabricTemplatesInput>
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -8159,6 +14646,73 @@ export namespace Prisma {
     not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
   }
 
+  export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
+  }
+
+  export type NestedBoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
+  export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
+  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
+  }
+  export type NestedJsonFilter<$PrismaModel = never> = 
+    | PatchUndefined<
+        Either<Required<NestedJsonFilterBase<$PrismaModel>>, Exclude<keyof Required<NestedJsonFilterBase<$PrismaModel>>, 'path'>>,
+        Required<NestedJsonFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<NestedJsonFilterBase<$PrismaModel>>, 'path'>>
+
+  export type NestedJsonFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+  }
+
   export type ProjectCreateWithoutUserInput = {
     id?: string
     name: string
@@ -8210,6 +14764,70 @@ export namespace Prisma {
 
   export type ResetTokenCreateManyUserInputEnvelope = {
     data: ResetTokenCreateManyUserInput | ResetTokenCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type FabricProjectCreateWithoutUserInput = {
+    id?: string
+    name: string
+    description?: string | null
+    icon?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    canvases?: FabricCanvasCreateNestedManyWithoutProjectInput
+  }
+
+  export type FabricProjectUncheckedCreateWithoutUserInput = {
+    id?: string
+    name: string
+    description?: string | null
+    icon?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    canvases?: FabricCanvasUncheckedCreateNestedManyWithoutProjectInput
+  }
+
+  export type FabricProjectCreateOrConnectWithoutUserInput = {
+    where: FabricProjectWhereUniqueInput
+    create: XOR<FabricProjectCreateWithoutUserInput, FabricProjectUncheckedCreateWithoutUserInput>
+  }
+
+  export type FabricProjectCreateManyUserInputEnvelope = {
+    data: FabricProjectCreateManyUserInput | FabricProjectCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type FabricTemplateCreateWithoutUserInput = {
+    id?: string
+    name: string
+    description?: string | null
+    category: string
+    thumbnail?: string | null
+    canvasData: JsonNullValueInput | InputJsonValue
+    isPublic?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type FabricTemplateUncheckedCreateWithoutUserInput = {
+    id?: string
+    name: string
+    description?: string | null
+    category: string
+    thumbnail?: string | null
+    canvasData: JsonNullValueInput | InputJsonValue
+    isPublic?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type FabricTemplateCreateOrConnectWithoutUserInput = {
+    where: FabricTemplateWhereUniqueInput
+    create: XOR<FabricTemplateCreateWithoutUserInput, FabricTemplateUncheckedCreateWithoutUserInput>
+  }
+
+  export type FabricTemplateCreateManyUserInputEnvelope = {
+    data: FabricTemplateCreateManyUserInput | FabricTemplateCreateManyUserInput[]
     skipDuplicates?: boolean
   }
 
@@ -8269,6 +14887,67 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"ResetToken"> | Date | string
   }
 
+  export type FabricProjectUpsertWithWhereUniqueWithoutUserInput = {
+    where: FabricProjectWhereUniqueInput
+    update: XOR<FabricProjectUpdateWithoutUserInput, FabricProjectUncheckedUpdateWithoutUserInput>
+    create: XOR<FabricProjectCreateWithoutUserInput, FabricProjectUncheckedCreateWithoutUserInput>
+  }
+
+  export type FabricProjectUpdateWithWhereUniqueWithoutUserInput = {
+    where: FabricProjectWhereUniqueInput
+    data: XOR<FabricProjectUpdateWithoutUserInput, FabricProjectUncheckedUpdateWithoutUserInput>
+  }
+
+  export type FabricProjectUpdateManyWithWhereWithoutUserInput = {
+    where: FabricProjectScalarWhereInput
+    data: XOR<FabricProjectUpdateManyMutationInput, FabricProjectUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type FabricProjectScalarWhereInput = {
+    AND?: FabricProjectScalarWhereInput | FabricProjectScalarWhereInput[]
+    OR?: FabricProjectScalarWhereInput[]
+    NOT?: FabricProjectScalarWhereInput | FabricProjectScalarWhereInput[]
+    id?: StringFilter<"FabricProject"> | string
+    name?: StringFilter<"FabricProject"> | string
+    description?: StringNullableFilter<"FabricProject"> | string | null
+    icon?: StringNullableFilter<"FabricProject"> | string | null
+    userId?: StringFilter<"FabricProject"> | string
+    createdAt?: DateTimeFilter<"FabricProject"> | Date | string
+    updatedAt?: DateTimeFilter<"FabricProject"> | Date | string
+  }
+
+  export type FabricTemplateUpsertWithWhereUniqueWithoutUserInput = {
+    where: FabricTemplateWhereUniqueInput
+    update: XOR<FabricTemplateUpdateWithoutUserInput, FabricTemplateUncheckedUpdateWithoutUserInput>
+    create: XOR<FabricTemplateCreateWithoutUserInput, FabricTemplateUncheckedCreateWithoutUserInput>
+  }
+
+  export type FabricTemplateUpdateWithWhereUniqueWithoutUserInput = {
+    where: FabricTemplateWhereUniqueInput
+    data: XOR<FabricTemplateUpdateWithoutUserInput, FabricTemplateUncheckedUpdateWithoutUserInput>
+  }
+
+  export type FabricTemplateUpdateManyWithWhereWithoutUserInput = {
+    where: FabricTemplateScalarWhereInput
+    data: XOR<FabricTemplateUpdateManyMutationInput, FabricTemplateUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type FabricTemplateScalarWhereInput = {
+    AND?: FabricTemplateScalarWhereInput | FabricTemplateScalarWhereInput[]
+    OR?: FabricTemplateScalarWhereInput[]
+    NOT?: FabricTemplateScalarWhereInput | FabricTemplateScalarWhereInput[]
+    id?: StringFilter<"FabricTemplate"> | string
+    name?: StringFilter<"FabricTemplate"> | string
+    description?: StringNullableFilter<"FabricTemplate"> | string | null
+    category?: StringFilter<"FabricTemplate"> | string
+    thumbnail?: StringNullableFilter<"FabricTemplate"> | string | null
+    canvasData?: JsonFilter<"FabricTemplate">
+    isPublic?: BoolFilter<"FabricTemplate"> | boolean
+    userId?: StringNullableFilter<"FabricTemplate"> | string | null
+    createdAt?: DateTimeFilter<"FabricTemplate"> | Date | string
+    updatedAt?: DateTimeFilter<"FabricTemplate"> | Date | string
+  }
+
   export type UserCreateWithoutResetTokensInput = {
     id?: string
     username: string
@@ -8277,6 +14956,8 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     projects?: ProjectCreateNestedManyWithoutUserInput
+    fabricProjects?: FabricProjectCreateNestedManyWithoutUserInput
+    fabricTemplates?: FabricTemplateCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutResetTokensInput = {
@@ -8287,6 +14968,8 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     projects?: ProjectUncheckedCreateNestedManyWithoutUserInput
+    fabricProjects?: FabricProjectUncheckedCreateNestedManyWithoutUserInput
+    fabricTemplates?: FabricTemplateUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutResetTokensInput = {
@@ -8313,6 +14996,8 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     projects?: ProjectUpdateManyWithoutUserNestedInput
+    fabricProjects?: FabricProjectUpdateManyWithoutUserNestedInput
+    fabricTemplates?: FabricTemplateUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutResetTokensInput = {
@@ -8323,6 +15008,8 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     projects?: ProjectUncheckedUpdateManyWithoutUserNestedInput
+    fabricProjects?: FabricProjectUncheckedUpdateManyWithoutUserNestedInput
+    fabricTemplates?: FabricTemplateUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type LabelCreateWithoutProjectInput = {
@@ -8363,6 +15050,8 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     resetTokens?: ResetTokenCreateNestedManyWithoutUserInput
+    fabricProjects?: FabricProjectCreateNestedManyWithoutUserInput
+    fabricTemplates?: FabricTemplateCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutProjectsInput = {
@@ -8373,6 +15062,8 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     resetTokens?: ResetTokenUncheckedCreateNestedManyWithoutUserInput
+    fabricProjects?: FabricProjectUncheckedCreateNestedManyWithoutUserInput
+    fabricTemplates?: FabricTemplateUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutProjectsInput = {
@@ -8428,6 +15119,8 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     resetTokens?: ResetTokenUpdateManyWithoutUserNestedInput
+    fabricProjects?: FabricProjectUpdateManyWithoutUserNestedInput
+    fabricTemplates?: FabricTemplateUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutProjectsInput = {
@@ -8438,6 +15131,8 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     resetTokens?: ResetTokenUncheckedUpdateManyWithoutUserNestedInput
+    fabricProjects?: FabricProjectUncheckedUpdateManyWithoutUserNestedInput
+    fabricTemplates?: FabricTemplateUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type ProjectCreateWithoutLabelsInput = {
@@ -8630,6 +15325,456 @@ export namespace Prisma {
     projectId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
+  export type UserCreateWithoutFabricProjectsInput = {
+    id?: string
+    username: string
+    email: string
+    password: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    projects?: ProjectCreateNestedManyWithoutUserInput
+    resetTokens?: ResetTokenCreateNestedManyWithoutUserInput
+    fabricTemplates?: FabricTemplateCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutFabricProjectsInput = {
+    id?: string
+    username: string
+    email: string
+    password: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    projects?: ProjectUncheckedCreateNestedManyWithoutUserInput
+    resetTokens?: ResetTokenUncheckedCreateNestedManyWithoutUserInput
+    fabricTemplates?: FabricTemplateUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutFabricProjectsInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutFabricProjectsInput, UserUncheckedCreateWithoutFabricProjectsInput>
+  }
+
+  export type FabricCanvasCreateWithoutProjectInput = {
+    id?: string
+    name: string
+    width: number
+    height: number
+    unit?: string
+    background?: string | null
+    version?: number
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    objects?: FabricObjectCreateNestedManyWithoutCanvasInput
+  }
+
+  export type FabricCanvasUncheckedCreateWithoutProjectInput = {
+    id?: string
+    name: string
+    width: number
+    height: number
+    unit?: string
+    background?: string | null
+    version?: number
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    objects?: FabricObjectUncheckedCreateNestedManyWithoutCanvasInput
+  }
+
+  export type FabricCanvasCreateOrConnectWithoutProjectInput = {
+    where: FabricCanvasWhereUniqueInput
+    create: XOR<FabricCanvasCreateWithoutProjectInput, FabricCanvasUncheckedCreateWithoutProjectInput>
+  }
+
+  export type FabricCanvasCreateManyProjectInputEnvelope = {
+    data: FabricCanvasCreateManyProjectInput | FabricCanvasCreateManyProjectInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type UserUpsertWithoutFabricProjectsInput = {
+    update: XOR<UserUpdateWithoutFabricProjectsInput, UserUncheckedUpdateWithoutFabricProjectsInput>
+    create: XOR<UserCreateWithoutFabricProjectsInput, UserUncheckedCreateWithoutFabricProjectsInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutFabricProjectsInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutFabricProjectsInput, UserUncheckedUpdateWithoutFabricProjectsInput>
+  }
+
+  export type UserUpdateWithoutFabricProjectsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    username?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    projects?: ProjectUpdateManyWithoutUserNestedInput
+    resetTokens?: ResetTokenUpdateManyWithoutUserNestedInput
+    fabricTemplates?: FabricTemplateUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutFabricProjectsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    username?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    projects?: ProjectUncheckedUpdateManyWithoutUserNestedInput
+    resetTokens?: ResetTokenUncheckedUpdateManyWithoutUserNestedInput
+    fabricTemplates?: FabricTemplateUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type FabricCanvasUpsertWithWhereUniqueWithoutProjectInput = {
+    where: FabricCanvasWhereUniqueInput
+    update: XOR<FabricCanvasUpdateWithoutProjectInput, FabricCanvasUncheckedUpdateWithoutProjectInput>
+    create: XOR<FabricCanvasCreateWithoutProjectInput, FabricCanvasUncheckedCreateWithoutProjectInput>
+  }
+
+  export type FabricCanvasUpdateWithWhereUniqueWithoutProjectInput = {
+    where: FabricCanvasWhereUniqueInput
+    data: XOR<FabricCanvasUpdateWithoutProjectInput, FabricCanvasUncheckedUpdateWithoutProjectInput>
+  }
+
+  export type FabricCanvasUpdateManyWithWhereWithoutProjectInput = {
+    where: FabricCanvasScalarWhereInput
+    data: XOR<FabricCanvasUpdateManyMutationInput, FabricCanvasUncheckedUpdateManyWithoutProjectInput>
+  }
+
+  export type FabricCanvasScalarWhereInput = {
+    AND?: FabricCanvasScalarWhereInput | FabricCanvasScalarWhereInput[]
+    OR?: FabricCanvasScalarWhereInput[]
+    NOT?: FabricCanvasScalarWhereInput | FabricCanvasScalarWhereInput[]
+    id?: StringFilter<"FabricCanvas"> | string
+    name?: StringFilter<"FabricCanvas"> | string
+    width?: FloatFilter<"FabricCanvas"> | number
+    height?: FloatFilter<"FabricCanvas"> | number
+    unit?: StringFilter<"FabricCanvas"> | string
+    background?: StringNullableFilter<"FabricCanvas"> | string | null
+    projectId?: StringFilter<"FabricCanvas"> | string
+    version?: IntFilter<"FabricCanvas"> | number
+    metadata?: JsonNullableFilter<"FabricCanvas">
+    createdAt?: DateTimeFilter<"FabricCanvas"> | Date | string
+    updatedAt?: DateTimeFilter<"FabricCanvas"> | Date | string
+  }
+
+  export type FabricProjectCreateWithoutCanvasesInput = {
+    id?: string
+    name: string
+    description?: string | null
+    icon?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    user: UserCreateNestedOneWithoutFabricProjectsInput
+  }
+
+  export type FabricProjectUncheckedCreateWithoutCanvasesInput = {
+    id?: string
+    name: string
+    description?: string | null
+    icon?: string | null
+    userId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type FabricProjectCreateOrConnectWithoutCanvasesInput = {
+    where: FabricProjectWhereUniqueInput
+    create: XOR<FabricProjectCreateWithoutCanvasesInput, FabricProjectUncheckedCreateWithoutCanvasesInput>
+  }
+
+  export type FabricObjectCreateWithoutCanvasInput = {
+    id?: string
+    type: string
+    left: number
+    top: number
+    width: number
+    height: number
+    scaleX?: number
+    scaleY?: number
+    angle?: number
+    fill?: string | null
+    stroke?: string | null
+    strokeWidth?: number | null
+    opacity?: number
+    text?: string | null
+    fontFamily?: string | null
+    fontSize?: number | null
+    fontWeight?: string | null
+    fontStyle?: string | null
+    textAlign?: string | null
+    qrValue?: string | null
+    uuidLength?: number | null
+    qrErrorLevel?: string | null
+    zIndex?: number
+    locked?: boolean
+    visible?: boolean
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type FabricObjectUncheckedCreateWithoutCanvasInput = {
+    id?: string
+    type: string
+    left: number
+    top: number
+    width: number
+    height: number
+    scaleX?: number
+    scaleY?: number
+    angle?: number
+    fill?: string | null
+    stroke?: string | null
+    strokeWidth?: number | null
+    opacity?: number
+    text?: string | null
+    fontFamily?: string | null
+    fontSize?: number | null
+    fontWeight?: string | null
+    fontStyle?: string | null
+    textAlign?: string | null
+    qrValue?: string | null
+    uuidLength?: number | null
+    qrErrorLevel?: string | null
+    zIndex?: number
+    locked?: boolean
+    visible?: boolean
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type FabricObjectCreateOrConnectWithoutCanvasInput = {
+    where: FabricObjectWhereUniqueInput
+    create: XOR<FabricObjectCreateWithoutCanvasInput, FabricObjectUncheckedCreateWithoutCanvasInput>
+  }
+
+  export type FabricObjectCreateManyCanvasInputEnvelope = {
+    data: FabricObjectCreateManyCanvasInput | FabricObjectCreateManyCanvasInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type FabricProjectUpsertWithoutCanvasesInput = {
+    update: XOR<FabricProjectUpdateWithoutCanvasesInput, FabricProjectUncheckedUpdateWithoutCanvasesInput>
+    create: XOR<FabricProjectCreateWithoutCanvasesInput, FabricProjectUncheckedCreateWithoutCanvasesInput>
+    where?: FabricProjectWhereInput
+  }
+
+  export type FabricProjectUpdateToOneWithWhereWithoutCanvasesInput = {
+    where?: FabricProjectWhereInput
+    data: XOR<FabricProjectUpdateWithoutCanvasesInput, FabricProjectUncheckedUpdateWithoutCanvasesInput>
+  }
+
+  export type FabricProjectUpdateWithoutCanvasesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    icon?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutFabricProjectsNestedInput
+  }
+
+  export type FabricProjectUncheckedUpdateWithoutCanvasesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    icon?: NullableStringFieldUpdateOperationsInput | string | null
+    userId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type FabricObjectUpsertWithWhereUniqueWithoutCanvasInput = {
+    where: FabricObjectWhereUniqueInput
+    update: XOR<FabricObjectUpdateWithoutCanvasInput, FabricObjectUncheckedUpdateWithoutCanvasInput>
+    create: XOR<FabricObjectCreateWithoutCanvasInput, FabricObjectUncheckedCreateWithoutCanvasInput>
+  }
+
+  export type FabricObjectUpdateWithWhereUniqueWithoutCanvasInput = {
+    where: FabricObjectWhereUniqueInput
+    data: XOR<FabricObjectUpdateWithoutCanvasInput, FabricObjectUncheckedUpdateWithoutCanvasInput>
+  }
+
+  export type FabricObjectUpdateManyWithWhereWithoutCanvasInput = {
+    where: FabricObjectScalarWhereInput
+    data: XOR<FabricObjectUpdateManyMutationInput, FabricObjectUncheckedUpdateManyWithoutCanvasInput>
+  }
+
+  export type FabricObjectScalarWhereInput = {
+    AND?: FabricObjectScalarWhereInput | FabricObjectScalarWhereInput[]
+    OR?: FabricObjectScalarWhereInput[]
+    NOT?: FabricObjectScalarWhereInput | FabricObjectScalarWhereInput[]
+    id?: StringFilter<"FabricObject"> | string
+    type?: StringFilter<"FabricObject"> | string
+    canvasId?: StringFilter<"FabricObject"> | string
+    left?: FloatFilter<"FabricObject"> | number
+    top?: FloatFilter<"FabricObject"> | number
+    width?: FloatFilter<"FabricObject"> | number
+    height?: FloatFilter<"FabricObject"> | number
+    scaleX?: FloatFilter<"FabricObject"> | number
+    scaleY?: FloatFilter<"FabricObject"> | number
+    angle?: FloatFilter<"FabricObject"> | number
+    fill?: StringNullableFilter<"FabricObject"> | string | null
+    stroke?: StringNullableFilter<"FabricObject"> | string | null
+    strokeWidth?: FloatNullableFilter<"FabricObject"> | number | null
+    opacity?: FloatFilter<"FabricObject"> | number
+    text?: StringNullableFilter<"FabricObject"> | string | null
+    fontFamily?: StringNullableFilter<"FabricObject"> | string | null
+    fontSize?: FloatNullableFilter<"FabricObject"> | number | null
+    fontWeight?: StringNullableFilter<"FabricObject"> | string | null
+    fontStyle?: StringNullableFilter<"FabricObject"> | string | null
+    textAlign?: StringNullableFilter<"FabricObject"> | string | null
+    qrValue?: StringNullableFilter<"FabricObject"> | string | null
+    uuidLength?: IntNullableFilter<"FabricObject"> | number | null
+    qrErrorLevel?: StringNullableFilter<"FabricObject"> | string | null
+    zIndex?: IntFilter<"FabricObject"> | number
+    locked?: BoolFilter<"FabricObject"> | boolean
+    visible?: BoolFilter<"FabricObject"> | boolean
+    metadata?: JsonNullableFilter<"FabricObject">
+    createdAt?: DateTimeFilter<"FabricObject"> | Date | string
+    updatedAt?: DateTimeFilter<"FabricObject"> | Date | string
+  }
+
+  export type FabricCanvasCreateWithoutObjectsInput = {
+    id?: string
+    name: string
+    width: number
+    height: number
+    unit?: string
+    background?: string | null
+    version?: number
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    project: FabricProjectCreateNestedOneWithoutCanvasesInput
+  }
+
+  export type FabricCanvasUncheckedCreateWithoutObjectsInput = {
+    id?: string
+    name: string
+    width: number
+    height: number
+    unit?: string
+    background?: string | null
+    projectId: string
+    version?: number
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type FabricCanvasCreateOrConnectWithoutObjectsInput = {
+    where: FabricCanvasWhereUniqueInput
+    create: XOR<FabricCanvasCreateWithoutObjectsInput, FabricCanvasUncheckedCreateWithoutObjectsInput>
+  }
+
+  export type FabricCanvasUpsertWithoutObjectsInput = {
+    update: XOR<FabricCanvasUpdateWithoutObjectsInput, FabricCanvasUncheckedUpdateWithoutObjectsInput>
+    create: XOR<FabricCanvasCreateWithoutObjectsInput, FabricCanvasUncheckedCreateWithoutObjectsInput>
+    where?: FabricCanvasWhereInput
+  }
+
+  export type FabricCanvasUpdateToOneWithWhereWithoutObjectsInput = {
+    where?: FabricCanvasWhereInput
+    data: XOR<FabricCanvasUpdateWithoutObjectsInput, FabricCanvasUncheckedUpdateWithoutObjectsInput>
+  }
+
+  export type FabricCanvasUpdateWithoutObjectsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    width?: FloatFieldUpdateOperationsInput | number
+    height?: FloatFieldUpdateOperationsInput | number
+    unit?: StringFieldUpdateOperationsInput | string
+    background?: NullableStringFieldUpdateOperationsInput | string | null
+    version?: IntFieldUpdateOperationsInput | number
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    project?: FabricProjectUpdateOneRequiredWithoutCanvasesNestedInput
+  }
+
+  export type FabricCanvasUncheckedUpdateWithoutObjectsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    width?: FloatFieldUpdateOperationsInput | number
+    height?: FloatFieldUpdateOperationsInput | number
+    unit?: StringFieldUpdateOperationsInput | string
+    background?: NullableStringFieldUpdateOperationsInput | string | null
+    projectId?: StringFieldUpdateOperationsInput | string
+    version?: IntFieldUpdateOperationsInput | number
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type UserCreateWithoutFabricTemplatesInput = {
+    id?: string
+    username: string
+    email: string
+    password: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    projects?: ProjectCreateNestedManyWithoutUserInput
+    resetTokens?: ResetTokenCreateNestedManyWithoutUserInput
+    fabricProjects?: FabricProjectCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutFabricTemplatesInput = {
+    id?: string
+    username: string
+    email: string
+    password: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    projects?: ProjectUncheckedCreateNestedManyWithoutUserInput
+    resetTokens?: ResetTokenUncheckedCreateNestedManyWithoutUserInput
+    fabricProjects?: FabricProjectUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutFabricTemplatesInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutFabricTemplatesInput, UserUncheckedCreateWithoutFabricTemplatesInput>
+  }
+
+  export type UserUpsertWithoutFabricTemplatesInput = {
+    update: XOR<UserUpdateWithoutFabricTemplatesInput, UserUncheckedUpdateWithoutFabricTemplatesInput>
+    create: XOR<UserCreateWithoutFabricTemplatesInput, UserUncheckedCreateWithoutFabricTemplatesInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutFabricTemplatesInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutFabricTemplatesInput, UserUncheckedUpdateWithoutFabricTemplatesInput>
+  }
+
+  export type UserUpdateWithoutFabricTemplatesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    username?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    projects?: ProjectUpdateManyWithoutUserNestedInput
+    resetTokens?: ResetTokenUpdateManyWithoutUserNestedInput
+    fabricProjects?: FabricProjectUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutFabricTemplatesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    username?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    projects?: ProjectUncheckedUpdateManyWithoutUserNestedInput
+    resetTokens?: ResetTokenUncheckedUpdateManyWithoutUserNestedInput
+    fabricProjects?: FabricProjectUncheckedUpdateManyWithoutUserNestedInput
+  }
+
   export type ProjectCreateManyUserInput = {
     id?: string
     name: string
@@ -8644,6 +15789,27 @@ export namespace Prisma {
     token: string
     expiresAt: Date | string
     createdAt?: Date | string
+  }
+
+  export type FabricProjectCreateManyUserInput = {
+    id?: string
+    name: string
+    description?: string | null
+    icon?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type FabricTemplateCreateManyUserInput = {
+    id?: string
+    name: string
+    description?: string | null
+    category: string
+    thumbnail?: string | null
+    canvasData: JsonNullValueInput | InputJsonValue
+    isPublic?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type ProjectUpdateWithoutUserInput = {
@@ -8694,6 +15860,71 @@ export namespace Prisma {
     token?: StringFieldUpdateOperationsInput | string
     expiresAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type FabricProjectUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    icon?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    canvases?: FabricCanvasUpdateManyWithoutProjectNestedInput
+  }
+
+  export type FabricProjectUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    icon?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    canvases?: FabricCanvasUncheckedUpdateManyWithoutProjectNestedInput
+  }
+
+  export type FabricProjectUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    icon?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type FabricTemplateUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: StringFieldUpdateOperationsInput | string
+    thumbnail?: NullableStringFieldUpdateOperationsInput | string | null
+    canvasData?: JsonNullValueInput | InputJsonValue
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type FabricTemplateUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: StringFieldUpdateOperationsInput | string
+    thumbnail?: NullableStringFieldUpdateOperationsInput | string | null
+    canvasData?: JsonNullValueInput | InputJsonValue
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type FabricTemplateUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: StringFieldUpdateOperationsInput | string
+    thumbnail?: NullableStringFieldUpdateOperationsInput | string | null
+    canvasData?: JsonNullValueInput | InputJsonValue
+    isPublic?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type LabelCreateManyProjectInput = {
@@ -8798,6 +16029,184 @@ export namespace Prisma {
     fontSize?: NullableFloatFieldUpdateOperationsInput | number | null
   }
 
+  export type FabricCanvasCreateManyProjectInput = {
+    id?: string
+    name: string
+    width: number
+    height: number
+    unit?: string
+    background?: string | null
+    version?: number
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type FabricCanvasUpdateWithoutProjectInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    width?: FloatFieldUpdateOperationsInput | number
+    height?: FloatFieldUpdateOperationsInput | number
+    unit?: StringFieldUpdateOperationsInput | string
+    background?: NullableStringFieldUpdateOperationsInput | string | null
+    version?: IntFieldUpdateOperationsInput | number
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    objects?: FabricObjectUpdateManyWithoutCanvasNestedInput
+  }
+
+  export type FabricCanvasUncheckedUpdateWithoutProjectInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    width?: FloatFieldUpdateOperationsInput | number
+    height?: FloatFieldUpdateOperationsInput | number
+    unit?: StringFieldUpdateOperationsInput | string
+    background?: NullableStringFieldUpdateOperationsInput | string | null
+    version?: IntFieldUpdateOperationsInput | number
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    objects?: FabricObjectUncheckedUpdateManyWithoutCanvasNestedInput
+  }
+
+  export type FabricCanvasUncheckedUpdateManyWithoutProjectInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    width?: FloatFieldUpdateOperationsInput | number
+    height?: FloatFieldUpdateOperationsInput | number
+    unit?: StringFieldUpdateOperationsInput | string
+    background?: NullableStringFieldUpdateOperationsInput | string | null
+    version?: IntFieldUpdateOperationsInput | number
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type FabricObjectCreateManyCanvasInput = {
+    id?: string
+    type: string
+    left: number
+    top: number
+    width: number
+    height: number
+    scaleX?: number
+    scaleY?: number
+    angle?: number
+    fill?: string | null
+    stroke?: string | null
+    strokeWidth?: number | null
+    opacity?: number
+    text?: string | null
+    fontFamily?: string | null
+    fontSize?: number | null
+    fontWeight?: string | null
+    fontStyle?: string | null
+    textAlign?: string | null
+    qrValue?: string | null
+    uuidLength?: number | null
+    qrErrorLevel?: string | null
+    zIndex?: number
+    locked?: boolean
+    visible?: boolean
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type FabricObjectUpdateWithoutCanvasInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    left?: FloatFieldUpdateOperationsInput | number
+    top?: FloatFieldUpdateOperationsInput | number
+    width?: FloatFieldUpdateOperationsInput | number
+    height?: FloatFieldUpdateOperationsInput | number
+    scaleX?: FloatFieldUpdateOperationsInput | number
+    scaleY?: FloatFieldUpdateOperationsInput | number
+    angle?: FloatFieldUpdateOperationsInput | number
+    fill?: NullableStringFieldUpdateOperationsInput | string | null
+    stroke?: NullableStringFieldUpdateOperationsInput | string | null
+    strokeWidth?: NullableFloatFieldUpdateOperationsInput | number | null
+    opacity?: FloatFieldUpdateOperationsInput | number
+    text?: NullableStringFieldUpdateOperationsInput | string | null
+    fontFamily?: NullableStringFieldUpdateOperationsInput | string | null
+    fontSize?: NullableFloatFieldUpdateOperationsInput | number | null
+    fontWeight?: NullableStringFieldUpdateOperationsInput | string | null
+    fontStyle?: NullableStringFieldUpdateOperationsInput | string | null
+    textAlign?: NullableStringFieldUpdateOperationsInput | string | null
+    qrValue?: NullableStringFieldUpdateOperationsInput | string | null
+    uuidLength?: NullableIntFieldUpdateOperationsInput | number | null
+    qrErrorLevel?: NullableStringFieldUpdateOperationsInput | string | null
+    zIndex?: IntFieldUpdateOperationsInput | number
+    locked?: BoolFieldUpdateOperationsInput | boolean
+    visible?: BoolFieldUpdateOperationsInput | boolean
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type FabricObjectUncheckedUpdateWithoutCanvasInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    left?: FloatFieldUpdateOperationsInput | number
+    top?: FloatFieldUpdateOperationsInput | number
+    width?: FloatFieldUpdateOperationsInput | number
+    height?: FloatFieldUpdateOperationsInput | number
+    scaleX?: FloatFieldUpdateOperationsInput | number
+    scaleY?: FloatFieldUpdateOperationsInput | number
+    angle?: FloatFieldUpdateOperationsInput | number
+    fill?: NullableStringFieldUpdateOperationsInput | string | null
+    stroke?: NullableStringFieldUpdateOperationsInput | string | null
+    strokeWidth?: NullableFloatFieldUpdateOperationsInput | number | null
+    opacity?: FloatFieldUpdateOperationsInput | number
+    text?: NullableStringFieldUpdateOperationsInput | string | null
+    fontFamily?: NullableStringFieldUpdateOperationsInput | string | null
+    fontSize?: NullableFloatFieldUpdateOperationsInput | number | null
+    fontWeight?: NullableStringFieldUpdateOperationsInput | string | null
+    fontStyle?: NullableStringFieldUpdateOperationsInput | string | null
+    textAlign?: NullableStringFieldUpdateOperationsInput | string | null
+    qrValue?: NullableStringFieldUpdateOperationsInput | string | null
+    uuidLength?: NullableIntFieldUpdateOperationsInput | number | null
+    qrErrorLevel?: NullableStringFieldUpdateOperationsInput | string | null
+    zIndex?: IntFieldUpdateOperationsInput | number
+    locked?: BoolFieldUpdateOperationsInput | boolean
+    visible?: BoolFieldUpdateOperationsInput | boolean
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type FabricObjectUncheckedUpdateManyWithoutCanvasInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    left?: FloatFieldUpdateOperationsInput | number
+    top?: FloatFieldUpdateOperationsInput | number
+    width?: FloatFieldUpdateOperationsInput | number
+    height?: FloatFieldUpdateOperationsInput | number
+    scaleX?: FloatFieldUpdateOperationsInput | number
+    scaleY?: FloatFieldUpdateOperationsInput | number
+    angle?: FloatFieldUpdateOperationsInput | number
+    fill?: NullableStringFieldUpdateOperationsInput | string | null
+    stroke?: NullableStringFieldUpdateOperationsInput | string | null
+    strokeWidth?: NullableFloatFieldUpdateOperationsInput | number | null
+    opacity?: FloatFieldUpdateOperationsInput | number
+    text?: NullableStringFieldUpdateOperationsInput | string | null
+    fontFamily?: NullableStringFieldUpdateOperationsInput | string | null
+    fontSize?: NullableFloatFieldUpdateOperationsInput | number | null
+    fontWeight?: NullableStringFieldUpdateOperationsInput | string | null
+    fontStyle?: NullableStringFieldUpdateOperationsInput | string | null
+    textAlign?: NullableStringFieldUpdateOperationsInput | string | null
+    qrValue?: NullableStringFieldUpdateOperationsInput | string | null
+    uuidLength?: NullableIntFieldUpdateOperationsInput | number | null
+    qrErrorLevel?: NullableStringFieldUpdateOperationsInput | string | null
+    zIndex?: IntFieldUpdateOperationsInput | number
+    locked?: BoolFieldUpdateOperationsInput | boolean
+    visible?: BoolFieldUpdateOperationsInput | boolean
+    metadata?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
 
 
   /**
@@ -8815,6 +16224,14 @@ export namespace Prisma {
      * @deprecated Use LabelCountOutputTypeDefaultArgs instead
      */
     export type LabelCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = LabelCountOutputTypeDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use FabricProjectCountOutputTypeDefaultArgs instead
+     */
+    export type FabricProjectCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = FabricProjectCountOutputTypeDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use FabricCanvasCountOutputTypeDefaultArgs instead
+     */
+    export type FabricCanvasCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = FabricCanvasCountOutputTypeDefaultArgs<ExtArgs>
     /**
      * @deprecated Use UserDefaultArgs instead
      */
@@ -8835,6 +16252,22 @@ export namespace Prisma {
      * @deprecated Use LabelElementDefaultArgs instead
      */
     export type LabelElementArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = LabelElementDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use FabricProjectDefaultArgs instead
+     */
+    export type FabricProjectArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = FabricProjectDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use FabricCanvasDefaultArgs instead
+     */
+    export type FabricCanvasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = FabricCanvasDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use FabricObjectDefaultArgs instead
+     */
+    export type FabricObjectArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = FabricObjectDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use FabricTemplateDefaultArgs instead
+     */
+    export type FabricTemplateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = FabricTemplateDefaultArgs<ExtArgs>
 
   /**
    * Batch Payload for updateMany & deleteMany & createMany
