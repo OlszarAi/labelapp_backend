@@ -256,10 +256,56 @@ npx prisma generate
 
 # Zastosowanie migracji
 npx prisma migrate dev
+```
 
-# Uruchomienie serwera
+### Uruchomienie serwera
+
+#### Standardowe uruchomienie
+```bash
+# Uruchomienie serwera deweloperskiego
 npm run dev
 ```
+
+#### Uruchomienie z automatycznym zarządzaniem portami
+Backend automatycznie sprawdza dostępność portu 3001 i zarządza konfliktami portów:
+
+```bash
+# Uruchomienie z automatycznym killowaniem procesów na porcie 3001
+npm run dev:clean
+
+# Alternatywnie - użyj skryptu startowego z lepszymi informacjami
+npm run dev:start
+
+# Wymuś zabicie procesów i uruchom serwer
+npm run dev:force
+```
+
+#### Zarządzanie portami - dostępne komendy
+
+```bash
+# Sprawdź i zabij procesy używające portu 3001
+npm run kill:port
+
+# Uruchom serwer z automatyczną diagnostyką portów
+npm run dev:start
+
+# Wymuś zabicie procesów i uruchom (przydatne w konfliktach)
+npm run dev:force
+```
+
+#### Diagnostyka problemów z portem
+
+Jeśli serwer nie może się uruchomić z powodu zajętego portu 3001:
+
+1. **Automatyczne rozwiązanie**: Użyj `npm run dev:clean` lub `npm run dev:force`
+2. **Manualne sprawdzenie**: Użyj `npm run kill:port` aby zobaczyć i zabić procesy
+3. **Diagnostyka**: Sprawdź szczegóły procesów używających portu
+
+Serwer wyświetli szczegółowe informacje o:
+- Dostępności portu
+- Procesach używających portu
+- Automatycznym killowaniu procesów
+- Statusie uruchomienia
 
 ### Uruchomienie z Docker
 

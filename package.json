@@ -5,8 +5,13 @@
   "main": "dist/index.js",
   "scripts": {
     "dev": "nodemon --exec ts-node src/index.ts",
+    "dev:clean": "npm run kill:port && npm run dev",
+    "dev:start": "node scripts/start-server.js",
+    "dev:force": "node scripts/start-server.js --force-kill",
     "build": "rimraf dist && tsc",
     "start": "node dist/index.js",
+    "start:clean": "npm run kill:port && npm run start",
+    "kill:port": "node scripts/kill-port-3001.js",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev",
     "test": "echo \"Error: no test specified\" && exit 1"

@@ -15,11 +15,14 @@ import fabricProjectRoutes from './routes/fabric/fabricProjectRoutes';
 import fabricCanvasRoutes from './routes/fabric/fabricCanvasRoutes';
 import fabricObjectRoutes from './routes/fabric/fabricObjectRoutes';
 
+// Port management utilities
+import { ensurePortAvailable, getPortProcessInfo } from './utils/portManager';
+
 // Initialize environment variables
 dotenv.config();
 
 const app = express();
-const port = process.env.PORT || 3001;
+const port = parseInt(process.env.PORT || '3001', 10);
 const FRONTEND_URL = process.env.FRONTEND_URL || 'http://localhost:3000';
 
 // Export prisma client for use in other files
@@ -57,10 +60,50 @@ app.use('/api/fabric/projects', fabricProjectRoutes);
 app.use('/api/fabric/canvas', fabricCanvasRoutes);
 app.use('/api/fabric/objects', fabricObjectRoutes);
 
+// Start the server with port management
+async function startServer() {
+  try {
+    console.log(`🚀 Starting LabelApp Backend...`);
+    console.log(`📍 Target port: ${port}`);
+    
+    // Check if port is available and kill existing process if needed
+    await ensurePortAvailable(port);
+    
+    // Start the server
+    const server = app.listen(port, () => {
+      console.log(`✅ Server successfully started on port ${port}`);
+      console.log(`🌐 Frontend URL: ${FRONTEND_URL}`);
+      console.log(`🔗 Health check: http://localhost:${port}/api/health`);
+      console.log(`📊 Environment: ${process.env.NODE_ENV || 'development'}`);
+    });
+
+    // Handle server startup errors
+    server.on('error', async (error: NodeJS.ErrnoException) => {
+      if (error.code === 'EADDRINUSE') {
+        console.log(`❌ Port ${port} is still in use after cleanup attempt`);
+        
+        // Try to get more information about the process
+        const processInfo = await getPortProcessInfo(port);
+        if (processInfo) {
+          console.log(`🔍 Process details: ${processInfo}`);
+        }
+        
+        console.log(`💡 Please try running the server again or use a different port`);
+        process.exit(1);
+      } else {
+        console.error(`❌ Server startup error:`, error);
+        process.exit(1);
+      }
+    });
+
+  } catch (error) {
+    console.error(`❌ Failed to start server:`, error);
+    process.exit(1);
+  }
+}
+
 // Start the server
-app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
-});
+startServer();
 
 // Handle application shutdown
 process.on('SIGINT', async () => {
