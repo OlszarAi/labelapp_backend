@@ -10,11 +10,6 @@ import userRoutes from './routes/userRoutes';
 import projectRoutes from './routes/projectRoutes';
 import labelRoutes from './routes/labelRoutes';
 
-// Fabric routes
-import fabricProjectRoutes from './routes/fabric/fabricProjectRoutes';
-import fabricCanvasRoutes from './routes/fabric/fabricCanvasRoutes';
-import fabricObjectRoutes from './routes/fabric/fabricObjectRoutes';
-
 // Port management utilities
 import { ensurePortAvailable, getPortProcessInfo } from './utils/portManager';
 
@@ -54,11 +49,6 @@ app.get('/api/health', (req, res) => {
 app.use('/api/users', userRoutes);
 app.use('/api/projects', projectRoutes);
 app.use('/api/labels', labelRoutes);
-
-// Fabric Editor API Routes
-app.use('/api/fabric/projects', fabricProjectRoutes);
-app.use('/api/fabric/canvas', fabricCanvasRoutes);
-app.use('/api/fabric/objects', fabricObjectRoutes);
 
 // Start the server with port management
 async function startServer() {

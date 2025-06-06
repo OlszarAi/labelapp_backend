@@ -176,75 +176,6 @@ exports.Prisma.LabelElementScalarFieldEnum = {
   fontSize: 'fontSize'
 };
 
-exports.Prisma.FabricProjectScalarFieldEnum = {
-  id: 'id',
-  name: 'name',
-  description: 'description',
-  icon: 'icon',
-  userId: 'userId',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
-};
-
-exports.Prisma.FabricCanvasScalarFieldEnum = {
-  id: 'id',
-  name: 'name',
-  width: 'width',
-  height: 'height',
-  unit: 'unit',
-  background: 'background',
-  projectId: 'projectId',
-  version: 'version',
-  metadata: 'metadata',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
-};
-
-exports.Prisma.FabricObjectScalarFieldEnum = {
-  id: 'id',
-  type: 'type',
-  canvasId: 'canvasId',
-  left: 'left',
-  top: 'top',
-  width: 'width',
-  height: 'height',
-  scaleX: 'scaleX',
-  scaleY: 'scaleY',
-  angle: 'angle',
-  fill: 'fill',
-  stroke: 'stroke',
-  strokeWidth: 'strokeWidth',
-  opacity: 'opacity',
-  text: 'text',
-  fontFamily: 'fontFamily',
-  fontSize: 'fontSize',
-  fontWeight: 'fontWeight',
-  fontStyle: 'fontStyle',
-  textAlign: 'textAlign',
-  qrValue: 'qrValue',
-  uuidLength: 'uuidLength',
-  qrErrorLevel: 'qrErrorLevel',
-  zIndex: 'zIndex',
-  locked: 'locked',
-  visible: 'visible',
-  metadata: 'metadata',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
-};
-
-exports.Prisma.FabricTemplateScalarFieldEnum = {
-  id: 'id',
-  name: 'name',
-  description: 'description',
-  category: 'category',
-  thumbnail: 'thumbnail',
-  canvasData: 'canvasData',
-  isPublic: 'isPublic',
-  userId: 'userId',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
-};
-
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -252,10 +183,6 @@ exports.Prisma.SortOrder = {
 
 exports.Prisma.NullableJsonNullValueInput = {
   DbNull: Prisma.DbNull,
-  JsonNull: Prisma.JsonNull
-};
-
-exports.Prisma.JsonNullValueInput = {
   JsonNull: Prisma.JsonNull
 };
 
@@ -281,11 +208,7 @@ exports.Prisma.ModelName = {
   ResetToken: 'ResetToken',
   Project: 'Project',
   Label: 'Label',
-  LabelElement: 'LabelElement',
-  FabricProject: 'FabricProject',
-  FabricCanvas: 'FabricCanvas',
-  FabricObject: 'FabricObject',
-  FabricTemplate: 'FabricTemplate'
+  LabelElement: 'LabelElement'
 };
 
 /**
